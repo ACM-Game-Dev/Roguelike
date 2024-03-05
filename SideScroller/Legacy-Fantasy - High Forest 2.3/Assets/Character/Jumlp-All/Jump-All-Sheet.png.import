@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ce5dm26aj2ox6"
-path="res://.godot/imported/Idle-Sheet.png-26535b1576d6da4facc1bb06854c3e5c.ctex"
+uid="uid://bnk73v1dd6gfu"
+path="res://.godot/imported/Jump-All-Sheet.png-4b858f8530620689b0ca37ebf4649df0.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Legacy-Fantasy - High Forest 2.3/Character/Idle/Idle-Sheet.png"
-dest_files=["res://.godot/imported/Idle-Sheet.png-26535b1576d6da4facc1bb06854c3e5c.ctex"]
+source_file="res://Legacy-Fantasy - High Forest 2.3/Assets/Character/Jumlp-All/Jump-All-Sheet.png"
+dest_files=["res://.godot/imported/Jump-All-Sheet.png-4b858f8530620689b0ca37ebf4649df0.ctex"]
 
 [params]
 

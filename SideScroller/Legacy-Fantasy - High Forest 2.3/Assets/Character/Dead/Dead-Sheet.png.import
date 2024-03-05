@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ct5v6d44hwaym"
-path="res://.godot/imported/Attack-01-Sheet.png-cc417892ddef2342a457879a92a3dc7b.ctex"
+uid="uid://cnt08aykrnyno"
+path="res://.godot/imported/Dead-Sheet.png-0a093539c25121eb2bcb48d70c8d5ff6.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Legacy-Fantasy - High Forest 2.3/Character/Attack-01/Attack-01-Sheet.png"
-dest_files=["res://.godot/imported/Attack-01-Sheet.png-cc417892ddef2342a457879a92a3dc7b.ctex"]
+source_file="res://Legacy-Fantasy - High Forest 2.3/Assets/Character/Dead/Dead-Sheet.png"
+dest_files=["res://.godot/imported/Dead-Sheet.png-0a093539c25121eb2bcb48d70c8d5ff6.ctex"]
 
 [params]
 

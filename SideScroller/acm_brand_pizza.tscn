@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://csx355hcrv7nq"]
+
+[ext_resource type="Script" path="res://ACM Brand Pizza.gd" id="1_qogmm"]
+
+[node name="ACM Brand Pizza" type="Node2D"]
+script = ExtResource("1_qogmm")

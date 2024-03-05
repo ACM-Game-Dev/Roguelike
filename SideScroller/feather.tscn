@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://cavr0lwb55xo5"]
+
+[ext_resource type="Script" path="res://feather.gd" id="1_jpm64"]
+
+[node name="feather" type="Node2D"]
+script = ExtResource("1_jpm64")
