@@ -2,6 +2,11 @@ extends CharacterBody2D
 
 class_name Player
 
+# Get the gravity from the project settings to be synced with RigidBody nodes.
+var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
+
+@onready var anim_tree: AnimationTree = %AnimationTree
+
 var stats = {
 	max_health = 100,
 	speed = 300.0,
@@ -14,6 +19,28 @@ var item_counts = {
 	"feather": 0
 }
 
+func _ready():
+	anim_tree.active = true
+
+func update_animation_parameters():
+	if velocity.x < -0.1:
+		%PlayerSprite.flip_h = true
+	elif velocity.x > 0.1:
+		%PlayerSprite.flip_h = false
+	
+	if velocity == Vector2.ZERO:
+		anim_tree["parameters/conditions/idle"] = true
+		anim_tree["parameters/conditions/is_moving"] = false
+	else:
+		anim_tree["parameters/conditions/is_moving"] = true
+		anim_tree["parameters/conditions/idle"] = false
+	
+	if(Input.is_action_just_pressed("attack")):
+		anim_tree["parameters/conditions/swing"] = true
+	else:
+		anim_tree["parameters/conditions/swing"] = false
+	
+	
 func equip_item(item: Item):
 	item_counts[item.name] += 1
 	item.equip(self)
@@ -23,9 +50,6 @@ func equip_item(item: Item):
 func get_stats():
 	return stats
 
-# Get the gravity from the project settings to be synced with RigidBody nodes.
-var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
-
 
 func _physics_process(delta):
 	# Add the gravity.
@@ -33,12 +57,13 @@ func _physics_process(delta):
 		velocity.y += gravity * delta
 
 	# Handle jump.
-	if Input.is_action_just_pressed("ui_accept") and is_on_floor():
+	if Input.is_action_just_pressed("jump") and is_on_floor():
 		velocity.y = stats.jump_power
+	
+	update_animation_parameters()
 
-	# Get the input direction and handle the movement/deceleration.
-	# As good practice, you should replace UI actions with custom gameplay actions.
-	var direction = Input.get_axis("ui_left", "ui_right")
+
+	var direction = Input.get_axis("move_left", "move_right")
 	if direction:
 		velocity.x = direction * stats.speed
 	else:
