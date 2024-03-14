@@ -9,7 +9,7 @@ var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 
 var stats = {
 	max_health = 100,
-	speed = 300.0,
+	speed = 150.0,
 	jump_power = -400.0,
 	jumps = 1
 }

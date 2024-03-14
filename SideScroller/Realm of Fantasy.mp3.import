@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://d042g80mnq743"
+path="res://.godot/imported/Realm of Fantasy.mp3-41c6eb2c9ebfa0b0be1aad95380feb56.mp3str"
+
+[deps]
+
+source_file="res://Realm of Fantasy.mp3"
+dest_files=["res://.godot/imported/Realm of Fantasy.mp3-41c6eb2c9ebfa0b0be1aad95380feb56.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

@@ -216,6 +216,7 @@ autoplay = "Idle"
 
 [node name="AnimationTree" type="AnimationTree" parent="."]
 unique_name_in_owner = true
+root_node = NodePath("%AnimationTree/..")
 libraries = {
 "": SubResource("AnimationLibrary_74yk5")
 }
