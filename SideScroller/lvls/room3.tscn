@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://cdc30hgqvkai5"]
+[gd_scene load_steps=18 format=3 uid="uid://dfofh83uh6e3m"]
 
 [ext_resource type="Texture2D" uid="uid://c5uv2csl40mdi" path="res://Legacy-Fantasy - High Forest 2.3/Assets/Tiles.png" id="1_tx71r"]
 [ext_resource type="Texture2D" uid="uid://c4yfntwwh8om3" path="res://Legacy-Fantasy - High Forest 2.3/Assets/Props-Rocks.png" id="2_ycbvb"]
@@ -3442,7 +3442,7 @@ sources/2 = SubResource("TileSetAtlasSource_43rq7")
 sources/3 = SubResource("TileSetAtlasSource_qmmrs")
 sources/4 = SubResource("TileSetAtlasSource_3nohw")
 
-[node name="Node2D" type="Node2D"]
+[node name="Node2D2" type="Node2D"]
 
 [node name="BackgroundTileMap" type="TileMap" parent="."]
 tile_set = SubResource("TileSet_qjnv8")
@@ -3475,10 +3475,10 @@ scale = Vector2(281.061, 18.4569)
 polygon = PackedVector2Array(-3.55794, 4.1177, -3.55794, 4.71369, -3.21638, 4.71369, -3.21638, 4.1177)
 
 [node name="PlatformCollider2" type="StaticBody2D" parent="."]
-position = Vector2(672, -35)
+position = Vector2(329, -126)
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="PlatformCollider2"]
-position = Vector2(611, -173)
+position = Vector2(954, -81)
 scale = Vector2(281.061, 18.4569)
 polygon = PackedVector2Array(-3.65401, 4.1177, -3.65401, 4.76787, -3.14166, 4.76787, -3.14166, 4.1177)
 

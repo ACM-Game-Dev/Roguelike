@@ -1750,10 +1750,10 @@ scale = Vector2(208.46, 21.9044)
 polygon = PackedVector2Array(-4.79708, 5.93489, -4.79708, 6.57403, -4.56682, 6.57403, -4.56682, 5.93489)
 
 [node name="PlatformCollider2" type="StaticBody2D" parent="."]
-position = Vector2(161, -32)
+position = Vector2(106, -93)
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="PlatformCollider2"]
-position = Vector2(919, -198)
+position = Vector2(974, -136)
 scale = Vector2(208.46, 21.9044)
 polygon = PackedVector2Array(-4.79708, 5.93489, -4.79708, 6.57403, -4.56682, 6.57403, -4.56682, 5.93489)
 
@@ -1775,28 +1775,28 @@ scale = Vector2(208.46, 21.9044)
 polygon = PackedVector2Array(-0.153507, 1.68916, -0.153507, 1.96308, 0.844287, 1.96308, 0.844287, 1.68916)
 
 [node name="RoofCollider2" type="StaticBody2D" parent="BuildingLeftColliders"]
-position = Vector2(-419, -111)
+position = Vector2(-478, -109)
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="BuildingLeftColliders/RoofCollider2"]
-position = Vector2(-77, -38)
+position = Vector2(-18, -40)
 scale = Vector2(208.46, 21.9044)
 polygon = PackedVector2Array(-0.153507, 1.68916, -0.153507, 1.96308, 0.307013, 1.96308, 0.307013, 1.68916)
 
 [node name="RoofCollider3" type="StaticBody2D" parent="BuildingLeftColliders"]
-position = Vector2(-164, -112)
+position = Vector2(-220, -108)
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="BuildingLeftColliders/RoofCollider3"]
-position = Vector2(-77, -38)
+position = Vector2(-21, -42)
 scale = Vector2(208.46, 21.9044)
-polygon = PackedVector2Array(-0.0719563, 1.73481, -0.0719563, 2.05439, 0.31181, 2.05439, 0.31181, 1.73481)
+polygon = PackedVector2Array(-0.0719563, 1.73481, -0.0719563, 2.05439, 0.166111, 2.05439, 0.31181, 2.05439, 0.31181, 1.73481)
 
 [node name="BuildingRightColliders" type="Node2D" parent="."]
 
 [node name="RoofCollider2" type="StaticBody2D" parent="BuildingRightColliders"]
-position = Vector2(457, -163)
+position = Vector2(546, -159)
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="BuildingRightColliders/RoofCollider2"]
-position = Vector2(-77, -35)
+position = Vector2(-166, -39)
 scale = Vector2(208.46, 21.9044)
 polygon = PackedVector2Array(0.326202, 1.73481, 0.326202, 2.00873, 1.32399, 2.00873, 1.32399, 1.73481)
 
