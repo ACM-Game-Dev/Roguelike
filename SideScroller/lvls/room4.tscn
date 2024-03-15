@@ -1797,4 +1797,10 @@ position = Vector2(-54, 165)
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="FloorCollider"]
 position = Vector2(1017, -248)
 scale = Vector2(281.061, 18.4569)
-polygon = PackedVector2Array(-6.45056, 4.33442, -6.45056, 22.7015, -0.466091, 22.7015, -0.462533, 4.33442)
+polygon = PackedVector2Array(-6.44344, 4.33442, -6.44344, 22.7015, -0.466091, 22.7015, -0.462533, 4.33442)
+
+[node name="EntryPoint" type="Node2D" parent="."]
+position = Vector2(-848, -4)
+
+[node name="ExitPoint" type="Node2D" parent="."]
+position = Vector2(832, -3)

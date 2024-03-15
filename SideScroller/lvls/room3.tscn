@@ -3464,7 +3464,7 @@ layer_0/tile_data = PackedInt32Array(-9, 196608, 0, -8, 262144, 0, -10, 131072, 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="FloorCollider"]
 position = Vector2(465.272, -81.4033)
 scale = Vector2(135.131, 18.4569)
-polygon = PackedVector2Array(-9.59271, 4.08537, -9.59271, 13.9462, 2.60287, 13.9462, 2.59547, 4.24791, -2.45149, 4.13955, -2.50329, 4.35627, -4.26454, 4.30209, -4.33855, 4.13955)
+polygon = PackedVector2Array(-9.60011, 4.24791, -9.60011, 13.9462, 2.59547, 13.9462, 2.59547, 4.24791, -2.45149, 4.13955, -2.50329, 4.35627, -4.26454, 4.30209, -4.33855, 4.13955)
 
 [node name="PlatformCollider3" type="StaticBody2D" parent="."]
 position = Vector2(575, -77)
@@ -3489,3 +3489,9 @@ position = Vector2(-348, -94)
 position = Vector2(959, -82)
 scale = Vector2(281.061, 18.4569)
 polygon = PackedVector2Array(-3.6541, 4.17188, -3.6541, 4.76786, -3.19869, 4.76786, -3.19869, 4.17188)
+
+[node name="EntryPoint" type="Node2D" parent="."]
+position = Vector2(-831, -6)
+
+[node name="ExitPoint" type="Node2D" parent="."]
+position = Vector2(816, -3)
