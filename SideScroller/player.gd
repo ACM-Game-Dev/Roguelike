@@ -40,7 +40,6 @@ func update_animation_parameters():
 	else:
 		anim_tree["parameters/conditions/swing"] = false
 	
-	
 func equip_item(item: Item):
 	item_counts[item.name] += 1
 	item.equip(self)

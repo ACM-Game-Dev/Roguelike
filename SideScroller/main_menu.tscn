@@ -1,8 +1,8 @@
-[gd_scene load_steps=9 format=3 uid="uid://ckjhr01upcsj3"]
+[gd_scene load_steps=11 format=3 uid="uid://ckjhr01upcsj3"]
 
 [ext_resource type="Script" path="res://main_menu.gd" id="1_epck6"]
 [ext_resource type="FontFile" uid="uid://xwfeeqs0glrb" path="res://medusa-gothic/MedusaGothic D.otf" id="1_od5e2"]
-[ext_resource type="Texture2D" uid="uid://dshwc3whljh2f" path="res://pixel-art-background-artwork_805450-63.jpg" id="2_7s1lo"]
+[ext_resource type="Texture2D" uid="uid://mcdfpjtcr8h7" path="res://fantasy_pixel_background_by_artificialhub_dfwy0mp-pre.jpg" id="2_mtgpk"]
 [ext_resource type="AudioStream" uid="uid://d042g80mnq743" path="res://Realm of Fantasy.mp3" id="3_ig0md"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_16yd4"]
@@ -16,10 +16,16 @@ default_base_scale = 2.0
 default_font = ExtResource("1_od5e2")
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2qn5f"]
-bg_color = Color(0, 0, 0, 1)
+bg_color = Color(0, 0.2288, 0.28298, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rd7np"]
-bg_color = Color(0, 0, 0, 1)
+bg_color = Color(0.639216, 0.278431, 0.0705882, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4w1jj"]
+bg_color = Color(0, 0.301961, 0.180392, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hw1qt"]
+bg_color = Color(0.584314, 0, 0, 1)
 
 [node name="MainMenu" type="Control"]
 layout_mode = 3
@@ -31,6 +37,7 @@ grow_vertical = 2
 script = ExtResource("1_epck6")
 
 [node name="TextureRect" type="TextureRect" parent="."]
+texture_filter = 1
 layout_mode = 1
 anchors_preset = -1
 anchor_left = -0.099
@@ -43,7 +50,7 @@ offset_right = -136.62
 offset_bottom = -193.2
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("2_7s1lo")
+texture = ExtResource("2_mtgpk")
 
 [node name="Title" type="Label" parent="."]
 layout_mode = 1
@@ -111,6 +118,7 @@ grow_horizontal = 0
 grow_vertical = 2
 theme = SubResource("Theme_pdgjt")
 theme_override_font_sizes/font_size = 60
+theme_override_styles/normal = SubResource("StyleBoxFlat_4w1jj")
 text = "Settings
 "
 
@@ -129,6 +137,7 @@ grow_horizontal = 0
 grow_vertical = 2
 theme = SubResource("Theme_pdgjt")
 theme_override_font_sizes/font_size = 60
+theme_override_styles/normal = SubResource("StyleBoxFlat_hw1qt")
 text = "QUit
 "
 
