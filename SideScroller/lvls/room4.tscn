@@ -1792,15 +1792,56 @@ scale = Vector2(19.9356, 1.76947)
 polygon = PackedVector2Array(-4.91582, 4.52114, -4.91582, 10.7377, -2.50807, 10.7377, -2.50807, 4.52114)
 
 [node name="FloorCollider" type="StaticBody2D" parent="."]
-position = Vector2(-54, 165)
+position = Vector2(-108, 330)
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="FloorCollider"]
-position = Vector2(1017, -248)
+position = Vector2(1071, -413)
 scale = Vector2(281.061, 18.4569)
 polygon = PackedVector2Array(-6.44344, 4.33442, -6.44344, 22.7015, -0.466091, 22.7015, -0.462533, 4.33442)
+
+[node name="CeilingCollider" type="StaticBody2D" parent="."]
+position = Vector2(-54, 165)
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="CeilingCollider"]
+position = Vector2(990, -840)
+scale = Vector2(281.061, 18.4569)
+polygon = PackedVector2Array(-6.45767, 4.33442, -6.45411, 15.7665, -6.22996, 15.7665, -6.22641, 20.9136, -5.94889, 20.9136, -5.94889, 21.9972, -5.87417, 21.9972, -5.87773, 22.6474, -5.82359, 22.6479, -5.82436, 24.4895, -5.3974, 24.4895, -5.3974, 23.5142, -5.27288, 23.5142, -5.27288, 22.6474, -5.04873, 22.5932, -5.04873, 20.0467, -4.99536, 20.0467, -4.9918, 17.5002, -4.80679, 17.5002, -4.80679, 19.234, -4.41185, 19.3424, -4.41185, 20.1009, -3.66824, 20.1551, -3.66824, 22.8641, -3.27331, 22.8641, -3.27331, 21.0219, -3.09897, 21.0219, -3.09897, 23.6226, -2.85703, 23.5684, -2.85347, 26.2233, -2.43008, 26.2233, -2.43008, 24.5437, -2.0387, 24.5437, -2.0387, 19.9925, -1.78965, 19.9925, -1.78965, 23.6226, -1.64021, 23.6226, -1.64021, 20.0467, -1.24884, 20.0467, -1.24884, 19.0715, -1.18124, 19.0715, -1.18124, 16.5792, -1.12075, 16.6333, -1.12431, 13.8702, -0.942856, 13.8702, -0.942856, 15.0079, -0.604851, 15.0079, -0.604851, 12.1906, -0.494555, 12.1906, -0.490997, 4.33442)
 
 [node name="EntryPoint" type="Node2D" parent="."]
 position = Vector2(-848, -4)
 
 [node name="ExitPoint" type="Node2D" parent="."]
 position = Vector2(832, -3)
+
+[node name="EnemySpawn" type="Marker2D" parent="."]
+position = Vector2(-8, -142)
+
+[node name="EnemySpawn2" type="Marker2D" parent="."]
+position = Vector2(179, -79)
+
+[node name="EnemySpawn3" type="Marker2D" parent="."]
+position = Vector2(-255, -146)
+
+[node name="EnemySpawn4" type="Marker2D" parent="."]
+position = Vector2(-438, -128)
+
+[node name="EnemySpawn5" type="Marker2D" parent="."]
+position = Vector2(441, -96)
+
+[node name="EnemySpawn6" type="Marker2D" parent="."]
+position = Vector2(277, -42)
+
+[node name="EnemySpawn7" type="Marker2D" parent="."]
+position = Vector2(-149, -55)
+
+[node name="EnemySpawn8" type="Marker2D" parent="."]
+position = Vector2(-341, -37)
+
+[node name="EnemySpawn9" type="Marker2D" parent="."]
+position = Vector2(-526, -47)
+
+[node name="EnemySpawn10" type="Marker2D" parent="."]
+position = Vector2(590, -45)
+
+[node name="EnemySpawn11" type="Marker2D" parent="."]
+position = Vector2(726, -39)
