@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://cg1mermfhged5"]
+[gd_scene load_steps=11 format=3 uid="uid://cg1mermfhged5"]
 
 [ext_resource type="Script" path="res://roommanager.gd" id="1_eyccr"]
 [ext_resource type="PackedScene" uid="uid://de3jyfyvp8xty" path="res://lvls/room1.tscn" id="2_fphch"]
@@ -9,8 +9,12 @@
 [ext_resource type="PackedScene" uid="uid://dja1vngs8td73" path="res://lvls/room6.tscn" id="7_v04d0"]
 [ext_resource type="PackedScene" uid="uid://kir4rjhh7whe" path="res://lvls/room7.tscn" id="8_2nlhd"]
 [ext_resource type="PackedScene" uid="uid://o6ih4vegxxxq" path="res://lvls/room8.tscn" id="9_r3vwf"]
+[ext_resource type="PackedScene" uid="uid://bn8g0lgjvplhw" path="res://Player.tscn" id="10_8qk32"]
 
 [node name="Randroomgenerating" type="Node2D"]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+layer = 3
 
 [node name="RoomManager" type="Node2D" parent="."]
 script = ExtResource("1_eyccr")
@@ -20,3 +24,6 @@ max_rooms = 8
 
 [node name="FirstEntry" type="Node2D" parent="RoomManager"]
 position = Vector2(3, 426)
+
+[node name="Player" parent="." instance=ExtResource("10_8qk32")]
+position = Vector2(127, 198)
