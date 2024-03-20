@@ -29,18 +29,12 @@ func update_animation_parameters():
 	elif velocity.x > 0.1:
 		%PlayerSprite.flip_h = false
 	
-	if velocity == Vector2.ZERO:
-		anim_tree["parameters/conditions/idle"] = true
-		anim_tree["parameters/conditions/is_moving"] = false
-	else:
-		anim_tree["parameters/conditions/is_moving"] = true
-		anim_tree["parameters/conditions/idle"] = false
-	
-	if(Input.is_action_just_pressed("attack")):
-		anim_tree["parameters/conditions/swing"] = true
-	else:
-		anim_tree["parameters/conditions/swing"] = false
-	
+	# Checking conditionals to set animations 
+	anim_tree.set("parameters/conditions/idle", is_on_floor() && (velocity == Vector2.ZERO))
+	anim_tree.set("parameters/conditions/is_moving", is_on_floor() && (velocity != Vector2.ZERO))
+	anim_tree.set("parameters/conditions/is_jumping", !is_on_floor())
+	anim_tree.set("parameters/conditions/swing", Input.is_action_just_pressed("attack"))
+
 func equip_item(item: Item):
 	item_counts[item.name] += 1
 	item.equip(self)
