@@ -1,0 +1,29 @@
+[gd_scene load_steps=5 format=3 uid="uid://d1f7ngdq5rld7"]
+
+[ext_resource type="Script" path="res://FlyingEnemy.gd" id="1_hfp2b"]
+[ext_resource type="Texture2D" uid="uid://cr11d3fa7cm4j" path="res://Legacy-Fantasy - High Forest 2.3/Mob/Small Bee/Fly/Fly-Sheet.png" id="2_v5wq8"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_l66iu"]
+radius = 7.07107
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_gnyop"]
+
+[node name="FlyingEnemy" type="CharacterBody2D"]
+script = ExtResource("1_hfp2b")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="Hurtbox" type="CollisionShape2D" parent="Area2D"]
+scale = Vector2(1.48, 1.44)
+shape = SubResource("CircleShape2D_l66iu")
+debug_color = Color(0.988235, 0, 0.321569, 0.419608)
+
+[node name="Collider" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_gnyop")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_v5wq8")
+hframes = 4
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]

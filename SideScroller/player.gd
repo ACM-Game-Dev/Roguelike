@@ -18,6 +18,7 @@ var item_counts = {
 	"ACM_BRAND_PIZZA" : 0,
 	"feather": 0
 }
+var health = stats.max_health
 
 func _ready():
 	anim_tree.active = true
@@ -48,6 +49,10 @@ func equip_item(item: Item):
 
 func get_stats():
 	return stats
+
+func take_damage(val: int):
+	health -= val
+	print(health)
 
 
 func _physics_process(delta):

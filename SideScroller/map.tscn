@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://cnp88wks5ferb"]
+[gd_scene load_steps=12 format=3 uid="uid://cnp88wks5ferb"]
 
 [ext_resource type="Script" path="res://Game.gd" id="1_p8q34"]
 [ext_resource type="PackedScene" uid="uid://6i8n7f212s2i" path="res://platform.tscn" id="1_vrd1l"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://cb1uy0gqtdqqs" path="res://item_pickup.tscn" id="4_qhdb2"]
 [ext_resource type="Script" path="res://item_pickup.gd" id="5_a6ng1"]
 [ext_resource type="Script" path="res://feather.gd" id="6_2f38d"]
+[ext_resource type="PackedScene" uid="uid://d1f7ngdq5rld7" path="res://flying_enemy.tscn" id="8_q68a5"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_bhax0"]
 texture = ExtResource("3_m5365")
@@ -521,8 +522,12 @@ debug_color = Color(0.568627, 0.556863, 0, 0.419608)
 [node name="feather" type="Node2D" parent="item_pickup2"]
 script = ExtResource("6_2f38d")
 
+[node name="FlyingEnemy" parent="." instance=ExtResource("8_q68a5")]
+position = Vector2(264, 198)
+
 [connection signal="body_entered" from="item_pickup2" to="item_pickup2" method="_on_body_entered"]
 
 [editable path="StaticBody2D"]
 [editable path="StaticBody2D2"]
+[editable path="CharacterBody2D"]
 [editable path="item_pickup"]

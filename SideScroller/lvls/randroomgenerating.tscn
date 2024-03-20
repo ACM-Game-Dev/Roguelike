@@ -26,4 +26,4 @@ max_rooms = 8
 position = Vector2(3, 426)
 
 [node name="Player" parent="." instance=ExtResource("10_8qk32")]
-position = Vector2(127, 198)
+position = Vector2(227, 365)
