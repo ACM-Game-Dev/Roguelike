@@ -2,23 +2,14 @@ extends CharacterBody2D
 
 class_name Player
 
-# Get the gravity from the project settings to be synced with RigidBody nodes.
+signal health_changed
+
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 
 @onready var anim_tree: AnimationTree = %AnimationTree
+@export var playerStats: PlayerStats
+@export var itemCount: ItemCount
 
-var stats = {
-	max_health = 100,
-	speed = 150.0,
-	jump_power = -400.0,
-	jumps = 1
-}
-
-var item_counts = {
-	"ACM_BRAND_PIZZA" : 0,
-	"feather": 0
-}
-var health = stats.max_health
 
 func _ready():
 	anim_tree.active = true
@@ -36,43 +27,44 @@ func update_animation_parameters():
 	anim_tree.set("parameters/conditions/swing", Input.is_action_just_pressed("attack"))
 
 func equip_item(item: Item):
-	item_counts[item.name] += 1
+	itemCount.itemCountDict[item.name] += 1
 	item.equip(self)
-	print(stats)
-	print(item_counts)
-
-func get_stats():
-	return stats
+	print(playerStats)
+	print(itemCount)
 
 func take_damage(val: int):
-	health -= val
-	print(health)
+	playerStats.CURR_HEALTH -= val
+	print(playerStats.CURR_HEALTH)
+	health_changed.emit()
 	# Handling death
-	if health <= 0:
+	if playerStats.CURR_HEALTH <= 0:
 		player_death()
 
 func player_death():
-	#On death, right now just resets the current scene
-	print("Dead!")
+	print("Dead!") # On death, right now just resets the current scene
 	get_tree().reload_current_scene()
 
-
-func _physics_process(delta):
+func jump_and_fall(delta):
 	# Add the gravity.
 	if not is_on_floor():
 		velocity.y += gravity * delta
 
 	# Handle jump.
 	if Input.is_action_just_pressed("jump") and is_on_floor():
-		velocity.y = stats.jump_power
+		velocity.y = playerStats.JUMP_POWER
+
+func move_horizontal():
+	var direction = Input.get_axis("move_left", "move_right")
+	if direction:
+		velocity.x = direction * playerStats.MOVE_SPEED
+	else:
+		velocity.x = move_toward(velocity.x, 0, playerStats.MOVE_SPEED)
+
+func _physics_process(delta):
+	jump_and_fall(delta)
 	
 	update_animation_parameters()
 
-
-	var direction = Input.get_axis("move_left", "move_right")
-	if direction:
-		velocity.x = direction * stats.speed
-	else:
-		velocity.x = move_toward(velocity.x, 0, stats.speed)
+	move_horizontal()
 		
 	move_and_slide()

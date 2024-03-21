@@ -4,12 +4,13 @@ class_name FlyingEnemy
 
 const SPEED = 50.0
 
-var player
+@export var player: Player
 var direction = Vector2.RIGHT
 var damage = 1
 var damaging = false
 func _ready():
-	player = get_parent().get_node("CharacterBody2D")
+	if !player:
+		player = get_parent().get_node("CharacterBody2D")
 
 func _physics_process(delta):
 
