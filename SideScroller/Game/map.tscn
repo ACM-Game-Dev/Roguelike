@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://cnp88wks5ferb"]
+[gd_scene load_steps=17 format=3 uid="uid://cnp88wks5ferb"]
 
 [ext_resource type="Script" path="res://Game/Game.gd" id="1_u1kog"]
 [ext_resource type="PackedScene" uid="uid://6i8n7f212s2i" path="res://Game/platform.tscn" id="2_0q2ud"]
@@ -7,7 +7,10 @@
 [ext_resource type="PackedScene" uid="uid://cb1uy0gqtdqqs" path="res://Items/item_pickup.tscn" id="5_11duo"]
 [ext_resource type="Script" path="res://Items/item_pickup.gd" id="6_vcysp"]
 [ext_resource type="Script" path="res://Items/feather.gd" id="7_5c238"]
-[ext_resource type="PackedScene" uid="uid://d1f7ngdq5rld7" path="res://Enemies/flying_enemy.tscn" id="8_lbamq"]
+[ext_resource type="PackedScene" uid="uid://d1f7ngdq5rld7" path="res://Enemies/Flying/flying_enemy.tscn" id="8_lbamq"]
+[ext_resource type="Script" path="res://Player/PlayerStats.gd" id="9_m7p3i"]
+[ext_resource type="PackedScene" uid="uid://ca1e85fn40l64" path="res://Enemies/Ground/ground_enemy.tscn" id="10_yf8bm"]
+[ext_resource type="Script" path="res://Enemies/Ground/ground_enemy_stats.gd" id="11_i4rnn"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_bhax0"]
 texture = ExtResource("4_u8pp0")
@@ -481,6 +484,25 @@ sources/0 = SubResource("TileSetAtlasSource_bhax0")
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xnxu6"]
 
+[sub_resource type="Resource" id="Resource_yxtg4"]
+resource_local_to_scene = true
+script = ExtResource("9_m7p3i")
+MAX_HEALTH = 100
+CURR_HEALTH = 100
+MOVE_SPEED = 150.0
+JUMP_POWER = -400.0
+NUM_JUMPS = 1
+
+[sub_resource type="Resource" id="Resource_0gkm4"]
+resource_local_to_scene = true
+script = ExtResource("11_i4rnn")
+SPEED = 50.0
+DAMAGE = 1
+DAMAGING = false
+RANGE = 150.0
+DIRECTION = Vector2(0, 0)
+DISTANCE = 0.0
+
 [node name="Map" type="Node2D"]
 script = ExtResource("1_u1kog")
 
@@ -525,6 +547,12 @@ player = NodePath("../Player")
 
 [node name="Player" parent="." instance=ExtResource("3_86lmv")]
 position = Vector2(499, 321)
+playerStats = SubResource("Resource_yxtg4")
+
+[node name="GroundEnemy" parent="." node_paths=PackedStringArray("player") instance=ExtResource("10_yf8bm")]
+position = Vector2(657, 286)
+player = NodePath("../Player")
+enemy_stats = SubResource("Resource_0gkm4")
 
 [connection signal="body_entered" from="item_pickup2" to="item_pickup2" method="_on_body_entered"]
 

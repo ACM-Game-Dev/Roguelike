@@ -1,0 +1,42 @@
+[gd_scene load_steps=7 format=3 uid="uid://ca1e85fn40l64"]
+
+[ext_resource type="Script" path="res://Enemies/Ground/ground_enemy.gd" id="1_d58aw"]
+[ext_resource type="Script" path="res://Enemies/Ground/ground_enemy_stats.gd" id="2_27w8j"]
+[ext_resource type="Texture2D" uid="uid://j8r8lp8tbhw6" path="res://Assets/Legacy-Fantasy - High Forest 2.3/Mob/Boar/Idle/Idle-Sheet-export-Back.png" id="2_rqamp"]
+
+[sub_resource type="Resource" id="Resource_h0frl"]
+resource_local_to_scene = true
+script = ExtResource("2_27w8j")
+SPEED = 50.0
+DAMAGE = 1
+DAMAGING = false
+RANGE = 150.0
+DIRECTION = Vector2(0, 0)
+DISTANCE = 0.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_21vc3"]
+size = Vector2(24, 22)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ye46l"]
+size = Vector2(22, 20)
+
+[node name="GroundEnemy" type="CharacterBody2D"]
+script = ExtResource("1_d58aw")
+enemy_stats = SubResource("Resource_h0frl")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_rqamp")
+region_enabled = true
+region_rect = Rect2(2, 5, 40, 27)
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="Hurtbox" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("RectangleShape2D_21vc3")
+debug_color = Color(1, 0.117647, 0.262745, 0.419608)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_ye46l")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]
