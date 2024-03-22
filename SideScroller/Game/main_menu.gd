@@ -6,15 +6,13 @@ func _input(event):
 		get_tree().quit()
 
 func _on_start_button_down():
-	get_tree().change_scene_to_file("res://Game/map.tscn")
+	get_tree().change_scene_to_file("res://Levels/randroomgenerating.tscn")
 
 func _on_quit_button_down():
 	get_tree().quit()
 
-
 func _on_coop_button_down():
 	pass # Replace with function body.
-
 
 func _on_settings_button_down():
 	pass # Replace with function body.
