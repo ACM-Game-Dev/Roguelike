@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://cg1mermfhged5"]
+[gd_scene load_steps=14 format=3 uid="uid://cg1mermfhged5"]
 
 [ext_resource type="Script" path="res://roommanager.gd" id="1_eyccr"]
 [ext_resource type="PackedScene" uid="uid://de3jyfyvp8xty" path="res://lvls/room1.tscn" id="2_fphch"]
@@ -10,6 +10,9 @@
 [ext_resource type="PackedScene" uid="uid://kir4rjhh7whe" path="res://lvls/room7.tscn" id="8_2nlhd"]
 [ext_resource type="PackedScene" uid="uid://o6ih4vegxxxq" path="res://lvls/room8.tscn" id="9_r3vwf"]
 [ext_resource type="PackedScene" uid="uid://bn8g0lgjvplhw" path="res://Player.tscn" id="10_8qk32"]
+[ext_resource type="PackedScene" uid="uid://btwydinuc23sr" path="res://lvls/room9.tscn" id="10_cb55r"]
+[ext_resource type="PackedScene" uid="uid://cflnfofrodcqy" path="res://lvls/room10.tscn" id="11_3v71c"]
+[ext_resource type="PackedScene" uid="uid://dla1k5dcons8v" path="res://lvls/room11.tscn" id="12_227h0"]
 
 [node name="Randroomgenerating" type="Node2D"]
 
@@ -18,9 +21,9 @@ layer = 3
 
 [node name="RoomManager" type="Node2D" parent="."]
 script = ExtResource("1_eyccr")
-rooms = Array[PackedScene]([ExtResource("2_fphch"), ExtResource("3_j3rm6"), ExtResource("4_2bgpu"), ExtResource("5_4av1y"), ExtResource("6_5bm8p"), ExtResource("7_v04d0"), ExtResource("8_2nlhd"), ExtResource("9_r3vwf")])
-min_rooms = 8
-max_rooms = 8
+rooms = Array[PackedScene]([ExtResource("2_fphch"), ExtResource("3_j3rm6"), ExtResource("4_2bgpu"), ExtResource("5_4av1y"), ExtResource("6_5bm8p"), ExtResource("7_v04d0"), ExtResource("8_2nlhd"), ExtResource("9_r3vwf"), ExtResource("10_cb55r"), ExtResource("11_3v71c"), ExtResource("12_227h0")])
+min_rooms = 11
+max_rooms = 11
 
 [node name="FirstEntry" type="Node2D" parent="RoomManager"]
 position = Vector2(3, 426)
