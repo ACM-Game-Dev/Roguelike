@@ -30,3 +30,24 @@ position = Vector2(-769, -262)
 
 [node name="ExitPoint" type="Node2D" parent="."]
 position = Vector2(768, 156)
+
+[node name="EnemySpawn" type="Marker2D" parent="."]
+position = Vector2(206, 21)
+
+[node name="EnemySpawn2" type="Marker2D" parent="."]
+position = Vector2(293, 54)
+
+[node name="EnemySpawn3" type="Marker2D" parent="."]
+position = Vector2(56, -43)
+
+[node name="EnemySpawn4" type="Marker2D" parent="."]
+position = Vector2(-37, -94)
+
+[node name="EnemySpawn5" type="Marker2D" parent="."]
+position = Vector2(-205, -176)
+
+[node name="EnemySpawn6" type="Marker2D" parent="."]
+position = Vector2(-140, -145)
+
+[node name="EnemySpawn7" type="Marker2D" parent="."]
+position = Vector2(-348, -245)
