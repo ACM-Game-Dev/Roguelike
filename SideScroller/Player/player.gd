@@ -4,12 +4,15 @@ class_name Player
 
 signal health_changed
 
-var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
-
-@onready var anim_tree: AnimationTree = %AnimationTree
 @export var playerStats: PlayerStats
 @export var itemCount: ItemCount
 
+@onready var anim_tree: AnimationTree = %AnimationTree
+@onready var equipment_list = %Equipment.get_children()
+
+
+var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
+var current_equipment: int = 0
 
 func _ready():
 	anim_tree.active = true
@@ -36,13 +39,18 @@ func take_damage(val: int):
 	playerStats.CURR_HEALTH -= val
 	print(playerStats.CURR_HEALTH)
 	health_changed.emit()
-	# Handling death
-	if playerStats.CURR_HEALTH <= 0:
+	if playerStats.CURR_HEALTH <= 0: # Handling death
 		player_death()
 
 func player_death():
 	print("Dead!") # On death, right now just resets the current scene
 	get_tree().reload_current_scene()
+
+func use_equipment():
+	if Input.is_action_just_pressed("attack"):
+		var curr_equipment = equipment_list[current_equipment]
+		curr_equipment.activate(self)
+		print(curr_equipment.name)
 
 func jump_and_fall(delta):
 	# Add the gravity.
@@ -64,7 +72,7 @@ func _physics_process(delta):
 	jump_and_fall(delta)
 	
 	update_animation_parameters()
-
+	use_equipment()
 	move_horizontal()
 		
 	move_and_slide()

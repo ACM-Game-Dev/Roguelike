@@ -3,6 +3,8 @@ extends Resource
 class_name Weapon_Resource
 
 
+@export var equipment_name: String
+
 @export_group("Anims")
 @export var idle_anim: String
 @export var swing_anim: String

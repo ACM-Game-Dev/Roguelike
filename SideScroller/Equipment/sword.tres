@@ -4,6 +4,7 @@
 
 [resource]
 script = ExtResource("1_qwkwp")
+equipment_name = "Sword"
 idle_anim = ""
 swing_anim = ""
 throw_anim = ""
