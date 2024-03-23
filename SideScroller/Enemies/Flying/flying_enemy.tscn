@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://d1f7ngdq5rld7"]
+[gd_scene load_steps=8 format=3 uid="uid://d1f7ngdq5rld7"]
 
 [ext_resource type="Script" path="res://Enemies/Flying/FlyingEnemy.gd" id="1_hfp2b"]
 [ext_resource type="Script" path="res://Enemies/Flying/flying_enemy_stats.gd" id="2_odqi5"]
@@ -8,14 +8,19 @@
 resource_local_to_scene = true
 script = ExtResource("2_odqi5")
 DAMAGE = 1
-SPEED = 60.0
+SPEED = 80.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_l66iu"]
 radius = 7.07107
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_gnyop"]
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_sed0b"]
+radius = 302.0
+
 [node name="FlyingEnemy" type="CharacterBody2D"]
+motion_mode = 1
+wall_min_slide_angle = 0.0
 script = ExtResource("1_hfp2b")
 enemy_stats = SubResource("Resource_l8els")
 
@@ -33,5 +38,19 @@ shape = SubResource("CircleShape2D_gnyop")
 texture = ExtResource("2_v5wq8")
 hframes = 4
 
+[node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
+avoidance_enabled = true
+max_speed = 60.0
+debug_enabled = true
+debug_path_custom_color = Color(0.870588, 0, 0, 1)
+
+[node name="Range" type="Area2D" parent="."]
+collision_layer = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Range"]
+shape = SubResource("CircleShape2D_sed0b")
+
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
 [connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]
+[connection signal="body_entered" from="Range" to="." method="_on_range_body_entered"]
+[connection signal="body_exited" from="Range" to="." method="_on_range_body_exited"]

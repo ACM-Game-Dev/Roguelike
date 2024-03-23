@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://cg1mermfhged5"]
+[gd_scene load_steps=13 format=3 uid="uid://cg1mermfhged5"]
 
 [ext_resource type="Script" path="res://Levels/roommanager.gd" id="1_eyccr"]
 [ext_resource type="PackedScene" uid="uid://de3jyfyvp8xty" path="res://Levels/room1.tscn" id="2_fphch"]
@@ -10,6 +10,16 @@
 [ext_resource type="PackedScene" uid="uid://kir4rjhh7whe" path="res://Levels/room7.tscn" id="8_2nlhd"]
 [ext_resource type="PackedScene" uid="uid://o6ih4vegxxxq" path="res://Levels/room8.tscn" id="9_r3vwf"]
 [ext_resource type="PackedScene" uid="uid://bn8g0lgjvplhw" path="res://Player/Player.tscn" id="10_8qk32"]
+[ext_resource type="Script" path="res://Player/PlayerStats.gd" id="11_vse8v"]
+
+[sub_resource type="Resource" id="Resource_28uu5"]
+resource_local_to_scene = true
+script = ExtResource("11_vse8v")
+MAX_HEALTH = 100
+CURR_HEALTH = 100
+MOVE_SPEED = 150.0
+JUMP_POWER = -400.0
+NUM_JUMPS = 1
 
 [node name="Randroomgenerating" type="Node2D"]
 
@@ -27,3 +37,4 @@ position = Vector2(3, 426)
 
 [node name="Player" parent="." instance=ExtResource("10_8qk32")]
 position = Vector2(227, 365)
+playerStats = SubResource("Resource_28uu5")
