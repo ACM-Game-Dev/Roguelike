@@ -9,10 +9,7 @@ resource_local_to_scene = true
 script = ExtResource("2_27w8j")
 SPEED = 50.0
 DAMAGE = 1
-DAMAGING = false
 RANGE = 150.0
-DIRECTION = Vector2(0, 0)
-DISTANCE = 0.0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_21vc3"]
 size = Vector2(24, 22)

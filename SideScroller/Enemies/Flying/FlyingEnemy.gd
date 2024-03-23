@@ -2,12 +2,11 @@ extends CharacterBody2D
 
 class_name FlyingEnemy
 
-const SPEED = 50.0
-
+@export var enemy_stats: FlyingEnemyStats
 @export var player: Player
 var direction = Vector2.RIGHT
-var damage = 1
 var damaging = false
+
 func _ready():
 	if !player:
 		player = get_parent().get_node("CharacterBody2D")
@@ -16,10 +15,10 @@ func _physics_process(delta):
 
 	if player:
 		direction = (player.global_position - global_position).normalized()
-		global_position += SPEED * direction * delta
+		global_position += enemy_stats.SPEED * direction * delta
 
 	if damaging:
-		player.take_damage(damage)
+		player.take_damage(enemy_stats.DAMAGE)
 
 	move_and_slide()
 
