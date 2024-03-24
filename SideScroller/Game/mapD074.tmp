@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://cnp88wks5ferb"]
+[gd_scene load_steps=18 format=3 uid="uid://cnp88wks5ferb"]
 
 [ext_resource type="Script" path="res://Game/Game.gd" id="1_u1kog"]
 [ext_resource type="PackedScene" uid="uid://6i8n7f212s2i" path="res://Game/platform.tscn" id="2_0q2ud"]
@@ -8,8 +8,9 @@
 [ext_resource type="Script" path="res://Items/item_pickup.gd" id="6_vcysp"]
 [ext_resource type="Script" path="res://Items/feather.gd" id="7_5c238"]
 [ext_resource type="Script" path="res://Player/PlayerStats.gd" id="9_m7p3i"]
-[ext_resource type="PackedScene" uid="uid://d1f7ngdq5rld7" path="res://Enemies/Flying/flying_enemy.tscn" id="9_v8sah"]
-[ext_resource type="Script" path="res://Enemies/Enemy_Resource.gd" id="10_j3om4"]
+[ext_resource type="PackedScene" uid="uid://ca1e85fn40l64" path="res://Enemies/Ground/ground_enemy.tscn" id="10_yf8bm"]
+[ext_resource type="PackedScene" uid="uid://d1f7ngdq5rld7" path="res://Enemies/Flying/flying_enemy.tscn" id="11_7mr8q"]
+[ext_resource type="Script" path="res://Enemies/Ground/ground_enemy_stats.gd" id="11_i4rnn"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_bhax0"]
 texture = ExtResource("4_u8pp0")
@@ -492,20 +493,18 @@ MOVE_SPEED = 150.0
 JUMP_POWER = -400.0
 NUM_JUMPS = 1
 
+[sub_resource type="Resource" id="Resource_0gkm4"]
+resource_local_to_scene = true
+script = ExtResource("11_i4rnn")
+SPEED = 50.0
+DAMAGE = 1
+RANGE = 150.0
+
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_xfju4"]
 vertices = PackedVector2Array(859, 78, 866, 567, 137, 567, 130, 74)
 polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3)])
 outlines = Array[PackedVector2Array]([PackedVector2Array(120, 64, 869, 69, 876, 577, 127, 577)])
 source_geometry_group_name = &"navigation_polygon_source_group"
-
-[sub_resource type="Resource" id="Resource_ll48p"]
-resource_local_to_scene = true
-script = ExtResource("10_j3om4")
-health = 20
-speed = 5000.0
-damage = 1
-enemy_name = ""
-enemy_type = ""
 
 [node name="Map" type="Node2D"]
 script = ExtResource("1_u1kog")
@@ -549,14 +548,17 @@ script = ExtResource("7_5c238")
 position = Vector2(499, 321)
 playerStats = SubResource("Resource_yxtg4")
 
+[node name="GroundEnemy" parent="." node_paths=PackedStringArray("player") instance=ExtResource("10_yf8bm")]
+position = Vector2(657, 286)
+player = NodePath("../Player")
+enemy_stats = SubResource("Resource_0gkm4")
+
 [node name="NavigationRegion2D" type="NavigationRegion2D" parent="."]
 position = Vector2(3, 10)
 navigation_polygon = SubResource("NavigationPolygon_xfju4")
 
-[node name="FlyingEnemy" parent="." node_paths=PackedStringArray("player") instance=ExtResource("9_v8sah")]
-position = Vector2(188, 208)
-enemy_resource = SubResource("Resource_ll48p")
-player = NodePath("../Player")
+[node name="FlyingEnemy" parent="." instance=ExtResource("11_7mr8q")]
+position = Vector2(293, 234)
 
 [connection signal="body_entered" from="item_pickup2" to="item_pickup2" method="_on_body_entered"]
 

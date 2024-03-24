@@ -3,30 +3,34 @@ extends CharacterBody2D
 class_name GroundEnemy
 
 @export var player: Player
-@export var enemy_stats: GroundEnemyStats
+@export var enemy_resource: Enemy_Resource
 
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 
 var damaging = false
 var direction = Vector2.RIGHT
 var distance = 100
+var range = 150
 
 func _ready():
 	if !player:
-		player = get_parent().get_node("CharacterBody2D")
+		player = get_parent().get_parent().get_parent().get_node("Player")
 
 func _physics_process(delta):
-
 	if player:
 		distance = (player.global_position - global_position).length()
 		
-		if distance < enemy_stats.RANGE:
+		if distance < range:
 			direction = (player.global_position - global_position).normalized()
-			global_position += enemy_stats.SPEED * direction * delta
+			velocity.x = enemy_resource.speed * direction.x * delta
 			velocity.y += gravity * delta
+	if velocity.x < 0:
+		%AnimatedSprite2D.flip_h = false
+	else:
+		%AnimatedSprite2D.flip_h = true
 
 	if damaging:
-		player.take_damage(enemy_stats.DAMAGE)
+		player.take_damage(enemy_resource.damage)
 
 	move_and_slide()
 

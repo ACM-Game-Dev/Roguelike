@@ -1,6 +1,12 @@
-[gd_scene load_steps=2 format=3 uid="uid://ej60se2bopfv"]
+[gd_scene load_steps=3 format=3 uid="uid://ej60se2bopfv"]
 
 [ext_resource type="TileSet" uid="uid://cvu4pn3ikbugv" path="res://allTiles.tres" id="1_vnrim"]
+
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_0xlad"]
+vertices = PackedVector2Array(228, -96, -15, -92, -324, -126, 23, -189, 233, -191, 418, -195, -179, -18, -327, -93, -177, -11, -947, -15, -587, -93, -955, -553, -584, -126, 703, -553, 23, -222, 233, -222, 698, -195)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3, 4), PackedInt32Array(4, 5, 0), PackedInt32Array(2, 1, 6, 7), PackedInt32Array(7, 6, 8, 9, 10), PackedInt32Array(10, 9, 11, 12), PackedInt32Array(2, 12, 11, 13, 14), PackedInt32Array(5, 4, 15, 13), PackedInt32Array(13, 16, 5), PackedInt32Array(14, 3, 2), PackedInt32Array(15, 14, 13)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(-957, -6, 706, 4, 713, -563, -965, -563), PackedVector2Array(-168, -12, -13, -82, 232, -87, 420, -185, 693, -185, 692, -16), PackedVector2Array(33, -212, 223, -212, 223, -201, 33, -199), PackedVector2Array(-575, -116, -335, -116, -336, -103, -576, -103)])
+source_geometry_group_name = &"navigation_polygon_source_group"
 
 [node name="Node2D" type="Node2D"]
 
@@ -66,3 +72,6 @@ position = Vector2(-666, -42)
 
 [node name="EnemySpawn6" type="Marker2D" parent="."]
 position = Vector2(497, -231)
+
+[node name="NavigationRegion2D" type="NavigationRegion2D" parent="."]
+navigation_polygon = SubResource("NavigationPolygon_0xlad")

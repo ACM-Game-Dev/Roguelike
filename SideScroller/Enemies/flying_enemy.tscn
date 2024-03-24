@@ -1,8 +1,46 @@
-[gd_scene load_steps=12 format=3 uid="uid://d1f7ngdq5rld7"]
+[gd_scene load_steps=6 format=3 uid="uid://dm6qq3fxly2gm"]
 
-[ext_resource type="Script" path="res://Enemies/FlyingEnemy.gd" id="1_hfp2b"]
 [ext_resource type="Script" path="res://Enemies/Enemy_Resource.gd" id="2_no18x"]
-[ext_resource type="Texture2D" uid="uid://cr11d3fa7cm4j" path="res://Assets/Legacy-Fantasy/Legacy-Fantasy - High Forest 2.3/Mob/Small Bee/Fly/Fly-Sheet.png" id="2_v5wq8"]
+
+[sub_resource type="GDScript" id="GDScript_0x6aq"]
+script/source = "extends CharacterBody2D
+
+class_name FlyingEnemy
+
+@export var enemy_resource: Enemy_Resource
+
+@export var player: Player
+var direction = Vector2.RIGHT
+var damaging = false
+
+func _ready():
+	if !player:
+		player = get_parent().get_node(\"CharacterBody2D\")
+
+func _physics_process(delta):
+	if player:
+		direction = (player.global_position - global_position).normalized()
+		velocity = enemy_resource.speed * direction * delta
+		#print(velocity)
+
+	if velocity.x > 0:
+		%AnimatedSprite2D.flip_h = false
+	else:
+		%AnimatedSprite2D.flip_h = true
+
+	if damaging:
+		player.take_damage(enemy_resource.damage)
+	move_and_slide()
+
+
+func _on_area_2d_body_entered(body):
+	if body.has_method(\"take_damage\"):
+		damaging = true
+
+func _on_area_2d_body_exited(body):
+	if body.has_method(\"take_damage\"):
+		damaging = false
+"
 
 [sub_resource type="Resource" id="Resource_bojgd"]
 resource_local_to_scene = true
@@ -18,44 +56,8 @@ radius = 7.07107
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_gnyop"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_ayby0"]
-atlas = ExtResource("2_v5wq8")
-region = Rect2(0, 0, 64, 64)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_3kyiq"]
-atlas = ExtResource("2_v5wq8")
-region = Rect2(64, 0, 64, 64)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_qd0ag"]
-atlas = ExtResource("2_v5wq8")
-region = Rect2(128, 0, 64, 64)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_e10cs"]
-atlas = ExtResource("2_v5wq8")
-region = Rect2(192, 0, 64, 64)
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_mdoqh"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_ayby0")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_3kyiq")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_qd0ag")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_e10cs")
-}],
-"loop": true,
-"name": &"default",
-"speed": 10.0
-}]
-
 [node name="FlyingEnemy" type="CharacterBody2D"]
-script = ExtResource("1_hfp2b")
+script = SubResource("GDScript_0x6aq")
 enemy_resource = SubResource("Resource_bojgd")
 
 [node name="Area2D" type="Area2D" parent="."]
@@ -67,11 +69,6 @@ debug_color = Color(0.988235, 0, 0.321569, 0.419608)
 
 [node name="Collider" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_gnyop")
-
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-unique_name_in_owner = true
-sprite_frames = SubResource("SpriteFrames_mdoqh")
-autoplay = "default"
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
 [connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]

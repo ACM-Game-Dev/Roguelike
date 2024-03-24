@@ -1,6 +1,12 @@
-[gd_scene load_steps=2 format=3 uid="uid://kir4rjhh7whe"]
+[gd_scene load_steps=3 format=3 uid="uid://kir4rjhh7whe"]
 
 [ext_resource type="TileSet" uid="uid://cvu4pn3ikbugv" path="res://allTiles.tres" id="1_utk8p"]
+
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_crafw"]
+vertices = PackedVector2Array(-909, -468, 1030, -471, 1020, -17, 584, -17, 306, 132, -235, 131, -519, -17, -909, -15)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3), PackedInt32Array(0, 3, 4, 5, 6), PackedInt32Array(0, 6, 7)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(-919, -5, -919, -478, 1041, -482, 1030, -7, 587, -7, 310, 143, -239, 141, -521, -7)])
+source_geometry_group_name = &"navigation_polygon_source_group"
 
 [node name="Node2D" type="Node2D"]
 
@@ -61,3 +67,6 @@ position = Vector2(-159, 105)
 
 [node name="EnemySpawn" type="Marker2D" parent="."]
 position = Vector2(220, 111)
+
+[node name="NavigationRegion2D" type="NavigationRegion2D" parent="."]
+navigation_polygon = SubResource("NavigationPolygon_crafw")

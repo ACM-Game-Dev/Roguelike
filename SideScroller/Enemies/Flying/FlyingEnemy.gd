@@ -2,7 +2,7 @@ extends CharacterBody2D
 
 class_name FlyingEnemy
 
-@export var enemy_stats: FlyingEnemyStats
+@export var enemy_resource: Enemy_Resource
 @export var player: Player
 @onready var nav_agent = $NavigationAgent2D
 
@@ -24,10 +24,15 @@ func _physics_process(delta):
 		return
 	
 	var direction = (nav_agent.get_next_path_position() - global_position).normalized()
-	velocity = direction * enemy_stats.SPEED
+	velocity = direction * enemy_resource.speed * delta
+
+	if velocity.x < 0:
+		%AnimatedSprite2D.flip_h = false
+	else:
+		%AnimatedSprite2D.flip_h = true
 
 	if damaging:
-		player.take_damage(enemy_stats.DAMAGE)
+		player.take_damage(enemy_resource.damage)
 
 	move_and_slide()
 

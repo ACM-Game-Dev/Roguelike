@@ -1,15 +1,17 @@
-[gd_scene load_steps=7 format=3 uid="uid://ca1e85fn40l64"]
+[gd_scene load_steps=14 format=3 uid="uid://ca1e85fn40l64"]
 
 [ext_resource type="Script" path="res://Enemies/Ground/ground_enemy.gd" id="1_d58aw"]
-[ext_resource type="Script" path="res://Enemies/Ground/ground_enemy_stats.gd" id="2_27w8j"]
-[ext_resource type="Texture2D" uid="uid://j8r8lp8tbhw6" path="res://Assets/Legacy-Fantasy - High Forest 2.3/Mob/Boar/Idle/Idle-Sheet-export-Back.png" id="2_rqamp"]
+[ext_resource type="Script" path="res://Enemies/Enemy_Resource.gd" id="2_swqiw"]
+[ext_resource type="Texture2D" uid="uid://jl31vx036vl4" path="res://Assets/Legacy-Fantasy/Legacy-Fantasy - High Forest 2.3/Mob/Boar/Run/Run-Sheet-Black.png" id="4_ucgxk"]
 
-[sub_resource type="Resource" id="Resource_h0frl"]
+[sub_resource type="Resource" id="Resource_pu3j5"]
 resource_local_to_scene = true
-script = ExtResource("2_27w8j")
-SPEED = 50.0
-DAMAGE = 1
-RANGE = 150.0
+script = ExtResource("2_swqiw")
+health = 15
+speed = 4800.0
+damage = 1
+enemy_name = ""
+enemy_type = ""
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_21vc3"]
 size = Vector2(24, 22)
@@ -17,14 +19,59 @@ size = Vector2(24, 22)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ye46l"]
 size = Vector2(22, 20)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_34j27"]
+atlas = ExtResource("4_ucgxk")
+region = Rect2(0, 0, 48, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3dpdw"]
+atlas = ExtResource("4_ucgxk")
+region = Rect2(48, 0, 48, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kdt2d"]
+atlas = ExtResource("4_ucgxk")
+region = Rect2(96, 0, 48, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7id4r"]
+atlas = ExtResource("4_ucgxk")
+region = Rect2(144, 0, 48, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_r6o35"]
+atlas = ExtResource("4_ucgxk")
+region = Rect2(192, 0, 48, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_t0ops"]
+atlas = ExtResource("4_ucgxk")
+region = Rect2(240, 0, 48, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_w2npr"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_34j27")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3dpdw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kdt2d")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7id4r")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_r6o35")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_t0ops")
+}],
+"loop": true,
+"name": &"default",
+"speed": 10.0
+}]
+
 [node name="GroundEnemy" type="CharacterBody2D"]
 script = ExtResource("1_d58aw")
-enemy_stats = SubResource("Resource_h0frl")
-
-[node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("2_rqamp")
-region_enabled = true
-region_rect = Rect2(2, 5, 40, 27)
+enemy_resource = SubResource("Resource_pu3j5")
 
 [node name="Area2D" type="Area2D" parent="."]
 
@@ -34,6 +81,12 @@ debug_color = Color(1, 0.117647, 0.262745, 0.419608)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_ye46l")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+unique_name_in_owner = true
+sprite_frames = SubResource("SpriteFrames_w2npr")
+autoplay = "default"
+frame_progress = 0.152686
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
 [connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]

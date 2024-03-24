@@ -1,20 +1,12 @@
-[gd_scene load_steps=6 format=3 uid="uid://de3jyfyvp8xty"]
+[gd_scene load_steps=3 format=3 uid="uid://de3jyfyvp8xty"]
 
 [ext_resource type="TileSet" uid="uid://cvu4pn3ikbugv" path="res://allTiles.tres" id="1_6djbh"]
-[ext_resource type="PackedScene" uid="uid://d1f7ngdq5rld7" path="res://Enemies/Flying/flying_enemy.tscn" id="2_0b038"]
-[ext_resource type="Script" path="res://Enemies/Flying/flying_enemy_stats.gd" id="3_eh2ik"]
 
-[sub_resource type="NavigationPolygon" id="NavigationPolygon_jmfb1"]
-vertices = PackedVector2Array(531, -192, 533, -60, 263, -83, 43, -109, 40, -142, -49, -192, -49, -144, 167, -81, 167, -48, -147, -62, -154, -96, -52, -109, -547, -62, -547, -206, -49, -200, -246, -97, 546, -16, -554, -14, -554, -62, 263, -47, 263, -60, 271, -60, 546, -60, -246, -63)
-polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3, 4), PackedInt32Array(5, 0, 4, 6), PackedInt32Array(3, 7, 8, 9, 10, 11), PackedInt32Array(12, 13, 14, 5), PackedInt32Array(12, 5, 6, 15), PackedInt32Array(16, 17, 18, 12), PackedInt32Array(19, 20, 21, 16), PackedInt32Array(1, 22, 16), PackedInt32Array(1, 16, 21, 2), PackedInt32Array(3, 2, 7), PackedInt32Array(6, 11, 10, 15), PackedInt32Array(12, 15, 23), PackedInt32Array(16, 12, 23, 9, 8), PackedInt32Array(16, 8, 19)])
-outlines = Array[PackedVector2Array]([PackedVector2Array(-564, -4, -565, -74, 177, -72, 177, -58, 253, -57, 253, -70, 556, -70, 557, -7), PackedVector2Array(-557, -66, -557, -217, -39, -210, -42, -67, -158, -65, -162, -86, -236, -87, -236, -67), PackedVector2Array(-51, -202, 541, -202, 543, -65, 260, -63, 256, -73, 177, -71, 173, -65, -49, -66, -45, -119, 32, -119, 31, -132, -43, -135)])
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_egl05"]
+vertices = PackedVector2Array(265, -48, 551, -13, -552, -13, 170, -48, 262, -80, 170, -80, 42, -111, 42, -143, 551, -269, -53, -111, -150, -65, -153, -97, -248, -62, -558, -268, -245, -95, -53, -144)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3), PackedInt32Array(4, 5, 6, 7, 8), PackedInt32Array(9, 6, 5, 3, 10, 11), PackedInt32Array(8, 1, 0, 4), PackedInt32Array(10, 3, 2, 12), PackedInt32Array(12, 2, 13, 14), PackedInt32Array(15, 9, 11, 14, 13), PackedInt32Array(13, 8, 7, 15)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(-569, -278, -562, -4, 561, -3, 561, -280), PackedVector2Array(-236, -85, -162, -87, -161, -75, -237, -72), PackedVector2Array(-43, -134, 32, -133, 32, -121, -43, -121), PackedVector2Array(180, -70, 253, -70, 254, -58, 180, -58)])
 source_geometry_group_name = &"navigation_polygon_source_group"
-
-[sub_resource type="Resource" id="Resource_6p1ff"]
-resource_local_to_scene = true
-script = ExtResource("3_eh2ik")
-DAMAGE = 1
-SPEED = 80.0
 
 [node name="Node2D" type="Node2D"]
 
@@ -86,8 +78,4 @@ position = Vector2(-369, -82)
 position = Vector2(35, -78)
 
 [node name="NavigationRegion2D" type="NavigationRegion2D" parent="."]
-navigation_polygon = SubResource("NavigationPolygon_jmfb1")
-
-[node name="FlyingEnemy" parent="." instance=ExtResource("2_0b038")]
-position = Vector2(75, -157)
-enemy_stats = SubResource("Resource_6p1ff")
+navigation_polygon = SubResource("NavigationPolygon_egl05")
