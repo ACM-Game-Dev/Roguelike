@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://cg1mermfhged5"]
+[gd_scene load_steps=19 format=3 uid="uid://cg1mermfhged5"]
 
 [ext_resource type="Script" path="res://Levels/roommanager.gd" id="1_eyccr"]
 [ext_resource type="PackedScene" uid="uid://de3jyfyvp8xty" path="res://Levels/room1.tscn" id="2_fphch"]
@@ -10,6 +10,30 @@
 [ext_resource type="PackedScene" uid="uid://kir4rjhh7whe" path="res://Levels/room7.tscn" id="8_2nlhd"]
 [ext_resource type="PackedScene" uid="uid://o6ih4vegxxxq" path="res://Levels/room8.tscn" id="9_r3vwf"]
 [ext_resource type="PackedScene" uid="uid://bn8g0lgjvplhw" path="res://Player/Player.tscn" id="10_8qk32"]
+[ext_resource type="Script" path="res://Player/PlayerStats.gd" id="11_ig7l4"]
+[ext_resource type="PackedScene" uid="uid://d1f7ngdq5rld7" path="res://Enemies/flying_enemy.tscn" id="12_st623"]
+[ext_resource type="Script" path="res://Enemies/Enemy_Resource.gd" id="13_pnl8p"]
+[ext_resource type="PackedScene" uid="uid://bkmyv2a676e4u" path="res://Equipment/WeaponPickup.tscn" id="14_cqh01"]
+[ext_resource type="PackedScene" uid="uid://c71pit1rpvc4j" path="res://Equipment/spell_pickup.tscn" id="15_imm3m"]
+[ext_resource type="PackedScene" uid="uid://c233y0pcx661r" path="res://Equipment/axe_pickup.tscn" id="16_7bfxu"]
+
+[sub_resource type="Resource" id="Resource_18n32"]
+resource_local_to_scene = true
+script = ExtResource("11_ig7l4")
+MAX_HEALTH = 100
+CURR_HEALTH = 100
+MOVE_SPEED = 150.0
+JUMP_POWER = -400.0
+NUM_JUMPS = 1
+
+[sub_resource type="Resource" id="Resource_sg6nj"]
+resource_local_to_scene = true
+script = ExtResource("13_pnl8p")
+health = 100
+speed = 5000.0
+damage = 1
+enemy_name = "Bea"
+enemy_type = "Bee"
 
 [node name="Randroomgenerating" type="Node2D"]
 
@@ -27,3 +51,19 @@ position = Vector2(3, 426)
 
 [node name="Player" parent="." instance=ExtResource("10_8qk32")]
 position = Vector2(227, 365)
+playerStats = SubResource("Resource_18n32")
+
+[node name="FlyingEnemy" parent="." node_paths=PackedStringArray("player") instance=ExtResource("12_st623")]
+position = Vector2(331, 252)
+enemy_resource = SubResource("Resource_sg6nj")
+player = NodePath("../Player")
+
+[node name="Node2D" parent="." instance=ExtResource("14_cqh01")]
+position = Vector2(294, 290)
+rotation = -0.425921
+
+[node name="RigidBody2D" parent="." instance=ExtResource("15_imm3m")]
+position = Vector2(173, 371)
+
+[node name="Axe_Pickup" parent="." instance=ExtResource("16_7bfxu")]
+position = Vector2(194, 300)
