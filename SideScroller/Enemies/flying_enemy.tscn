@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://Enemies/FlyingEnemy.gd" id="1_hfp2b"]
 [ext_resource type="Script" path="res://Enemies/Enemy_Resource.gd" id="2_no18x"]
-[ext_resource type="Texture2D" uid="uid://cr11d3fa7cm4j" path="res://Assets/Legacy-Fantasy - High Forest 2.3/Mob/Small Bee/Fly/Fly-Sheet.png" id="2_v5wq8"]
+[ext_resource type="Texture2D" uid="uid://cr11d3fa7cm4j" path="res://Assets/Legacy-Fantasy/Legacy-Fantasy - High Forest 2.3/Mob/Small Bee/Fly/Fly-Sheet.png" id="2_v5wq8"]
 
 [sub_resource type="Resource" id="Resource_bojgd"]
 resource_local_to_scene = true

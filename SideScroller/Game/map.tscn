@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://Game/Game.gd" id="1_u1kog"]
 [ext_resource type="PackedScene" uid="uid://6i8n7f212s2i" path="res://Game/platform.tscn" id="2_0q2ud"]
 [ext_resource type="PackedScene" uid="uid://bn8g0lgjvplhw" path="res://Player/Player.tscn" id="3_86lmv"]
-[ext_resource type="Texture2D" uid="uid://c5uv2csl40mdi" path="res://Assets/Legacy-Fantasy - High Forest 2.3/Assets/Tiles.png" id="4_u8pp0"]
+[ext_resource type="Texture2D" uid="uid://c5uv2csl40mdi" path="res://Assets/Legacy-Fantasy/Legacy-Fantasy - High Forest 2.3/Assets/Tiles.png" id="4_u8pp0"]
 [ext_resource type="PackedScene" uid="uid://cb1uy0gqtdqqs" path="res://Items/item_pickup.tscn" id="5_11duo"]
 [ext_resource type="Script" path="res://Items/item_pickup.gd" id="6_vcysp"]
 [ext_resource type="Script" path="res://Items/feather.gd" id="7_5c238"]
