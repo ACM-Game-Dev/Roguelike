@@ -14,10 +14,10 @@ func _ready():
 	nav_agent.path_desired_distance = 4
 	nav_agent.target_desired_distance = 4
 	if !player:
-		player = get_parent().get_node("Player")
+		player = get_parent().get_parent().get_parent().get_node("Player")
 
 func _physics_process(delta):
-	if in_range:
+	if in_range and player:
 		nav_agent.target_position = player.global_position
 	
 	if nav_agent.is_navigation_finished():
