@@ -316,6 +316,10 @@ libraries = {
 }
 playback_default_blend_time = 0.1
 
+[node name="TabBar" type="TabBar" parent="AnimationPlayer"]
+offset_right = 40.0
+offset_bottom = 40.0
+
 [node name="AnimationTree" type="AnimationTree" parent="."]
 unique_name_in_owner = true
 root_node = NodePath("%AnimationTree/..")
@@ -336,13 +340,15 @@ hframes = 10
 vframes = 12
 
 [node name="PlayerGUI" type="Control" parent="."]
+z_index = 10
 layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
 
 [node name="HealthBar" type="ProgressBar" parent="PlayerGUI" node_paths=PackedStringArray("player")]
-z_index = -1
+z_index = 10
+z_as_relative = false
 layout_mode = 0
 offset_left = -81.0
 offset_top = 165.0
@@ -355,6 +361,7 @@ script = ExtResource("4_3gsxi")
 player = NodePath("../..")
 
 [node name="HBoxContainer" type="HBoxContainer" parent="PlayerGUI"]
+z_index = 10
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0

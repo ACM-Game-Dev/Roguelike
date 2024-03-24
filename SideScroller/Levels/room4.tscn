@@ -1,11 +1,11 @@
 [gd_scene load_steps=14 format=3 uid="uid://cbbn1kgdasovy"]
 
-[ext_resource type="Texture2D" uid="uid://bipo8ttibcn3f" path="res://Assets/Legacy-Fantasy - High Forest 2.3/Assets/Tree-Assets.png" id="1_gy250"]
-[ext_resource type="Texture2D" uid="uid://c5uv2csl40mdi" path="res://Assets/Legacy-Fantasy - High Forest 2.3/Assets/Tiles.png" id="2_sdvjc"]
-[ext_resource type="Texture2D" uid="uid://c4yfntwwh8om3" path="res://Assets/Legacy-Fantasy - High Forest 2.3/Assets/Props-Rocks.png" id="3_knw20"]
-[ext_resource type="Texture2D" uid="uid://gr0omqwgjmq0" path="res://Assets/Legacy-Fantasy - High Forest 2.3/Assets/Interior-01.png" id="4_vasl4"]
-[ext_resource type="Texture2D" uid="uid://de56dnsebkt3c" path="res://Assets/Legacy-Fantasy - High Forest 2.3/Assets/Hive.png" id="5_h10ep"]
-[ext_resource type="Texture2D" uid="uid://dk5r5n8k5fmhu" path="res://Assets/Legacy-Fantasy - High Forest 2.3/Assets/Buildings.png" id="6_cl0yb"]
+[ext_resource type="Texture2D" uid="uid://bipo8ttibcn3f" path="res://Assets/Legacy-Fantasy/Legacy-Fantasy - High Forest 2.3/Assets/Tree-Assets.png" id="1_gy250"]
+[ext_resource type="Texture2D" uid="uid://c5uv2csl40mdi" path="res://Assets/Legacy-Fantasy/Legacy-Fantasy - High Forest 2.3/Assets/Tiles.png" id="2_sdvjc"]
+[ext_resource type="Texture2D" uid="uid://c4yfntwwh8om3" path="res://Assets/Legacy-Fantasy/Legacy-Fantasy - High Forest 2.3/Assets/Props-Rocks.png" id="3_knw20"]
+[ext_resource type="Texture2D" uid="uid://gr0omqwgjmq0" path="res://Assets/Legacy-Fantasy/Legacy-Fantasy - High Forest 2.3/Assets/Interior-01.png" id="4_vasl4"]
+[ext_resource type="Texture2D" uid="uid://de56dnsebkt3c" path="res://Assets/Legacy-Fantasy/Legacy-Fantasy - High Forest 2.3/Assets/Hive.png" id="5_h10ep"]
+[ext_resource type="Texture2D" uid="uid://dk5r5n8k5fmhu" path="res://Assets/Legacy-Fantasy/Legacy-Fantasy - High Forest 2.3/Assets/Buildings.png" id="6_cl0yb"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_wbu1f"]
 texture = ExtResource("1_gy250")
