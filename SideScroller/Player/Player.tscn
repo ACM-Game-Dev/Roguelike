@@ -6,7 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://bh1kmisu8d5hw" path="res://Assets/Fullmain.png" id="2_yscfa"]
 [ext_resource type="Script" path="res://Items/ItemCount.gd" id="3_w3gpo"]
 [ext_resource type="Script" path="res://Player/PlayerHealthGUI.gd" id="4_3gsxi"]
-[ext_resource type="PackedScene" uid="uid://chrbdxkldsppe" path="res://Equipment/sword.tscn" id="8_sm4dw"]
+[ext_resource type="PackedScene" uid="uid://chrbdxkldsppe" path="res://Equipment/Sword/sword.tscn" id="8_sm4dw"]
 
 [sub_resource type="Resource" id="Resource_4pgi6"]
 resource_local_to_scene = true

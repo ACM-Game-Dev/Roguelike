@@ -12,8 +12,8 @@
 [ext_resource type="PackedScene" uid="uid://bn8g0lgjvplhw" path="res://Player/Player.tscn" id="10_8qk32"]
 [ext_resource type="Script" path="res://Player/PlayerStats.gd" id="11_ig7l4"]
 [ext_resource type="PackedScene" uid="uid://bkmyv2a676e4u" path="res://Equipment/WeaponPickup.tscn" id="14_cqh01"]
-[ext_resource type="PackedScene" uid="uid://c71pit1rpvc4j" path="res://Equipment/spell_pickup.tscn" id="15_imm3m"]
-[ext_resource type="PackedScene" uid="uid://c233y0pcx661r" path="res://Equipment/axe_pickup.tscn" id="16_7bfxu"]
+[ext_resource type="PackedScene" uid="uid://c71pit1rpvc4j" path="res://Spells/spell_pickup.tscn" id="15_imm3m"]
+[ext_resource type="PackedScene" uid="uid://c233y0pcx661r" path="res://Equipment/Axe/axe_pickup.tscn" id="16_7bfxu"]
 
 [sub_resource type="Resource" id="Resource_18n32"]
 resource_local_to_scene = true
