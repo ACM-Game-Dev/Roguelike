@@ -7,28 +7,38 @@ signal health_changed
 @export var playerStats: PlayerStats
 @export var itemCount: ItemCount
 
-@onready var anim_tree: AnimationTree = %AnimationTree
 @onready var equipment_list = %Equipment.get_children()
-
+@onready var sprite = $AnimatedSprite2D
+@onready var anim_player = $AnimationPlayer
 
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 var current_equipment: int = 0
+var curr_weapon: String
+var attacking = false
 
 func _ready():
-	anim_tree.active = true
+	curr_weapon = "Sword1"
 
 func update_animation_parameters():
 	if velocity.x < -0.1:
-		%PlayerSprite.flip_h = true
+		sprite.flip_h = true
 	elif velocity.x > 0.1:
-		%PlayerSprite.flip_h = false
+		sprite.flip_h = false
 	
 	# Checking conditionals to set animations 
-	anim_tree.set("parameters/conditions/idle", is_on_floor() && (velocity == Vector2.ZERO))
-	anim_tree.set("parameters/conditions/is_moving", is_on_floor() && (velocity != Vector2.ZERO))
-	anim_tree.set("parameters/conditions/is_jumping", !is_on_floor())
-	anim_tree.set("parameters/conditions/swing", Input.is_action_just_pressed("attack"))
+	if is_on_floor() && (velocity == Vector2.ZERO) && !attacking:
+		sprite.play("Idle")
+	elif is_on_floor() && (velocity != Vector2.ZERO) && !attacking:
+		sprite.play("Walk")
+	elif !is_on_floor() && !attacking:
+		sprite.play("Jump")
 
+func attack_animation():
+	attacking = true
+	sprite.play(curr_weapon)
+	await get_tree().create_timer(1).timeout
+	attacking = false
+	
 func equip_item(item: Item):
 	itemCount.itemCountDict[item.name] += 1
 	item.equip(self)
@@ -50,6 +60,7 @@ func use_equipment():
 	if Input.is_action_just_pressed("attack"):
 		var curr_equipment = equipment_list[current_equipment]
 		curr_equipment.activate(self)
+		attack_animation()
 		print(curr_equipment.name)
 
 func jump_and_fall(delta):

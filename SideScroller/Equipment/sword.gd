@@ -7,8 +7,7 @@ var swings = 0
 var cooledDown = true
 
 func equip(player):
-	# Replace player default anims with sword anims
-	pass
+	player.curr_weapon = "Sword1"
 	
 func activate(player):
 	if not cooledDown:
