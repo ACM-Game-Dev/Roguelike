@@ -13,11 +13,16 @@ signal health_changed
 
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 var current_equipment: int = 0
-var curr_weapon: String
 var attacking = false
+var curr_weapon: String = ""
+var idle_anim: String = ""
+var swing_anim: String = ""
 
 func _ready():
-	curr_weapon = "Sword1"
+	# These are only here because sword.gd "equip" is, as of right now, never being called
+	curr_weapon = "Sword"
+	idle_anim = "Idle"
+	swing_anim = "Sword_Swing1"
 
 func update_animation_parameters():
 	if velocity.x < -0.1:
@@ -27,7 +32,7 @@ func update_animation_parameters():
 	
 	# Checking conditionals to set animations 
 	if is_on_floor() && (velocity == Vector2.ZERO) && !attacking:
-		sprite.play("Idle")
+		sprite.play(idle_anim)
 	elif is_on_floor() && (velocity != Vector2.ZERO) && !attacking:
 		sprite.play("Walk")
 	elif !is_on_floor() && !attacking:
@@ -35,7 +40,8 @@ func update_animation_parameters():
 
 func attack_animation():
 	attacking = true
-	sprite.play(curr_weapon)
+	sprite.play(swing_anim)
+	#If this delay is not here, the swing animation will be immediately overwritten
 	await get_tree().create_timer(1).timeout
 	attacking = false
 	
@@ -60,7 +66,6 @@ func use_equipment():
 	if Input.is_action_just_pressed("attack"):
 		var curr_equipment = equipment_list[current_equipment]
 		curr_equipment.activate(self)
-		attack_animation()
 		print(curr_equipment.name)
 
 func jump_and_fall(delta):
