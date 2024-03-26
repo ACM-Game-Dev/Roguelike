@@ -7,7 +7,7 @@ class_name Weapon_Resource
 
 @export_group("Anims")
 @export var idle_anim: String
-@export var swing_anim: String
+@export var activate_anim: String
 @export var throw_anim: String
 
 @export_group("Sprites")

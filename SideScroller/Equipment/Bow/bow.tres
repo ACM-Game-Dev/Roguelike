@@ -4,9 +4,9 @@
 
 [resource]
 script = ExtResource("1_kgrdo")
-equipment_name = "Sword"
-idle_anim = ""
-swing_anim = ""
+equipment_name = "Bow"
+idle_anim = "Idle"
+activate_anim = "Bow_Shoot"
 throw_anim = ""
 hand_sprite = ""
 world_sprite = ""

@@ -1,6 +1,7 @@
 extends Item
 
-class_name feather
+class_name Feather
+@export var item: Item  = self
 
 func equip(player:Player):
 	var player_stats: PlayerStats = player.playerStats
@@ -9,3 +10,9 @@ func equip(player:Player):
 
 func unequip(player:Player):
 	pass
+
+
+func _on_body_entered(body):
+	if body.has_method("equip_item"):
+		body.equip_item(item)
+		queue_free()

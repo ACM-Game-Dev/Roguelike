@@ -1,4 +1,4 @@
-[gd_scene load_steps=53 format=3 uid="uid://bn8g0lgjvplhw"]
+[gd_scene load_steps=77 format=3 uid="uid://bn8g0lgjvplhw"]
 
 [ext_resource type="Script" path="res://Player/player.gd" id="1_il1mb"]
 [ext_resource type="Script" path="res://Player/Camerafollow.gd" id="2_27jpg"]
@@ -6,7 +6,11 @@
 [ext_resource type="Texture2D" uid="uid://bh1kmisu8d5hw" path="res://Assets/Fullmain.png" id="2_yscfa"]
 [ext_resource type="Script" path="res://Items/ItemCount.gd" id="3_w3gpo"]
 [ext_resource type="Script" path="res://Player/PlayerHealthGUI.gd" id="4_3gsxi"]
+[ext_resource type="Texture2D" uid="uid://xgaop3hljpqa" path="res://Assets/hammer.png" id="5_ilvkl"]
+[ext_resource type="Texture2D" uid="uid://ccmae5y01il5c" path="res://Assets/bow.png" id="5_o18et"]
 [ext_resource type="PackedScene" uid="uid://chrbdxkldsppe" path="res://Equipment/Sword/sword.tscn" id="8_sm4dw"]
+[ext_resource type="PackedScene" uid="uid://cdf5evnlh8cda" path="res://Equipment/Hammer/hammer.tscn" id="9_hu5a4"]
+[ext_resource type="PackedScene" uid="uid://dnl5oo3iuuadv" path="res://Equipment/Bow/bow.tscn" id="11_0jb04"]
 
 [sub_resource type="Resource" id="Resource_4pgi6"]
 resource_local_to_scene = true
@@ -25,6 +29,86 @@ itemCountDict = {
 }
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_cb1s0"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_osert"]
+atlas = ExtResource("5_o18et")
+region = Rect2(0, 0, 74, 42)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tcptw"]
+atlas = ExtResource("5_o18et")
+region = Rect2(74, 0, 74, 42)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0afu4"]
+atlas = ExtResource("5_o18et")
+region = Rect2(148, 0, 74, 42)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vg0h5"]
+atlas = ExtResource("5_o18et")
+region = Rect2(222, 0, 74, 42)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mqbk1"]
+atlas = ExtResource("5_o18et")
+region = Rect2(296, 0, 74, 42)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_q3p3q"]
+atlas = ExtResource("5_ilvkl")
+region = Rect2(0, 0, 74, 42)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2axt5"]
+atlas = ExtResource("5_ilvkl")
+region = Rect2(74, 0, 74, 42)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lmrus"]
+atlas = ExtResource("5_ilvkl")
+region = Rect2(148, 0, 74, 42)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wg82e"]
+atlas = ExtResource("5_ilvkl")
+region = Rect2(222, 0, 74, 42)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_l6h0c"]
+atlas = ExtResource("5_ilvkl")
+region = Rect2(296, 0, 74, 42)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2y6to"]
+atlas = ExtResource("5_ilvkl")
+region = Rect2(370, 0, 74, 42)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_t2kpx"]
+atlas = ExtResource("5_ilvkl")
+region = Rect2(444, 0, 74, 42)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_u0arg"]
+atlas = ExtResource("5_ilvkl")
+region = Rect2(518, 0, 74, 42)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uguln"]
+atlas = ExtResource("5_ilvkl")
+region = Rect2(592, 0, 74, 42)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rdrqg"]
+atlas = ExtResource("5_ilvkl")
+region = Rect2(666, 0, 74, 42)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_c31pc"]
+atlas = ExtResource("5_ilvkl")
+region = Rect2(740, 0, 74, 42)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_64yqb"]
+atlas = ExtResource("5_ilvkl")
+region = Rect2(814, 0, 74, 42)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6i3hq"]
+atlas = ExtResource("5_ilvkl")
+region = Rect2(888, 0, 74, 42)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cahfc"]
+atlas = ExtResource("5_ilvkl")
+region = Rect2(962, 0, 74, 42)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xo4es"]
+atlas = ExtResource("5_ilvkl")
+region = Rect2(1036, 0, 74, 42)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_mcom0"]
 atlas = ExtResource("2_yscfa")
@@ -174,6 +258,76 @@ region = Rect2(250, 37, 50, 37)
 animations = [{
 "frames": [{
 "duration": 1.0,
+"texture": SubResource("AtlasTexture_osert")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tcptw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0afu4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vg0h5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mqbk1")
+}],
+"loop": false,
+"name": &"Bow_Shoot",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_q3p3q")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2axt5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lmrus")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wg82e")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_l6h0c")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2y6to")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_t2kpx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_u0arg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uguln")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rdrqg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_c31pc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_64yqb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6i3hq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cahfc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xo4es")
+}],
+"loop": false,
+"name": &"Hammer_Swing",
+"speed": 15.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_mcom0")
 }, {
 "duration": 1.0,
@@ -213,7 +367,7 @@ animations = [{
 }],
 "loop": false,
 "name": &"Jump",
-"speed": 8.0
+"speed": 10.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -308,7 +462,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"Walk",
-"speed": 8.0
+"speed": 10.0
 }]
 
 [sub_resource type="Animation" id="Animation_q4k0t"]
@@ -440,5 +594,9 @@ text = "  3  "
 unique_name_in_owner = true
 
 [node name="Sword" parent="Equipment" instance=ExtResource("8_sm4dw")]
+
+[node name="Hammer" parent="Equipment" instance=ExtResource("9_hu5a4")]
+
+[node name="Bow" parent="Equipment" instance=ExtResource("11_0jb04")]
 
 [connection signal="health_changed" from="." to="PlayerGUI/HealthBar" method="_on_player_health_changed"]

@@ -1,0 +1,8 @@
+[gd_scene load_steps=3 format=3 uid="uid://cdf5evnlh8cda"]
+
+[ext_resource type="Script" path="res://Equipment/Hammer/hammer.gd" id="1_26puu"]
+[ext_resource type="Resource" uid="uid://1tjmucu3o6ma" path="res://Equipment/Hammer/hammer.tres" id="2_iiv36"]
+
+[node name="Hammer" type="Node2D"]
+script = ExtResource("1_26puu")
+weapon_resource = ExtResource("2_iiv36")

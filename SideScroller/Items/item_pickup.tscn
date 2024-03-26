@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://cb1uy0gqtdqqs"]
 
 [ext_resource type="Script" path="res://Items/item_pickup.gd" id="1_w3pdt"]
-[ext_resource type="Script" path="res://Items/ACM Brand Pizza.gd" id="2_wpa11"]
+[ext_resource type="Script" path="res://Items/Pizza/ACM Brand Pizza.gd" id="2_wpa11"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xnxu6"]
 

@@ -6,7 +6,7 @@
 script = ExtResource("1_qwkwp")
 equipment_name = "Sword"
 idle_anim = "Idle"
-swing_anim = "Sword_Swing1"
+activate_anim = "Sword_Swing1"
 throw_anim = ""
 hand_sprite = ""
 world_sprite = ""

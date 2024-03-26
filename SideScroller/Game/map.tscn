@@ -6,7 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://c5uv2csl40mdi" path="res://Assets/Legacy-Fantasy/Legacy-Fantasy - High Forest 2.3/Assets/Tiles.png" id="4_u8pp0"]
 [ext_resource type="PackedScene" uid="uid://cb1uy0gqtdqqs" path="res://Items/item_pickup.tscn" id="5_11duo"]
 [ext_resource type="Script" path="res://Items/item_pickup.gd" id="6_vcysp"]
-[ext_resource type="Script" path="res://Items/feather.gd" id="7_5c238"]
+[ext_resource type="Script" path="res://Items/Feather/feather.gd" id="7_5c238"]
 [ext_resource type="Script" path="res://Player/PlayerStats.gd" id="9_m7p3i"]
 [ext_resource type="PackedScene" uid="uid://d1f7ngdq5rld7" path="res://Enemies/Flying/flying_enemy.tscn" id="9_v8sah"]
 [ext_resource type="Script" path="res://Enemies/Enemy_Resource.gd" id="10_j3om4"]

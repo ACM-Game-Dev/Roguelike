@@ -12,17 +12,17 @@ signal health_changed
 @onready var anim_player = $AnimationPlayer
 
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
-var current_equipment: int = 0
+var current_equipment: int = 0 #0 = Sword, 1 = Hammer, 2 = Bow
 var attacking = false
-var curr_weapon: String = ""
-var idle_anim: String = ""
-var swing_anim: String = ""
+
+#These are set in equip() of the weapon we are using
+var curr_weapon: String
+var idle_anim: String 
+var attack_anim: String 
 
 func _ready():
-	# These are only here because sword.gd "equip" is, as of right now, never being called
-	curr_weapon = "Sword"
-	idle_anim = "Idle"
-	swing_anim = "Sword_Swing1"
+	# This is only here so we spawn with a weapon. Right now, we never "encounter" a weapon
+	equipment_list[current_equipment].equip(self)
 
 func update_animation_parameters():
 	if velocity.x < -0.1:
@@ -40,9 +40,9 @@ func update_animation_parameters():
 
 func attack_animation():
 	attacking = true
-	sprite.play(swing_anim)
+	sprite.play(attack_anim)
 	#If this delay is not here, the swing animation will be immediately overwritten
-	await get_tree().create_timer(1).timeout
+	await get_tree().create_timer(.7).timeout # .7s just kinda feels right 
 	attacking = false
 	
 func equip_item(item: Item):
@@ -63,10 +63,8 @@ func player_death():
 	get_tree().reload_current_scene()
 
 func use_equipment():
-	if Input.is_action_just_pressed("attack"):
-		var curr_equipment = equipment_list[current_equipment]
-		curr_equipment.activate(self)
-		print(curr_equipment.name)
+	equipment_list[current_equipment].activate(self)
+	print(equipment_list[current_equipment].name)
 
 func jump_and_fall(delta):
 	# Add the gravity.
@@ -83,12 +81,13 @@ func move_horizontal():
 		velocity.x = direction * playerStats.MOVE_SPEED
 	else:
 		velocity.x = move_toward(velocity.x, 0, playerStats.MOVE_SPEED)
+	
+	move_and_slide()
 
 func _physics_process(delta):
 	jump_and_fall(delta)
-	
-	update_animation_parameters()
-	use_equipment()
 	move_horizontal()
-		
-	move_and_slide()
+	update_animation_parameters()
+	
+	if Input.is_action_just_pressed("attack"): # Moved this conditional here so we are not calling use_equipment every frame
+		use_equipment()

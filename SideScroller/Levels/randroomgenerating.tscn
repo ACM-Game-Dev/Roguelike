@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://cg1mermfhged5"]
+[gd_scene load_steps=17 format=3 uid="uid://cg1mermfhged5"]
 
 [ext_resource type="Script" path="res://Levels/roommanager.gd" id="1_eyccr"]
 [ext_resource type="PackedScene" uid="uid://de3jyfyvp8xty" path="res://Levels/room1.tscn" id="2_fphch"]
@@ -13,6 +13,7 @@
 [ext_resource type="Script" path="res://Player/PlayerStats.gd" id="11_ig7l4"]
 [ext_resource type="PackedScene" uid="uid://bkmyv2a676e4u" path="res://Equipment/WeaponPickup.tscn" id="14_cqh01"]
 [ext_resource type="PackedScene" uid="uid://c71pit1rpvc4j" path="res://Spells/spell_pickup.tscn" id="15_imm3m"]
+[ext_resource type="PackedScene" uid="uid://dsnkenxyurqpc" path="res://Items/Feather/Feather.tscn" id="15_ovuek"]
 [ext_resource type="PackedScene" uid="uid://c233y0pcx661r" path="res://Equipment/Axe/axe_pickup.tscn" id="16_7bfxu"]
 
 [sub_resource type="Resource" id="Resource_18n32"]
@@ -51,3 +52,6 @@ position = Vector2(173, 371)
 
 [node name="Axe_Pickup" parent="." instance=ExtResource("16_7bfxu")]
 position = Vector2(194, 300)
+
+[node name="RigidBody2D2" parent="." instance=ExtResource("15_ovuek")]
+position = Vector2(351, 289)
