@@ -33,3 +33,6 @@ polygon = PackedVector2Array(-625, -54, -625, -129, -641, -129, -641, -289, -624
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="FloorCollider"]
 polygon = PackedVector2Array(-630, -53, -607, -53, -512, -4, -461, -4, -404, 27, 592, 28, 592, 399, -629, 399)
+
+[node name="PlayerSpawn" type="Node2D" parent="."]
+position = Vector2(-51, -19)

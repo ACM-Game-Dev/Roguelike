@@ -1,0 +1,31 @@
+[gd_scene load_steps=4 format=3 uid="uid://bhbce7xdxl2ao"]
+
+[ext_resource type="TileSet" uid="uid://djoa8d1igga7j" path="res://Levels/kingdomTileSet.tres" id="1_6a7ui"]
+[ext_resource type="Script" path="res://World/gateway.gd" id="2_mnd8y"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_36yhm"]
+size = Vector2(42, 64)
+
+[node name="Gateway" type="Node2D"]
+
+[node name="TileMap" type="TileMap" parent="."]
+position = Vector2(7.825, 0)
+tile_set = ExtResource("1_6a7ui")
+format = 2
+layer_0/tile_data = PackedInt32Array(-65538, 458753, 9, -2, 458753, 10, 65534, 458753, 11, 131070, 458753, 12, -65537, 524289, 9, -1, 524289, 10, 65535, 524289, 11, 131071, 524289, 12, -131072, 589825, 9, -65536, 589825, 10, 0, 589825, 11, 65536, 589825, 12)
+
+[node name="Area2D" type="Area2D" parent="."]
+script = ExtResource("2_mnd8y")
+
+[node name="EnterDoorText" type="Label" parent="Area2D"]
+offset_left = -111.0
+offset_top = -65.0
+offset_right = 115.0
+offset_bottom = -24.0
+theme_override_font_sizes/font_size = 24
+text = "Press \"e\" to enter"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("RectangleShape2D_36yhm")
