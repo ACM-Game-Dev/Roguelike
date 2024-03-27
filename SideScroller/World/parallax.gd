@@ -8,11 +8,11 @@ var original_player_pos: Vector2
 func _ready():
 	player = get_node("../../../Player")
 	
-	if player:
-		print("Player found: ", player)
-		original_player_pos = player.global_position
-	else:
-		print("Player not found")
+	#if player:
+	#	print("Player found: ", player)
+	#	original_player_pos = player.global_position
+	#else:
+	#	print("Player not found")
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
