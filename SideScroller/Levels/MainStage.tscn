@@ -19,6 +19,18 @@ NUM_JUMPS = 1
 [node name="Lobby" parent="." instance=ExtResource("1_vom34")]
 z_index = -1
 
+[node name="SkyBackground" parent="Lobby/Node" index="0" node_paths=PackedStringArray("player")]
+parallax_strength = 50.0
+player = NodePath("../../../Player")
+
+[node name="MountainBackground - Sprite2" parent="Lobby/Node" index="1" node_paths=PackedStringArray("player")]
+parallax_strength = 50.0
+player = NodePath("../../../Player")
+
+[node name="MountainBackground - Sprite" parent="Lobby/Node" index="2" node_paths=PackedStringArray("player")]
+parallax_strength = 50.0
+player = NodePath("../../../Player")
+
 [node name="Gateway" parent="Lobby" instance=ExtResource("2_u1bul")]
 z_index = -5
 position = Vector2(-8, 14)
@@ -26,3 +38,5 @@ position = Vector2(-8, 14)
 [node name="Player" parent="." instance=ExtResource("1_hwtgt")]
 position = Vector2(-117, 40)
 playerStats = SubResource("Resource_gxwti")
+
+[editable path="Lobby"]

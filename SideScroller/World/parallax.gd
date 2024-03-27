@@ -1,18 +1,8 @@
 extends Node2D
 
 @export var parallax_strength: float = 10 # Lower is stronger!!
-var player: Node = null # Initialize player as null
+@export var player: Node = null # Initialize player as null
 var original_player_pos: Vector2
-
-# Called when the node enters the scene tree for the first time.
-func _ready():
-	player = get_node("../../../Player")
-	
-	#if player:
-	#	print("Player found: ", player)
-	#	original_player_pos = player.global_position
-	#else:
-	#	print("Player not found")
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
