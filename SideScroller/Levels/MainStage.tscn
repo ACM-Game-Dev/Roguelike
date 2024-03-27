@@ -20,6 +20,7 @@ NUM_JUMPS = 1
 z_index = -1
 
 [node name="SkyBackground" parent="Lobby/Node" index="0" node_paths=PackedStringArray("player")]
+position = Vector2(51, 16)
 parallax_strength = 50.0
 player = NodePath("../../../Player")
 
