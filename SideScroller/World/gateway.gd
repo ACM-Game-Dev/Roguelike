@@ -21,6 +21,8 @@ func _on_Door_Entered(area):
 	if area == player: 
 		label.visible = true
 		print("Player is in the gateway")
+		if Input.is_action_just_pressed("interact"): 
+			print("Player is entering the door...")
 
 
 func _on_Door_Exited(area):
@@ -28,9 +30,5 @@ func _on_Door_Exited(area):
 		label.visible = false
 		print("Player is not in the gateway")
 		
-# This function is called every frame, which checks for player interaction
-func _process(delta):
-	if label.visible and Input.is_action_just_pressed("interact"): 
-		print("Player is entering the door...")
 
 
