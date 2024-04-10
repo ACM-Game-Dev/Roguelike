@@ -1,0 +1,31 @@
+[gd_scene load_steps=13 format=3 uid="uid://dq17r77j5q7rt"]
+
+[ext_resource type="Script" path="res://levelController.gd" id="1_5rmig"]
+[ext_resource type="Script" path="res://Levels/roommanager.gd" id="1_413ty"]
+[ext_resource type="PackedScene" uid="uid://de3jyfyvp8xty" path="res://Levels/Plains/room1 - plains.tscn" id="2_a8cfh"]
+[ext_resource type="PackedScene" uid="uid://dsb1asatgnfwo" path="res://Levels/Plains/room2 - plains.tscn" id="3_51nqw"]
+[ext_resource type="PackedScene" uid="uid://dfofh83uh6e3m" path="res://Levels/Plains/room3 - plains.tscn" id="4_lp2kg"]
+[ext_resource type="PackedScene" uid="uid://cbbn1kgdasovy" path="res://Levels/room1 - cave.tscn" id="5_kilx1"]
+[ext_resource type="PackedScene" uid="uid://ej60se2bopfv" path="res://Levels/Plains/room5 - plains.tscn" id="6_kdv7d"]
+[ext_resource type="PackedScene" uid="uid://dja1vngs8td73" path="res://Levels/Plains/room6 - plains.tscn" id="7_b43an"]
+[ext_resource type="PackedScene" uid="uid://kir4rjhh7whe" path="res://Levels/Plains/room7 - plains.tscn" id="8_5boyo"]
+[ext_resource type="PackedScene" uid="uid://o6ih4vegxxxq" path="res://Levels/Plains/room8 - plains.tscn" id="9_vl48p"]
+[ext_resource type="PackedScene" uid="uid://cs4c7lvm3xp10" path="res://Levels/Plains/roomStart - plains.tscn" id="10_4s7tm"]
+[ext_resource type="PackedScene" uid="uid://vi0ltqnvwm0s" path="res://Levels/Plains/finalRoom - plains.tscn" id="11_nc350"]
+
+[node name="PlainsLevel" type="Node2D"]
+script = ExtResource("1_5rmig")
+
+[node name="RoomManager" type="Node2D" parent="."]
+position = Vector2(-16670, 197)
+script = ExtResource("1_413ty")
+rooms = Array[PackedScene]([ExtResource("2_a8cfh"), ExtResource("3_51nqw"), ExtResource("4_lp2kg"), ExtResource("5_kilx1"), ExtResource("6_kdv7d"), ExtResource("7_b43an"), ExtResource("8_5boyo"), ExtResource("9_vl48p")])
+min_rooms = 8
+max_rooms = 8
+startRoom = ExtResource("10_4s7tm")
+finalRoom = ExtResource("11_nc350")
+
+[node name="FirstEntry" type="Node2D" parent="RoomManager"]
+position = Vector2(3, 426)
+
+[node name="SpawnPoint" type="Node2D" parent="."]
