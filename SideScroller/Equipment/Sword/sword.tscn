@@ -16,6 +16,7 @@ weapon_resource = ExtResource("2_ryqpe")
 position = Vector2(10, 0)
 scale = Vector2(1, 0.748962)
 shape = SubResource("CircleShape2D_3xmcj")
+disabled = true
 debug_color = Color(0, 0.639216, 0.360784, 0.419608)
 
 [node name="AttackArea2" type="Area2D" parent="."]
@@ -24,4 +25,8 @@ debug_color = Color(0, 0.639216, 0.360784, 0.419608)
 position = Vector2(10, 0)
 scale = Vector2(0.634127, 0.939347)
 shape = SubResource("CircleShape2D_3xmcj")
+disabled = true
 debug_color = Color(0, 0.639216, 0.360784, 0.419608)
+
+[connection signal="body_entered" from="AttackArea1" to="." method="hitbox1_detection"]
+[connection signal="body_entered" from="AttackArea2" to="." method="hitbox2_detection"]
