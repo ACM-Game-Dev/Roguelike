@@ -4,6 +4,7 @@ extends Equipment
 class_name Bow
 
 @export var weapon_resource: Weapon_Resource
+var arrowScene = preload("res://Equipment/Bow/arrow.tscn")
 var cooledDown = true
 
 func equip(player):
@@ -17,16 +18,21 @@ func equip(player):
 func activate(player):
 	if not cooledDown:
 		return
-		
+
 	cooledDown = false
 	player.attack_animation() # Playing the player's attack animation
+	var arrow = arrowScene.instantiate()
+	get_parent().get_parent().add_child(arrow)
+	if player.sprite.flip_h:
+		arrow.SPEED *= -1
+		arrow.arrow_sprite.flip_h = true
 	print("BOW SHOT")
 	
 	await get_tree().create_timer(weapon_resource.attack_delay).timeout
 	cooledDown = true
 	print("READY TO SHOOT BOW")
 	
-	
+
 
 func drop(player):
 	# Reset player animations to normal
