@@ -2,11 +2,11 @@ extends CharacterBody2D
 
 class_name GroundEnemy
 
-@export var player: Player
 @export var enemy_resource: Enemy_Resource
 
-var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
+@onready var player: Player = Globals.get_player()
 
+var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 var damaging = false
 var direction = Vector2.RIGHT
 var distance = 100
@@ -19,7 +19,6 @@ func _ready():
 func _physics_process(delta):
 	if player:
 		distance = (player.global_position - global_position).length()
-		
 		if distance < range:
 			direction = (player.global_position - global_position).normalized()
 			velocity.x = enemy_resource.speed * direction.x * delta

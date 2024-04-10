@@ -5,7 +5,7 @@
 [sub_resource type="GDScript" id="GDScript_0x6aq"]
 script/source = "extends CharacterBody2D
 
-class_name FlyingEnemy
+
 
 @export var enemy_resource: Enemy_Resource
 
@@ -17,6 +17,15 @@ func _ready():
 	if !player:
 		player = get_parent().get_node(\"CharacterBody2D\")
 
+func take_damage(val: int):
+	enemy_resource.health -= val
+	print(\"Took damage, health: \" + str(enemy_resource.health))
+	
+func died():
+	if enemy_resource.health < 1:
+		player.gain_silver(enemy_resource.silver)
+		
+
 func _physics_process(delta):
 	if player:
 		direction = (player.global_position - global_position).normalized()
@@ -27,6 +36,10 @@ func _physics_process(delta):
 		%AnimatedSprite2D.flip_h = false
 	else:
 		%AnimatedSprite2D.flip_h = true
+	
+	take_damage(1)
+	died()
+
 
 	if damaging:
 		player.take_damage(enemy_resource.damage)
@@ -50,6 +63,7 @@ speed = 5000.0
 damage = 1
 enemy_name = "Bea"
 enemy_type = "Bee"
+silver = 0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_l66iu"]
 radius = 7.07107

@@ -3,7 +3,8 @@ extends CharacterBody2D
 class_name FlyingEnemy
 
 @export var enemy_resource: Enemy_Resource
-@export var player: Player
+
+@onready var player: Player = Globals.get_player()
 @onready var nav_agent = $NavigationAgent2D
 
 var direction = Vector2.RIGHT
@@ -13,8 +14,7 @@ var in_range = false
 func _ready():
 	nav_agent.path_desired_distance = 4
 	nav_agent.target_desired_distance = 4
-	if !player:
-		player = get_parent().get_parent().get_parent().get_node("Player")
+
 
 func _physics_process(delta):
 	if in_range and player:
@@ -31,10 +31,20 @@ func _physics_process(delta):
 	else:
 		%AnimatedSprite2D.flip_h = true
 
-	if damaging:
+
+	if damaging and player:
 		player.take_damage(enemy_resource.damage)
 
 	move_and_slide()
+	
+func take_damage_enemy(val: int):
+	enemy_resource.health -= val
+	# Check for enemy death
+	died()
+func died():
+	if enemy_resource.health < 1:
+		player.gain_silver(enemy_resource.silver)
+		queue_free()
 
 func _on_area_2d_body_entered(body):
 	if body.has_method("take_damage"):
@@ -46,8 +56,12 @@ func _on_area_2d_body_exited(body):
 
 func _on_range_body_entered(body):
 	if body.name == "Player":
+		if !player: 
+			player = body
 		in_range = true
 
 func _on_range_body_exited(body):
 	if body.name == "Player":
+		if player:
+			player = null
 		in_range = false

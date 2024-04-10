@@ -2,20 +2,31 @@ extends CharacterBody2D
 
 class_name Player
 
-signal health_changed
+signal health_changed(int)
+signal silver_changed(int)
 
 @export var playerStats: PlayerStats
 @export var itemCount: ItemCount
+@export var playerResources: RunResource
+@export var postRunResources: PostRunResource
 
 @onready var anim_tree: AnimationTree = %AnimationTree
 @onready var equipment_list = %Equipment.get_children()
 
-
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 var current_equipment: int = 0
+var saveFile = "user://saves/01.data"
+func load_post_run_resources():
+	var prev_resources: PostRunResource = load("user://01_save.tres")
+	postRunResources = prev_resources
+	
+	print(str(postRunResources))
+
 
 func _ready():
+	load_post_run_resources()
 	anim_tree.active = true
+	Globals.player = self
 
 func update_animation_parameters():
 	if velocity.x < -0.1:
@@ -38,9 +49,15 @@ func equip_item(item: Item):
 func take_damage(val: int):
 	playerStats.CURR_HEALTH -= val
 	print(playerStats.CURR_HEALTH)
-	health_changed.emit()
+	health_changed.emit(playerStats.CURR_HEALTH)
 	if playerStats.CURR_HEALTH <= 0: # Handling death
 		player_death()
+
+func gain_silver(val: int): 
+	playerResources.silver += val
+	print("Gained silver!: " + str(val))
+	print("Silver: " + str(playerResources.silver))
+	silver_changed.emit(playerResources.silver)
 
 func player_death():
 	print("Dead!") # On death, right now just resets the current scene

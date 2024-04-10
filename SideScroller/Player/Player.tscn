@@ -1,11 +1,13 @@
-[gd_scene load_steps=35 format=3 uid="uid://bn8g0lgjvplhw"]
+[gd_scene load_steps=39 format=3 uid="uid://bn8g0lgjvplhw"]
 
 [ext_resource type="Script" path="res://Player/player.gd" id="1_il1mb"]
 [ext_resource type="Script" path="res://Player/Camerafollow.gd" id="2_27jpg"]
 [ext_resource type="Script" path="res://Player/PlayerStats.gd" id="2_pbhnd"]
 [ext_resource type="Texture2D" uid="uid://bh1kmisu8d5hw" path="res://Assets/Fullmain.png" id="2_yscfa"]
 [ext_resource type="Script" path="res://Items/ItemCount.gd" id="3_w3gpo"]
-[ext_resource type="Script" path="res://Player/PlayerHealthGUI.gd" id="4_3gsxi"]
+[ext_resource type="Script" path="res://Player/RunResource.gd" id="4_daqh7"]
+[ext_resource type="Script" path="res://Player/PostRunResource.gd" id="5_jmtwg"]
+[ext_resource type="Script" path="res://Player/PlayerGUI.gd" id="8_h76kr"]
 [ext_resource type="PackedScene" uid="uid://chrbdxkldsppe" path="res://Equipment/sword.tscn" id="8_sm4dw"]
 
 [sub_resource type="Resource" id="Resource_4pgi6"]
@@ -24,7 +26,35 @@ itemCountDict = {
 "feather": 0
 }
 
+[sub_resource type="Resource" id="Resource_10fwy"]
+script = ExtResource("4_daqh7")
+silver = 0
+xp = 0
+num_kills = 0
+
+[sub_resource type="Resource" id="Resource_m4i48"]
+script = ExtResource("5_jmtwg")
+upgrades = {}
+skill_points = 0
+
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_cb1s0"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mp3y4"]
+bg_color = Color(0, 0, 0, 1)
+border_width_left = 2
+border_width_right = 2
+border_color = Color(1, 0, 0, 1)
+corner_radius_top_left = 12
+corner_radius_top_right = 12
+corner_radius_bottom_right = 12
+corner_radius_bottom_left = 12
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qttu6"]
+bg_color = Color(0.831373, 0.0666667, 0.101961, 1)
+corner_radius_top_left = 12
+corner_radius_top_right = 12
+corner_radius_bottom_right = 12
+corner_radius_bottom_left = 12
 
 [sub_resource type="Animation" id="Animation_li2tv"]
 resource_name = "Idle"
@@ -281,27 +311,12 @@ states/walk/node = SubResource("AnimationNodeAnimation_jiqe7")
 states/walk/position = Vector2(558, 217)
 transitions = ["Start", "Idle", SubResource("AnimationNodeStateMachineTransition_jayru"), "Idle", "attack", SubResource("AnimationNodeStateMachineTransition_vqvng"), "attack", "Idle", SubResource("AnimationNodeStateMachineTransition_82ltq"), "Idle", "walk", SubResource("AnimationNodeStateMachineTransition_nag6g"), "walk", "Idle", SubResource("AnimationNodeStateMachineTransition_qpo5t"), "walk", "attack", SubResource("AnimationNodeStateMachineTransition_s7yj2"), "attack", "walk", SubResource("AnimationNodeStateMachineTransition_ydpas"), "Idle", "jump", SubResource("AnimationNodeStateMachineTransition_cwf7b"), "jump", "Idle", SubResource("AnimationNodeStateMachineTransition_svjuy"), "jump", "walk", SubResource("AnimationNodeStateMachineTransition_hdg33"), "walk", "jump", SubResource("AnimationNodeStateMachineTransition_harqf")]
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mp3y4"]
-bg_color = Color(0, 0, 0, 1)
-border_width_left = 2
-border_width_right = 2
-border_color = Color(1, 0, 0, 1)
-corner_radius_top_left = 12
-corner_radius_top_right = 12
-corner_radius_bottom_right = 12
-corner_radius_bottom_left = 12
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qttu6"]
-bg_color = Color(0.831373, 0.0666667, 0.101961, 1)
-corner_radius_top_left = 12
-corner_radius_top_right = 12
-corner_radius_bottom_right = 12
-corner_radius_bottom_left = 12
-
-[node name="Player" type="CharacterBody2D"]
+[node name="Player" type="CharacterBody2D" groups=["Persist"]]
 script = ExtResource("1_il1mb")
 playerStats = SubResource("Resource_4pgi6")
 itemCount = SubResource("Resource_dgti8")
+playerResources = SubResource("Resource_10fwy")
+postRunResources = SubResource("Resource_m4i48")
 
 [node name="Collider" type="CollisionShape2D" parent="."]
 shape = SubResource("CapsuleShape2D_cb1s0")
@@ -309,6 +324,72 @@ shape = SubResource("CapsuleShape2D_cb1s0")
 [node name="Camera2D" type="Camera2D" parent="."]
 zoom = Vector2(2, 2)
 script = ExtResource("2_27jpg")
+
+[node name="PlayerGUI" type="Control" parent="Camera2D" node_paths=PackedStringArray("player")]
+z_index = 10
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("8_h76kr")
+player = NodePath("../..")
+
+[node name="HealthBar" type="ProgressBar" parent="Camera2D/PlayerGUI"]
+unique_name_in_owner = true
+z_index = 10
+z_as_relative = false
+layout_mode = 0
+offset_left = -81.0
+offset_top = 165.0
+offset_right = 81.0
+offset_bottom = 186.0
+theme_override_styles/background = SubResource("StyleBoxFlat_mp3y4")
+theme_override_styles/fill = SubResource("StyleBoxFlat_qttu6")
+show_percentage = false
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Camera2D/PlayerGUI"]
+z_index = 10
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -54.0
+offset_top = 112.0
+offset_right = 14.0
+offset_bottom = 112.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Equipment1" type="Button" parent="Camera2D/PlayerGUI/HBoxContainer"]
+layout_mode = 2
+text = "  1  "
+
+[node name="Equipment2" type="Button" parent="Camera2D/PlayerGUI/HBoxContainer"]
+layout_mode = 2
+text = "  2  "
+
+[node name="Equipment3" type="Button" parent="Camera2D/PlayerGUI/HBoxContainer"]
+layout_mode = 2
+text = "  3  "
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Camera2D/PlayerGUI"]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = -339.0
+offset_top = 136.0
+offset_right = -299.0
+offset_bottom = 176.0
+scale = Vector2(1, 1.92418)
+
+[node name="SilverLabel" type="Label" parent="Camera2D/PlayerGUI/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Silver: 0"
+
+[node name="SkillPoints" type="Label" parent="Camera2D/PlayerGUI/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "SkillPoints: 0"
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
@@ -339,55 +420,12 @@ texture = ExtResource("2_yscfa")
 hframes = 10
 vframes = 12
 
-[node name="PlayerGUI" type="Control" parent="."]
-z_index = 10
-layout_mode = 3
-anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
-
-[node name="HealthBar" type="ProgressBar" parent="PlayerGUI" node_paths=PackedStringArray("player")]
-z_index = 10
-z_as_relative = false
-layout_mode = 0
-offset_left = -81.0
-offset_top = 165.0
-offset_right = 81.0
-offset_bottom = 186.0
-theme_override_styles/background = SubResource("StyleBoxFlat_mp3y4")
-theme_override_styles/fill = SubResource("StyleBoxFlat_qttu6")
-show_percentage = false
-script = ExtResource("4_3gsxi")
-player = NodePath("../..")
-
-[node name="HBoxContainer" type="HBoxContainer" parent="PlayerGUI"]
-z_index = 10
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = -54.0
-offset_top = 112.0
-offset_right = 14.0
-offset_bottom = 112.0
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="Equipment1" type="Button" parent="PlayerGUI/HBoxContainer"]
-layout_mode = 2
-text = "  1  "
-
-[node name="Equipment2" type="Button" parent="PlayerGUI/HBoxContainer"]
-layout_mode = 2
-text = "  2  "
-
-[node name="Equipment3" type="Button" parent="PlayerGUI/HBoxContainer"]
-layout_mode = 2
-text = "  3  "
-
 [node name="Equipment" type="Node2D" parent="."]
 unique_name_in_owner = true
 
 [node name="Sword" parent="Equipment" instance=ExtResource("8_sm4dw")]
 
-[connection signal="health_changed" from="." to="PlayerGUI/HealthBar" method="_on_player_health_changed"]
+[node name="Node" type="Node" parent="."]
+
+[connection signal="health_changed" from="." to="Camera2D/PlayerGUI" method="_on_player_health_changed"]
+[connection signal="silver_changed" from="." to="Camera2D/PlayerGUI" method="_on_player_silver_changed"]
