@@ -46,5 +46,7 @@ func drop(player):
 
 
 func hitbox1_detection(body):
-	#Do damage to thing
-	pass # Replace with function body.
+	if body.has_method("enemy_take_damage"):
+		body.stun_timer = 1.5 #Hammer will stun for longer
+		body.enemy_take_damage(weapon_resource.damage)
+	

@@ -7,16 +7,25 @@ class_name FlyingEnemy
 @onready var nav_agent = $NavigationAgent2D
 
 var direction = Vector2.RIGHT
+var health: int
+var is_stunned = false
+var stun_timer: float = .5
 var damaging = false
 var in_range = false
 
+
 func _ready():
+	health = enemy_resource.health
 	nav_agent.path_desired_distance = 4
 	nav_agent.target_desired_distance = 4
 	if !player:
 		player = get_parent().get_parent().get_parent().get_node("Player")
 
 func _physics_process(delta):
+	if is_stunned:
+		velocity = Vector2.ZERO #While stunned, cannot move
+		return
+		
 	if in_range and player:
 		nav_agent.target_position = player.global_position
 	
@@ -35,6 +44,16 @@ func _physics_process(delta):
 		player.take_damage(enemy_resource.damage)
 
 	move_and_slide()
+
+func enemy_take_damage(damage):
+	health -= damage
+	is_stunned = true #primitive "feedback", when enemy gets hit, halts movement 
+	print(health)
+	if health <= 0:
+		print("Flying Enemy Dead!")
+		queue_free() #Die
+	await get_tree().create_timer(stun_timer).timeout
+	is_stunned = false #stun to false after half a second
 
 func _on_area_2d_body_entered(body):
 	if body.has_method("take_damage"):

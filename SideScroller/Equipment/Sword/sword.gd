@@ -63,10 +63,14 @@ func drop(player):
 
 
 func hitbox1_detection(body):
-	#Do damage to thing
-	pass # Replace with function body.
+	if body.has_method("enemy_take_damage"):
+		if swings == 1: #Combo 1
+			body.enemy_take_damage(weapon_resource.damage)
+		elif swings == 3: #Combo 3
+			body.enemy_take_damage(weapon_resource.damage + 10)
 
 
 func hitbox2_detection(body):
-	#Do damage to thing
-	pass # Replace with function body.
+	if body.has_method("enemy_take_damage"):
+		body.enemy_take_damage(weapon_resource.damage + 5) #Combo 2
+	

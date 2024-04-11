@@ -12,7 +12,7 @@ signal health_changed
 @onready var anim_player = $AnimationPlayer
 
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
-var current_equipment: int = 0 #0 = Sword, 1 = Hammer, 2 = Bow
+var current_equipment: int = 2 #0 = Sword, 1 = Hammer, 2 = Bow
 var attacking = false
 
 #These are set in equip() of the weapon we are using
@@ -53,7 +53,7 @@ func equip_item(item: Item):
 
 func take_damage(val: int):
 	playerStats.CURR_HEALTH -= val
-	print(playerStats.CURR_HEALTH)
+	#print(playerStats.CURR_HEALTH)
 	health_changed.emit()
 	if playerStats.CURR_HEALTH <= 0: # Handling death
 		player_death()
