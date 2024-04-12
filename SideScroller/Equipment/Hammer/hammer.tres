@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="Weapon_Resource" load_steps=2 format=3 uid="uid://1tjmucu3o6ma"]
+
+[ext_resource type="Script" path="res://Equipment/Weapon_Resource.gd" id="1_bdfef"]
+
+[resource]
+script = ExtResource("1_bdfef")
+equipment_name = "Hammer"
+idle_anim = "Idle"
+activate_anim = "Hammer_Swing"
+throw_anim = ""
+hand_sprite = ""
+world_sprite = ""
+damage = 10
+attack_delay = 2

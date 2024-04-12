@@ -1,0 +1,8 @@
+[gd_scene load_steps=3 format=3 uid="uid://dnl5oo3iuuadv"]
+
+[ext_resource type="Script" path="res://Equipment/Bow/bow.gd" id="1_upgij"]
+[ext_resource type="Resource" uid="uid://cp7nnsmuexgb2" path="res://Equipment/Bow/bow.tres" id="2_x88e0"]
+
+[node name="Bow" type="Node2D"]
+script = ExtResource("1_upgij")
+weapon_resource = ExtResource("2_x88e0")

@@ -1,0 +1,32 @@
+[gd_scene load_steps=4 format=3 uid="uid://chrbdxkldsppe"]
+
+[ext_resource type="Script" path="res://Equipment/Sword/sword.gd" id="1_7lc0g"]
+[ext_resource type="Resource" uid="uid://cmydrpha3yfie" path="res://Equipment/Sword/sword.tres" id="2_ryqpe"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_3xmcj"]
+radius = 15.0333
+
+[node name="Sword" type="Node2D"]
+script = ExtResource("1_7lc0g")
+weapon_resource = ExtResource("2_ryqpe")
+
+[node name="AttackArea1" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AttackArea1"]
+position = Vector2(10, 0)
+scale = Vector2(1, 0.748962)
+shape = SubResource("CircleShape2D_3xmcj")
+disabled = true
+debug_color = Color(0, 0.639216, 0.360784, 0.419608)
+
+[node name="AttackArea2" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AttackArea2"]
+position = Vector2(10, 0)
+scale = Vector2(0.634127, 0.939347)
+shape = SubResource("CircleShape2D_3xmcj")
+disabled = true
+debug_color = Color(0, 0.639216, 0.360784, 0.419608)
+
+[connection signal="body_entered" from="AttackArea1" to="." method="hitbox1_detection"]
+[connection signal="body_entered" from="AttackArea2" to="." method="hitbox2_detection"]

@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="Weapon_Resource" load_steps=2 format=3 uid="uid://cmydrpha3yfie"]
+
+[ext_resource type="Script" path="res://Equipment/Weapon_Resource.gd" id="1_qwkwp"]
+
+[resource]
+script = ExtResource("1_qwkwp")
+equipment_name = "Sword"
+idle_anim = "Idle"
+activate_anim = "Sword_Swing1"
+throw_anim = ""
+hand_sprite = ""
+world_sprite = ""
+damage = 5
+attack_delay = 1
