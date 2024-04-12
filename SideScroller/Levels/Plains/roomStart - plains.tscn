@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://cs4c7lvm3xp10"]
 
-[ext_resource type="TileSet" uid="uid://cvu4pn3ikbugv" path="res://Levels/DeepCave/TileMaps/allTiles.tres" id="1_nnvkv"]
+[ext_resource type="TileSet" uid="uid://cvu4pn3ikbugv" path="res://allTiles.tres" id="1_nnvkv"]
 
 [node name="RoomStart-Plains" type="Node2D"]
 
@@ -24,12 +24,14 @@ position = Vector2(592, 26)
 [node name="EntryPoint" type="Node2D" parent="."]
 position = Vector2(-335, 26)
 
-[node name="CliffCollider" type="StaticBody2D" parent="."]
+[node name="Colliders" type="Node2D" parent="."]
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="CliffCollider"]
+[node name="CliffCollider" type="StaticBody2D" parent="Colliders"]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Colliders/CliffCollider"]
 polygon = PackedVector2Array(-625, -54, -625, -129, -641, -129, -641, -289, -624, -289, -624, -559, -864, -559, -864, -52)
 
-[node name="FloorCollider" type="StaticBody2D" parent="."]
+[node name="FloorCollider" type="StaticBody2D" parent="Colliders"]
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="FloorCollider"]
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Colliders/FloorCollider"]
 polygon = PackedVector2Array(-630, -53, -607, -53, -512, -4, -461, -4, -404, 27, 592, 28, 592, 399, -629, 399)

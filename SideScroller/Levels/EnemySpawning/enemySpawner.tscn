@@ -1,3 +1,17 @@
-[gd_scene format=3 uid="uid://4l52xwrq8y0d"]
+[gd_scene load_steps=3 format=3 uid="uid://4l52xwrq8y0d"]
+
+[ext_resource type="Script" path="res://Levels/EnemySpawning/enemySpawner.gd" id="1_nb1yp"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vb4fc"]
+size = Vector2(20, 548)
 
 [node name="EnemySpawner" type="Node2D"]
+
+[node name="SpawnTrigger" type="Area2D" parent="."]
+script = ExtResource("1_nb1yp")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="SpawnTrigger"]
+position = Vector2(0, -213)
+shape = SubResource("RectangleShape2D_vb4fc")
+
+[connection signal="body_entered" from="SpawnTrigger" to="SpawnTrigger" method="trigger_spawn"]

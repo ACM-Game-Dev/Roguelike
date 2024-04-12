@@ -29,12 +29,43 @@ position = Vector2(-992, -372)
 [node name="ExitPoint" type="Node2D" parent="."]
 position = Vector2(1376, 11)
 
-[node name="CeilingCollider" type="StaticBody2D" parent="."]
+[node name="Colliders" type="Node2D" parent="."]
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="CeilingCollider"]
+[node name="CeilingCollider" type="StaticBody2D" parent="Colliders"]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Colliders/CeilingCollider"]
 polygon = PackedVector2Array(-992, -623, -883, -623, -849.469, -639.692, -786, -640, -752, -625, -752, -577, -719, -560, -703, -560, -672, -576, -672, -672, -640, -688, -606, -688, -584, -608, -560, -688, -528, -688, -528, -661, -518, -655, -510, -655, -479, -672, -336, -672, -336, -655, -304, -639, -143, -640, -135, -609, -126, -640, -83, -640, 686, -256, 759, -256, 761, -253, 766, -256, 773, -256, 777, -247, 781, -256, 786, -256, 792, -240, 799, -256, 866, -256, 928, -287, 928, -304, 961, -304, 984, -224, 1007, -304, 1023, -304, 1056, -288, 1072, -288, 1072, -272, 1103, -256, 1200, -256, 1215, -192, 1232, -256, 1392, -256, 1392, -1152, -993, -1153)
 
-[node name="FloorCollider" type="StaticBody2D" parent="."]
+[node name="FloorCollider" type="StaticBody2D" parent="Colliders"]
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="FloorCollider"]
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Colliders/FloorCollider"]
 polygon = PackedVector2Array(-992, -372, -75, -372, 688, 11, 1376, 11, 1376, 496, -992, 497)
+
+[node name="EnemySpawnPoints" type="Node2D" parent="."]
+
+[node name="Marker2D" type="Marker2D" parent="EnemySpawnPoints"]
+position = Vector2(-538, -414)
+
+[node name="Marker2D2" type="Marker2D" parent="EnemySpawnPoints"]
+position = Vector2(-353, -417)
+
+[node name="Marker2D3" type="Marker2D" parent="EnemySpawnPoints"]
+position = Vector2(-225, -417)
+
+[node name="Marker2D4" type="Marker2D" parent="EnemySpawnPoints"]
+position = Vector2(37, -370)
+
+[node name="Marker2D5" type="Marker2D" parent="EnemySpawnPoints"]
+position = Vector2(199, -289)
+
+[node name="Marker2D6" type="Marker2D" parent="EnemySpawnPoints"]
+position = Vector2(397, -192)
+
+[node name="Marker2D7" type="Marker2D" parent="EnemySpawnPoints"]
+position = Vector2(572, -114)
+
+[node name="Marker2D8" type="Marker2D" parent="EnemySpawnPoints"]
+position = Vector2(770, -64)
+
+[node name="Marker2D9" type="Marker2D" parent="EnemySpawnPoints"]
+position = Vector2(975, -57)

@@ -1,8 +1,8 @@
 [gd_scene load_steps=2 format=3 uid="uid://dja1vngs8td73"]
 
-[ext_resource type="TileSet" uid="uid://cvu4pn3ikbugv" path="res://Levels/allTiles.tres" id="1_bvrsx"]
+[ext_resource type="TileSet" uid="uid://cvu4pn3ikbugv" path="res://allTiles.tres" id="1_bvrsx"]
 
-[node name="Node2D" type="Node2D"]
+[node name="Room6 - Plains" type="Node2D"]
 
 [node name="BackTileMap" type="TileMap" parent="."]
 tile_set = ExtResource("1_bvrsx")
