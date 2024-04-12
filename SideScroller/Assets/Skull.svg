@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 15.0.0, SVG Export Plug-In  -->
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd" [
+	<!ENTITY ns_flows "http://ns.adobe.com/Flows/1.0/">
+]>
+<svg version="1.1"
+	 xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:a="http://ns.adobe.com/AdobeSVGViewerExtensions/3.0/"
+	 x="0px" y="0px" width="500px" height="500px" viewBox="0 0 500 500" enable-background="new 0 0 500 500" xml:space="preserve">
+<defs>
+</defs>
+<rect fill="#430044" width="500" height="500"/>
+<radialGradient id="SVGID_1_" cx="250" cy="250" r="215.9892" gradientUnits="userSpaceOnUse">
+	<stop  offset="0.3394" style="stop-color:#D63F6C"/>
+	<stop  offset="1" style="stop-color:#430044"/>
+</radialGradient>
+<circle fill="url(#SVGID_1_)" cx="250" cy="250" r="215.989"/>
+<circle fill="#6ABC45" cx="296.597" cy="277.152" r="37.989"/>
+<circle fill="#6ABC45" cx="240.569" cy="236.65" r="41.573"/>
+<circle fill="#6ABC45" cx="180.64" cy="267.189" r="42.096"/>
+<circle fill="#6ABC45" cx="159.592" cy="314.615" r="21.048"/>
+<circle fill="#6ABC45" cx="325.44" cy="317.368" r="28.844"/>
+<circle fill="#6ABC45" cx="313.424" cy="224.098" r="43.091"/>
+<circle fill="#6ABC45" cx="341.939" cy="270.268" r="33.618"/>
+<path fill="#6ABC45" d="M338.279,179.571c0,24.592-19.933,44.527-44.526,44.527c-24.589,0-44.525-19.935-44.525-44.527
+	c0-24.591,19.937-44.526,44.525-44.526C318.347,135.045,338.279,154.98,338.279,179.571z"/>
+<circle fill="#6ABC45" cx="227.935" cy="170.97" r="35.926"/>
+<circle fill="#6ABC45" cx="268.709" cy="134.107" r="28.14"/>
+<circle fill="#6ABC45" cx="339.481" cy="181.739" r="26.059"/>
+<circle fill="#6ABC45" cx="192.945" cy="213.651" r="42.682"/>
+<circle fill="#6ABC45" cx="163.234" cy="178.495" r="32.195"/>
+<circle fill="#6ABC45" cx="237.745" cy="117.767" r="19.229"/>
+<circle fill="#6ABC45" cx="218.515" cy="146.301" r="19.229"/>
+<circle fill="#6ABC45" cx="184.514" cy="162.247" r="19.229"/>
+<circle fill="#6ABC45" cx="240.305" cy="90.919" r="15.981"/>
+<circle fill="#6ABC45" cx="348.19" cy="150.922" r="21.715"/>
+<circle fill="#6ABC45" cx="364.133" cy="128.545" r="17.959"/>
+<circle fill="#6ABC45" cx="355.271" cy="111.255" r="16.972"/>
+<circle fill="#6ABC45" cx="150.303" cy="158.084" r="19.931"/>
+<circle fill="#6ABC45" cx="137.877" cy="131.588" r="15.788"/>
+<circle fill="#6ABC45" cx="348.367" cy="221.624" r="24.857"/>
+<circle fill="#6ABC45" cx="140.57" cy="259.313" r="22.663"/>
+<circle fill="#6ABC45" cx="153.702" cy="283.584" r="22.663"/>
+<circle fill="#6ABC45" cx="149.273" cy="226.443" r="31.366"/>
+<circle fill="#6ABC45" cx="171.937" cy="369.157" r="22.663"/>
+<circle fill="#6ABC45" cx="180.64" cy="336.286" r="31.366"/>
+<circle fill="#6ABC45" cx="198.996" cy="391.82" r="22.663"/>
+<circle fill="#6ABC45" cx="215.881" cy="365.354" r="31.366"/>
+<circle fill="#6ABC45" cx="240.57" cy="398.225" r="22.663"/>
+<circle fill="#6ABC45" cx="249.227" cy="377.578" r="31.365"/>
+<circle fill="#6ABC45" cx="280.594" cy="402.399" r="22.662"/>
+<circle fill="#6ABC45" cx="282.143" cy="379.736" r="31.365"/>
+<circle fill="#6ABC45" cx="316.738" cy="396.349" r="22.662"/>
+<circle fill="#6ABC45" cx="325.441" cy="363.479" r="31.365"/>
+<circle fill="#6ABC45" cx="339.4" cy="361.966" r="22.662"/>
+<path fill="#FFFFFF" stroke="#FFFFFF" stroke-miterlimit="10" d="M249.999,204.387c-84.42,0-85.362,54.961-85.362,54.961
+	l0.004,62.69c-0.469,26.191,36.113,21.898,36.113,21.898v28.769c11.051,8.748,26.264,8.587,26.264,8.587v-7.768
+	c5.615-4.264,12.194,0,12.194,0v8.412c6.45,3.422,10.787,3.328,10.787,3.328s4.336,0.093,10.787-3.328v-8.412
+	c0,0,6.578-4.264,12.195,0v7.768c0,0,15.214,0.161,26.265-8.587v-28.769c0,0,36.582,4.293,36.113-21.898l0.003-62.69
+	C335.362,259.349,334.421,204.387,249.999,204.387z"/>
+<ellipse cx="284.706" cy="283.584" rx="23.74" ry="24.167"/>
+<ellipse cx="213.369" cy="283.584" rx="23.74" ry="24.167"/>
+<polygon points="255.784,322.732 260.278,322.732 263.6,337.114 255.784,337.114 "/>
+<polygon points="246.404,322.732 241.91,322.732 238.589,337.114 246.404,337.114 "/>
+</svg>

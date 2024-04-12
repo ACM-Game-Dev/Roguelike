@@ -1,0 +1,23 @@
+[gd_scene format=3 uid="uid://b62j0q5dxuq1n"]
+
+[node name="SkillTree" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 0
+offset_right = 352.0
+offset_bottom = 346.0
+color = Color(0.568627, 0.286275, 0.0901961, 1)
+
+[node name="TextureButton" type="TextureButton" parent="ColorRect"]
+layout_mode = 0
+offset_left = 60.0
+offset_top = 95.0
+offset_right = 100.0
+offset_bottom = 135.0
+toggle_mode = true

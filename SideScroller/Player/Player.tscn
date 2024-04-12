@@ -1,4 +1,4 @@
-[gd_scene load_steps=77 format=3 uid="uid://bn8g0lgjvplhw"]
+[gd_scene load_steps=79 format=3 uid="uid://bn8g0lgjvplhw"]
 
 [ext_resource type="Script" path="res://Player/player.gd" id="1_il1mb"]
 [ext_resource type="Script" path="res://Player/Camerafollow.gd" id="2_27jpg"]
@@ -10,6 +10,8 @@
 [ext_resource type="Texture2D" uid="uid://ccmae5y01il5c" path="res://Assets/bow.png" id="5_o18et"]
 [ext_resource type="PackedScene" uid="uid://chrbdxkldsppe" path="res://Equipment/Sword/sword.tscn" id="8_sm4dw"]
 [ext_resource type="PackedScene" uid="uid://cdf5evnlh8cda" path="res://Equipment/Hammer/hammer.tscn" id="9_hu5a4"]
+[ext_resource type="Texture2D" uid="uid://o8qsvt7ty3et" path="res://Assets/bow_icon.png" id="9_lyb56"]
+[ext_resource type="Texture2D" uid="uid://ycou54mmr2gq" path="res://Assets/hammer_icon.png" id="10_716ix"]
 [ext_resource type="PackedScene" uid="uid://dnl5oo3iuuadv" path="res://Equipment/Bow/bow.tscn" id="11_0jb04"]
 
 [sub_resource type="Resource" id="Resource_4pgi6"]
@@ -531,6 +533,7 @@ zoom = Vector2(2, 2)
 script = ExtResource("2_27jpg")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+unique_name_in_owner = true
 sprite_frames = SubResource("SpriteFrames_1efgi")
 animation = &"Walk"
 
@@ -579,24 +582,35 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="Equipment1" type="Button" parent="PlayerGUI/HBoxContainer"]
+unique_name_in_owner = true
 layout_mode = 2
-text = "  1  "
+toggle_mode = true
+keep_pressed_outside = true
+text = "1"
+icon = ExtResource("9_lyb56")
+icon_alignment = 1
 
 [node name="Equipment2" type="Button" parent="PlayerGUI/HBoxContainer"]
+unique_name_in_owner = true
 layout_mode = 2
+toggle_mode = true
 text = "  2  "
 
 [node name="Equipment3" type="Button" parent="PlayerGUI/HBoxContainer"]
+unique_name_in_owner = true
 layout_mode = 2
+toggle_mode = true
 text = "  3  "
+icon = ExtResource("10_716ix")
+icon_alignment = 1
 
 [node name="Equipment" type="Node2D" parent="."]
 unique_name_in_owner = true
 
+[node name="Bow" parent="Equipment" instance=ExtResource("11_0jb04")]
+
 [node name="Sword" parent="Equipment" instance=ExtResource("8_sm4dw")]
 
 [node name="Hammer" parent="Equipment" instance=ExtResource("9_hu5a4")]
-
-[node name="Bow" parent="Equipment" instance=ExtResource("11_0jb04")]
 
 [connection signal="health_changed" from="." to="PlayerGUI/HealthBar" method="_on_player_health_changed"]

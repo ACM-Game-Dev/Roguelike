@@ -2,8 +2,11 @@ extends CharacterBody2D
 
 class_name FlyingEnemy
 
+@export var player: Player = Globals.get_player()
+
+
 @export var enemy_resource: Enemy_Resource
-@export var player: Player
+
 @onready var nav_agent = $NavigationAgent2D
 
 var direction = Vector2.RIGHT
@@ -18,8 +21,7 @@ func _ready():
 	health = enemy_resource.health
 	nav_agent.path_desired_distance = 4
 	nav_agent.target_desired_distance = 4
-	if !player:
-		player = get_parent().get_parent().get_parent().get_node("Player")
+
 
 func _physics_process(delta):
 	if is_stunned:

@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://de3jyfyvp8xty"]
 
-[ext_resource type="TileSet" uid="uid://cvu4pn3ikbugv" path="res://allTiles.tres" id="1_6djbh"]
+[ext_resource type="TileSet" uid="uid://cvu4pn3ikbugv" path="res://NewLevels/allTiles.tres" id="1_6djbh"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_egl05"]
 vertices = PackedVector2Array(265, -48, 551, -13, -552, -13, 170, -48, 262, -80, 170, -80, 42, -111, 42, -143, 551, -269, -53, -111, -150, -65, -153, -97, -248, -62, -558, -268, -245, -95, -53, -144)

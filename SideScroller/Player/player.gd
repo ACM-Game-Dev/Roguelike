@@ -7,6 +7,8 @@ signal health_changed
 @export var playerStats: PlayerStats
 @export var itemCount: ItemCount
 
+@export var runResource: RunResource
+
 @onready var equipment_list = %Equipment.get_children()
 @onready var sprite = $AnimatedSprite2D
 @onready var anim_player = $AnimationPlayer
@@ -22,7 +24,8 @@ var attack_anim: String
 
 func _ready():
 	# This is only here so we spawn with a weapon. Right now, we never "encounter" a weapon
-	equipment_list[current_equipment].equip(self)
+	reequip()
+	Globals.player = self
 
 func update_animation_parameters():
 	if velocity.x < -0.1:
@@ -66,6 +69,32 @@ func use_equipment():
 	equipment_list[current_equipment].activate(self)
 	print(equipment_list[current_equipment].name)
 
+func reequip():
+	equipment_list[current_equipment].equip(self)
+
+func change_equipment():
+	if Input.is_action_just_pressed("equip_1"):
+		current_equipment = 0
+		%Equipment1.button_pressed = true
+		%Equipment2.button_pressed = false
+		%Equipment3.button_pressed = false
+	elif Input.is_action_just_pressed("equip_2"):
+		current_equipment = 1
+		%Equipment2.button_pressed = true
+		%Equipment1.button_pressed = false
+		%Equipment3.button_pressed = false
+	elif Input.is_action_just_pressed("equip_3"):
+		current_equipment = 2
+		%Equipment3.button_pressed = true
+		%Equipment2.button_pressed = false
+		%Equipment1.button_pressed = false
+	else:
+		return
+	reequip()
+
+func get_animation():
+	return $AnimatedSprite2D
+
 func jump_and_fall(delta):
 	# Add the gravity.
 	if not is_on_floor():
@@ -88,6 +117,7 @@ func _physics_process(delta):
 	jump_and_fall(delta)
 	move_horizontal()
 	update_animation_parameters()
+	change_equipment()
 	
 	if Input.is_action_just_pressed("attack"): # Moved this conditional here so we are not calling use_equipment every frame
 		use_equipment()

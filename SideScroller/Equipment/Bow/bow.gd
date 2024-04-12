@@ -21,8 +21,10 @@ func activate(player):
 
 	cooledDown = false
 	player.attack_animation() # Playing the player's attack animation
+	await get_tree().create_timer(0.5).timeout
 	var arrow = arrowScene.instantiate()
-	get_parent().get_parent().add_child(arrow)
+	arrow.global_position = player.global_position
+	get_parent().get_parent().add_sibling(arrow)
 	if player.sprite.flip_h:
 		arrow.SPEED *= -1
 		arrow.arrow_sprite.flip_h = true

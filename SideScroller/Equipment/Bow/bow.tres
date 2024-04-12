@@ -11,4 +11,4 @@ throw_anim = ""
 hand_sprite = ""
 world_sprite = ""
 damage = 5
-attack_delay = 1
+attack_delay = 0
