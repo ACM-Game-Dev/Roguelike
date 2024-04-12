@@ -1,0 +1,37 @@
+[gd_scene load_steps=3 format=3 uid="uid://b5lwt7b86qs4g"]
+
+[ext_resource type="Texture2D" uid="uid://deal7tngkwsgt" path="res://Assets/Potion.png" id="1_k6ssw"]
+[ext_resource type="Script" path="res://skill_button.gd" id="2_wmlt8"]
+
+[node name="SkillButton" type="TextureButton"]
+offset_right = 2083.0
+offset_bottom = 2083.0
+scale = Vector2(0.02, 0.02)
+toggle_mode = true
+keep_pressed_outside = true
+texture_normal = ExtResource("1_k6ssw")
+stretch_mode = 0
+script = ExtResource("2_wmlt8")
+enabled = true
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+mouse_filter = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 0
+offset_right = 2100.0
+offset_bottom = 2100.0
+
+[node name="Points" type="Label" parent="MarginContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 8
+theme_override_font_sizes/font_size = 365
+text = "0/1
+"
+horizontal_alignment = 2
+
+[connection signal="button_down" from="." to="." method="_on_button_down"]

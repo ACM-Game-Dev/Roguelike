@@ -1,4 +1,16 @@
-[gd_scene format=3 uid="uid://b62j0q5dxuq1n"]
+[gd_scene load_steps=12 format=3 uid="uid://b62j0q5dxuq1n"]
+
+[ext_resource type="Texture2D" uid="uid://cippfkhs6m3xi" path="res://Assets/Banner.png" id="1_8oy3q"]
+[ext_resource type="Texture2D" uid="uid://bdb4c2tlp07gt" path="res://Assets/Chest.svg" id="2_l3jfk"]
+[ext_resource type="Texture2D" uid="uid://cxn7j2oqjcrlw" path="res://Assets/Skull.svg" id="3_dtle5"]
+[ext_resource type="Texture2D" uid="uid://c1712n5v2xn07" path="res://Assets/Mana Potion.png" id="4_ap34m"]
+[ext_resource type="Texture2D" uid="uid://dmxxochw54t7c" path="res://Assets/Crown.png" id="5_tpk86"]
+[ext_resource type="Texture2D" uid="uid://bawamt5k4734u" path="res://Assets/Mediveal Helmet.png" id="6_ook0a"]
+[ext_resource type="Texture2D" uid="uid://buvkmky5uodnw" path="res://Assets/Sword.svg" id="7_1etvw"]
+[ext_resource type="Texture2D" uid="uid://bpuhwrd0pndi0" path="res://Assets/Bow and Arrow.png" id="8_vlsg8"]
+[ext_resource type="Texture2D" uid="uid://cfnrihtu3wvax" path="res://Assets/Wizard hat.svg" id="9_svura"]
+[ext_resource type="PackedScene" uid="uid://b5lwt7b86qs4g" path="res://skill_button.tscn" id="10_gkqvl"]
+[ext_resource type="Texture2D" uid="uid://btirut8mmc0bn" path="res://Assets/Fireball.png" id="11_2samn"]
 
 [node name="SkillTree" type="Control"]
 layout_mode = 3
@@ -10,14 +22,125 @@ grow_vertical = 2
 
 [node name="ColorRect" type="ColorRect" parent="."]
 layout_mode = 0
-offset_right = 352.0
-offset_bottom = 346.0
+offset_right = 443.0
+offset_bottom = 425.0
 color = Color(0.568627, 0.286275, 0.0901961, 1)
 
-[node name="TextureButton" type="TextureButton" parent="ColorRect"]
+[node name="Rage1" type="TextureButton" parent="ColorRect"]
 layout_mode = 0
-offset_left = 60.0
-offset_top = 95.0
-offset_right = 100.0
-offset_bottom = 135.0
+offset_left = 241.0
+offset_top = 133.0
+offset_right = 2324.0
+offset_bottom = 2216.0
+scale = Vector2(0.02, 0.02)
 toggle_mode = true
+keep_pressed_outside = true
+texture_normal = ExtResource("1_8oy3q")
+stretch_mode = 0
+
+[node name="Treasure1" type="TextureButton" parent="ColorRect"]
+layout_mode = 0
+offset_left = 291.0
+offset_top = 30.0
+offset_right = 2374.0
+offset_bottom = 2113.0
+scale = Vector2(0.02, 0.02)
+toggle_mode = true
+keep_pressed_outside = true
+texture_normal = ExtResource("2_l3jfk")
+stretch_mode = 0
+
+[node name="Armor2" type="TextureButton" parent="ColorRect"]
+layout_mode = 0
+offset_left = 350.0
+offset_top = 99.0
+offset_right = 2433.0
+offset_bottom = 2182.0
+scale = Vector2(0.02, 0.02)
+toggle_mode = true
+keep_pressed_outside = true
+texture_normal = ExtResource("5_tpk86")
+stretch_mode = 0
+
+[node name="Armor1" type="TextureButton" parent="ColorRect"]
+layout_mode = 0
+offset_left = 345.0
+offset_top = 190.0
+offset_right = 2428.0
+offset_bottom = 2273.0
+scale = Vector2(0.02, 0.02)
+toggle_mode = true
+keep_pressed_outside = true
+texture_normal = ExtResource("6_ook0a")
+stretch_mode = 0
+
+[node name="Melee1" type="TextureButton" parent="ColorRect"]
+layout_mode = 0
+offset_left = 330.0
+offset_top = 305.0
+offset_right = 2413.0
+offset_bottom = 2388.0
+scale = Vector2(0.02, 0.02)
+toggle_mode = true
+keep_pressed_outside = true
+texture_normal = ExtResource("7_1etvw")
+stretch_mode = 0
+
+[node name="Ranged1" type="TextureButton" parent="ColorRect"]
+layout_mode = 0
+offset_left = 247.0
+offset_top = 229.0
+offset_right = 2330.0
+offset_bottom = 2312.0
+scale = Vector2(0.02, 0.02)
+toggle_mode = true
+keep_pressed_outside = true
+texture_normal = ExtResource("8_vlsg8")
+stretch_mode = 0
+
+[node name="Potion1" parent="ColorRect" node_paths=PackedStringArray("connected") instance=ExtResource("10_gkqvl")]
+layout_mode = 0
+offset_left = 96.0
+offset_top = 335.0
+offset_right = 2179.0
+offset_bottom = 2418.0
+connected = [NodePath("../Magic1")]
+
+[node name="Potion2" parent="ColorRect" instance=ExtResource("10_gkqvl")]
+layout_mode = 0
+offset_left = 91.0
+offset_top = 73.0
+offset_right = 2174.0
+offset_bottom = 2156.0
+texture_normal = ExtResource("4_ap34m")
+enabled = false
+
+[node name="Magic1" parent="ColorRect" node_paths=PackedStringArray("connected") instance=ExtResource("10_gkqvl")]
+layout_mode = 0
+offset_left = 94.0
+offset_top = 251.0
+offset_right = 2177.0
+offset_bottom = 2334.0
+texture_normal = ExtResource("9_svura")
+enabled = false
+connected = [NodePath("../Fire1"), NodePath("../Necro1")]
+
+[node name="Fire1" parent="ColorRect" node_paths=PackedStringArray("connected") instance=ExtResource("10_gkqvl")]
+layout_mode = 0
+offset_left = 132.0
+offset_top = 161.0
+offset_right = 2215.0
+offset_bottom = 2244.0
+texture_normal = ExtResource("11_2samn")
+enabled = false
+connected = [NodePath("../Potion2")]
+
+[node name="Necro1" parent="ColorRect" node_paths=PackedStringArray("connected") instance=ExtResource("10_gkqvl")]
+layout_mode = 0
+offset_left = 40.0
+offset_top = 163.0
+offset_right = 2123.0
+offset_bottom = 2246.0
+texture_normal = ExtResource("3_dtle5")
+enabled = false
+connected = [NodePath("../Potion2")]
