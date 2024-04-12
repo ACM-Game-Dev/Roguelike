@@ -1,6 +1,12 @@
-[gd_scene load_steps=2 format=3 uid="uid://cflnfofrodcqy"]
+[gd_scene load_steps=3 format=3 uid="uid://cflnfofrodcqy"]
 
-[ext_resource type="TileSet" uid="uid://cvu4pn3ikbugv" path="res://Levels/allTiles.tres" id="1_jvyob"]
+[ext_resource type="TileSet" uid="uid://cvu4pn3ikbugv" path="res://allTiles.tres" id="1_jvyob"]
+
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_qn3ip"]
+vertices = PackedVector2Array(-478, -265, -768, -261, -768, -412, 768, -394, 354, 152, 768, 156)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3), PackedInt32Array(4, 0, 3, 5)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(-778, -251, -480, -255, 352, 162, 778, 167, 778, -404, -778, -423)])
+source_geometry_group_name = &"navigation_polygon_source_group"
 
 [node name="Node2D" type="Node2D"]
 
@@ -26,7 +32,10 @@ scale = Vector2(135.131, 18.4569)
 polygon = PackedVector2Array(-10.5527, -7.09762, -10.5601, 33.8627, 0.814025, 33.7543, 0.814025, 15.4956, -2.26447, 15.4956, -8.42146, -7.09762)
 
 [node name="EntryPoint" type="Node2D" parent="."]
-position = Vector2(-768, -262)
+position = Vector2(-768, -260)
 
 [node name="ExitPoint" type="Node2D" parent="."]
-position = Vector2(768, 154)
+position = Vector2(768, 157)
+
+[node name="NavigationRegion2D" type="NavigationRegion2D" parent="."]
+navigation_polygon = SubResource("NavigationPolygon_qn3ip")

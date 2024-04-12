@@ -1,6 +1,12 @@
-[gd_scene load_steps=2 format=3 uid="uid://busqudybo0d75"]
+[gd_scene load_steps=3 format=3 uid="uid://busqudybo0d75"]
 
-[ext_resource type="TileSet" uid="uid://cvu4pn3ikbugv" path="res://Levels/allTiles.tres" id="1_2tmuf"]
+[ext_resource type="TileSet" uid="uid://cvu4pn3ikbugv" path="res://allTiles.tres" id="1_2tmuf"]
+
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_03jpc"]
+vertices = PackedVector2Array(264, -79, 170, -79, 41, -111, 41, -143, 560, -231, 264, -47, 560, -4, -560, -4, 170, -47, -151, -63, -246, -63, -560, -231, -246, -96, -53, -111, -151, -96, -53, -143)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3, 4), PackedInt32Array(5, 6, 7, 8), PackedInt32Array(8, 7, 9, 1), PackedInt32Array(10, 9, 7), PackedInt32Array(10, 7, 11, 12), PackedInt32Array(4, 6, 5, 0), PackedInt32Array(13, 2, 1, 9, 14), PackedInt32Array(15, 13, 14, 12, 11), PackedInt32Array(11, 4, 3, 15)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(-570, 6, -570, -241, 570, -241, 570, 5), PackedVector2Array(-236, -86, -236, -73, -161, -73, -161, -86), PackedVector2Array(180, -69, 180, -57, 254, -57, 254, -57, 254, -69), PackedVector2Array(-43, -133, -43, -121, 31, -121, 31, -133)])
+source_geometry_group_name = &"navigation_polygon_source_group"
 
 [node name="Node2D" type="Node2D"]
 
@@ -48,10 +54,10 @@ scale = Vector2(132.632, 21.5331)
 polygon = PackedVector2Array(-7.66783, 3.66877, -7.66029, 18.8547, 0.776585, 18.9011, 0.776585, 3.66877)
 
 [node name="EntryPoint" type="Node2D" parent="."]
-position = Vector2(-560, -4)
+position = Vector2(-560, -3)
 
 [node name="ExitPoint" type="Node2D" parent="."]
-position = Vector2(560, -1)
+position = Vector2(560, -3)
 
 [node name="EnemySpawn" type="Marker2D" parent="."]
 position = Vector2(-187, -145)
@@ -70,3 +76,6 @@ position = Vector2(-369, -82)
 
 [node name="EnemySpawn6" type="Marker2D" parent="."]
 position = Vector2(35, -78)
+
+[node name="NavigationRegion2D" type="NavigationRegion2D" parent="."]
+navigation_polygon = SubResource("NavigationPolygon_03jpc")

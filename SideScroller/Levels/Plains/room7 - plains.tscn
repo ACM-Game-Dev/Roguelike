@@ -1,6 +1,12 @@
-[gd_scene load_steps=2 format=3 uid="uid://kir4rjhh7whe"]
+[gd_scene load_steps=3 format=3 uid="uid://kir4rjhh7whe"]
 
-[ext_resource type="TileSet" uid="uid://cvu4pn3ikbugv" path="res://Levels/allTiles.tres" id="1_utk8p"]
+[ext_resource type="TileSet" uid="uid://cvu4pn3ikbugv" path="res://allTiles.tres" id="1_utk8p"]
+
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_ialmn"]
+vertices = PackedVector2Array(1024, -235, 1024, -4, 583, -15, -913, -235, 302, 130, -135, 129, -245, 128, -522, -12, -913, -4)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3), PackedInt32Array(3, 2, 4, 5, 6, 7), PackedInt32Array(3, 7, 8)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(-923, 6, -524, -2, -249, 138, -135, 139, 306, 141, 585, -5, 1034, 6, 1034, -246, -923, -245)])
+source_geometry_group_name = &"navigation_polygon_source_group"
 
 [node name="Node2D" type="Node2D"]
 
@@ -27,10 +33,10 @@ scale = Vector2(132.632, 21.5331)
 polygon = PackedVector2Array(-10.3293, 3.66877, -10.3369, 39.4277, 4.28253, 39.5205, 4.27499, 3.66877, 0.987695, 3.66877, -1.13849, 10.3097, -2.00555, 10.3097, -2.45793, 11.7958, -4.07142, 11.7958, -4.50118, 10.3097, -5.26268, 10.3561, -7.40394, 3.66877)
 
 [node name="EntryPoint" type="Node2D" parent="."]
-position = Vector2(-912, -6)
+position = Vector2(-913, -3)
 
 [node name="ExitPoint" type="Node2D" parent="."]
-position = Vector2(1024, -6)
+position = Vector2(1024, -3)
 
 [node name="EnemySpawn10" type="Marker2D" parent="."]
 position = Vector2(-469, -3)
@@ -61,3 +67,6 @@ position = Vector2(-159, 105)
 
 [node name="EnemySpawn" type="Marker2D" parent="."]
 position = Vector2(220, 111)
+
+[node name="NavigationRegion2D" type="NavigationRegion2D" parent="."]
+navigation_polygon = SubResource("NavigationPolygon_ialmn")

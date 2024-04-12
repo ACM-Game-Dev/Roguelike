@@ -1,11 +1,11 @@
-[gd_scene load_steps=14 format=3 uid="uid://cbbn1kgdasovy"]
+[gd_scene load_steps=15 format=3 uid="uid://cbbn1kgdasovy"]
 
-[ext_resource type="Texture2D" uid="uid://bipo8ttibcn3f" path="res://Legacy-Fantasy - High Forest 2.3/Assets/Tree-Assets.png" id="1_gy250"]
-[ext_resource type="Texture2D" uid="uid://c5uv2csl40mdi" path="res://Legacy-Fantasy - High Forest 2.3/Assets/Tiles.png" id="2_sdvjc"]
-[ext_resource type="Texture2D" uid="uid://c4yfntwwh8om3" path="res://Legacy-Fantasy - High Forest 2.3/Assets/Props-Rocks.png" id="3_knw20"]
-[ext_resource type="Texture2D" uid="uid://gr0omqwgjmq0" path="res://Legacy-Fantasy - High Forest 2.3/Assets/Interior-01.png" id="4_vasl4"]
-[ext_resource type="Texture2D" uid="uid://de56dnsebkt3c" path="res://Legacy-Fantasy - High Forest 2.3/Assets/Hive.png" id="5_h10ep"]
-[ext_resource type="Texture2D" uid="uid://dk5r5n8k5fmhu" path="res://Legacy-Fantasy - High Forest 2.3/Assets/Buildings.png" id="6_cl0yb"]
+[ext_resource type="Texture2D" uid="uid://bipo8ttibcn3f" path="res://Assets/Legacy-Fantasy/Legacy-Fantasy - High Forest 2.3/Assets/Tree-Assets.png" id="1_gy250"]
+[ext_resource type="Texture2D" uid="uid://c5uv2csl40mdi" path="res://Assets/Legacy-Fantasy/Legacy-Fantasy - High Forest 2.3/Assets/Tiles.png" id="2_sdvjc"]
+[ext_resource type="Texture2D" uid="uid://c4yfntwwh8om3" path="res://Assets/Legacy-Fantasy/Legacy-Fantasy - High Forest 2.3/Assets/Props-Rocks.png" id="3_knw20"]
+[ext_resource type="Texture2D" uid="uid://gr0omqwgjmq0" path="res://Assets/Legacy-Fantasy/Legacy-Fantasy - High Forest 2.3/Assets/Interior-01.png" id="4_vasl4"]
+[ext_resource type="Texture2D" uid="uid://de56dnsebkt3c" path="res://Assets/Legacy-Fantasy/Legacy-Fantasy - High Forest 2.3/Assets/Hive.png" id="5_h10ep"]
+[ext_resource type="Texture2D" uid="uid://dk5r5n8k5fmhu" path="res://Assets/Legacy-Fantasy/Legacy-Fantasy - High Forest 2.3/Assets/Buildings.png" id="6_cl0yb"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_wbu1f"]
 texture = ExtResource("1_gy250")
@@ -1729,6 +1729,12 @@ sources/3 = SubResource("TileSetAtlasSource_tlytm")
 sources/4 = SubResource("TileSetAtlasSource_vvkno")
 sources/5 = SubResource("TileSetAtlasSource_ebtxh")
 
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_ulwoe"]
+vertices = PackedVector2Array(-213, -12, -849, -4, -849, -201, -168, -58, 832, -192, 832, -4, -51, -12, -103, -59)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3), PackedInt32Array(4, 5, 6, 7), PackedInt32Array(3, 2, 4, 7)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(-859, 6, -859, -212, 842, -202, 842, 6, -55, -3, -107, -49, -164, -48, -209, -3)])
+source_geometry_group_name = &"navigation_polygon_source_group"
+
 [node name="Node2D" type="Node2D"]
 
 [node name="CaveBackgroundTileMap" type="TileMap" parent="."]
@@ -1797,7 +1803,7 @@ position = Vector2(-108, 330)
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="FloorCollider"]
 position = Vector2(1071, -413)
 scale = Vector2(281.061, 18.4569)
-polygon = PackedVector2Array(-6.44344, 4.33442, -6.44344, 22.7015, -0.466091, 22.7015, -0.462533, 4.33442, -3.61967, 4.33442, -3.80344, 1.89631, -4.00625, 1.89631, -4.17167, 4.33442)
+polygon = PackedVector2Array(-6.44344, 4.33442, -6.44344, 22.7015, -0.466091, 22.7015, -0.466091, 4.33442, -3.61967, 4.33442, -3.80344, 1.89631, -4.00625, 1.89631, -4.17167, 4.33442)
 
 [node name="CeilingCollider" type="StaticBody2D" parent="."]
 position = Vector2(-54, 165)
@@ -1808,7 +1814,7 @@ scale = Vector2(281.061, 18.4569)
 polygon = PackedVector2Array(-6.45767, 4.33442, -6.45411, 15.7665, -6.22996, 15.7665, -6.22641, 20.9136, -5.94889, 20.9136, -5.94889, 21.9972, -5.87417, 21.9972, -5.87773, 22.6474, -5.82359, 22.6479, -5.82436, 24.4895, -5.3974, 24.4895, -5.3974, 23.5142, -5.27288, 23.5142, -5.27288, 22.6474, -5.04873, 22.5932, -5.04873, 20.0467, -4.99536, 20.0467, -4.9918, 17.5002, -4.80679, 17.5002, -4.80679, 19.234, -4.41185, 19.3424, -4.41185, 20.1009, -3.66824, 20.1551, -3.66824, 22.8641, -3.27331, 22.8641, -3.27331, 21.0219, -3.09897, 21.0219, -3.09897, 23.6226, -2.85703, 23.5684, -2.85347, 26.2233, -2.43008, 26.2233, -2.43008, 24.5437, -2.0387, 24.5437, -2.0387, 19.9925, -1.78965, 19.9925, -1.78965, 23.6226, -1.64021, 23.6226, -1.64021, 20.0467, -1.24884, 20.0467, -1.24884, 19.0715, -1.18124, 19.0715, -1.18124, 16.5792, -1.12075, 16.6333, -1.12431, 13.8702, -0.942856, 13.8702, -0.942856, 15.0079, -0.604851, 15.0079, -0.604851, 12.1906, -0.494555, 12.1906, -0.490997, 4.33442)
 
 [node name="EntryPoint" type="Node2D" parent="."]
-position = Vector2(-848, -4)
+position = Vector2(-848, -3)
 
 [node name="ExitPoint" type="Node2D" parent="."]
 position = Vector2(832, -3)
@@ -1845,3 +1851,6 @@ position = Vector2(590, -45)
 
 [node name="EnemySpawn11" type="Marker2D" parent="."]
 position = Vector2(726, -39)
+
+[node name="NavigationRegion2D" type="NavigationRegion2D" parent="."]
+navigation_polygon = SubResource("NavigationPolygon_ulwoe")

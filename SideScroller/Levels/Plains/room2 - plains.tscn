@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://dsb1asatgnfwo"]
+[gd_scene load_steps=13 format=3 uid="uid://dsb1asatgnfwo"]
 
 [ext_resource type="Texture2D" uid="uid://c5uv2csl40mdi" path="res://Assets/Legacy-Fantasy/Legacy-Fantasy - High Forest 2.3/Assets/Tiles.png" id="1_b7n6g"]
 [ext_resource type="Texture2D" uid="uid://c4yfntwwh8om3" path="res://Assets/Legacy-Fantasy/Legacy-Fantasy - High Forest 2.3/Assets/Props-Rocks.png" id="2_p0h2x"]
@@ -1724,6 +1724,12 @@ sources/13 = SubResource("TileSetAtlasSource_p28te")
 sources/14 = SubResource("TileSetAtlasSource_mo1fc")
 sources/15 = SubResource("TileSetAtlasSource_4h8rp")
 
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_ca1m1"]
+vertices = PackedVector2Array(138, -75, 174, -80, 402, -80, 928, -4, 90, -28, 90, -62, -944, -4, 22, -28, 490, -215, 666, -170, 438, -170, 86, -214, 438, -144, 666, -144, 402, -106, -22, -45, -90, -45, -254, -48, -434, -48, -230, -166, -230, -192, 174, -106, 138, -109, 70, -75, 22, -62, 928, -417, -22, -79, -166, -95, -166, -122, 70, -109, -90, -79, -254, -74, -266, -122, -266, -95, -422, -96, -422, -122, -458, -166, -538, -122, -944, -417, 86, -240, -458, -192, -434, -74, -538, -96, 490, -240)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3, 4, 5), PackedInt32Array(4, 3, 6, 7), PackedInt32Array(8, 9, 10, 11), PackedInt32Array(12, 13, 3, 2, 14), PackedInt32Array(15, 7, 6, 16), PackedInt32Array(17, 16, 6, 18), PackedInt32Array(19, 20, 11, 10, 12, 14, 21, 22), PackedInt32Array(23, 0, 5, 24), PackedInt32Array(25, 3, 13, 9), PackedInt32Array(24, 7, 15, 26), PackedInt32Array(1, 0, 22, 21), PackedInt32Array(27, 28, 29, 23, 26), PackedInt32Array(30, 16, 17, 31, 27), PackedInt32Array(32, 33, 34, 35), PackedInt32Array(19, 22, 29, 28), PackedInt32Array(19, 28, 32, 36), PackedInt32Array(36, 32, 35), PackedInt32Array(36, 35, 37), PackedInt32Array(38, 39, 11, 20, 40), PackedInt32Array(41, 18, 6, 42), PackedInt32Array(9, 8, 43, 25), PackedInt32Array(38, 25, 43, 39), PackedInt32Array(6, 38, 40, 36, 37), PackedInt32Array(6, 37, 42), PackedInt32Array(31, 41, 42, 34, 33), PackedInt32Array(31, 33, 27), PackedInt32Array(23, 24, 26), PackedInt32Array(30, 27, 26)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(-954, 6, -954, -428, 938, -427, 938, 5), PackedVector2Array(448, -160, 448, -154, 656, -154, 656, -160), PackedVector2Array(96, -230, 96, -224, 480, -225, 480, -230), PackedVector2Array(184, -96, 184, -90, 392, -90, 392, -96), PackedVector2Array(80, -99, 80, -85, 128, -85, 128, -99), PackedVector2Array(32, -52, 32, -38, 80, -38, 80, -52), PackedVector2Array(-80, -69, -80, -55, -32, -55, -32, -69), PackedVector2Array(-256, -112, -256, -105, -176, -105, -176, -112), PackedVector2Array(-448, -182, -448, -176, -240, -176, -240, -182), PackedVector2Array(-424, -64, -424, -58, -264, -58, -264, -64), PackedVector2Array(-528, -112, -528, -106, -432, -106, -432, -112)])
+source_geometry_group_name = &"navigation_polygon_source_group"
+
 [node name="Node2D" type="Node2D"]
 
 [node name="BackgroundTileMap" type="TileMap" parent="."]
@@ -1833,10 +1839,10 @@ scale = Vector2(208.46, 21.9044)
 polygon = PackedVector2Array(-0.518085, 1.68916, -0.518085, 1.96308, 1.32399, 1.91743, 1.32399, 1.68916)
 
 [node name="EntryPoint" type="Node2D" parent="."]
-position = Vector2(-944, -6)
+position = Vector2(-944, -3)
 
 [node name="ExitPoint" type="Node2D" parent="."]
-position = Vector2(928, -6)
+position = Vector2(928, -3)
 
 [node name="EnemySpawn" type="Marker2D" parent="."]
 position = Vector2(-53, -112)
@@ -1867,3 +1873,6 @@ position = Vector2(114, -116)
 
 [node name="EnemySpawn9" type="Marker2D" parent="."]
 position = Vector2(-795, -119)
+
+[node name="NavigationRegion2D" type="NavigationRegion2D" parent="."]
+navigation_polygon = SubResource("NavigationPolygon_ca1m1")

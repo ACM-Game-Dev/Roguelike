@@ -506,6 +506,7 @@ speed = 5000.0
 damage = 1
 enemy_name = ""
 enemy_type = ""
+silver = 0
 
 [node name="Map" type="Node2D"]
 script = ExtResource("1_u1kog")
@@ -553,10 +554,9 @@ playerStats = SubResource("Resource_yxtg4")
 position = Vector2(3, 10)
 navigation_polygon = SubResource("NavigationPolygon_xfju4")
 
-[node name="FlyingEnemy" parent="." node_paths=PackedStringArray("player") instance=ExtResource("9_v8sah")]
+[node name="FlyingEnemy" parent="." instance=ExtResource("9_v8sah")]
 position = Vector2(188, 208)
 enemy_resource = SubResource("Resource_ll48p")
-player = NodePath("../Player")
 
 [connection signal="body_entered" from="item_pickup2" to="item_pickup2" method="_on_body_entered"]
 
