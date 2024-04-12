@@ -26,84 +26,71 @@ offset_right = 443.0
 offset_bottom = 425.0
 color = Color(0.568627, 0.286275, 0.0901961, 1)
 
-[node name="Rage1" type="TextureButton" parent="ColorRect"]
-layout_mode = 0
-offset_left = 241.0
-offset_top = 133.0
-offset_right = 2324.0
-offset_bottom = 2216.0
-scale = Vector2(0.02, 0.02)
-toggle_mode = true
-keep_pressed_outside = true
-texture_normal = ExtResource("1_8oy3q")
-stretch_mode = 0
-
-[node name="Treasure1" type="TextureButton" parent="ColorRect"]
-layout_mode = 0
-offset_left = 291.0
-offset_top = 30.0
-offset_right = 2374.0
-offset_bottom = 2113.0
-scale = Vector2(0.02, 0.02)
-toggle_mode = true
-keep_pressed_outside = true
-texture_normal = ExtResource("2_l3jfk")
-stretch_mode = 0
-
-[node name="Armor2" type="TextureButton" parent="ColorRect"]
-layout_mode = 0
-offset_left = 350.0
-offset_top = 99.0
-offset_right = 2433.0
-offset_bottom = 2182.0
-scale = Vector2(0.02, 0.02)
-toggle_mode = true
-keep_pressed_outside = true
-texture_normal = ExtResource("5_tpk86")
-stretch_mode = 0
-
-[node name="Armor1" type="TextureButton" parent="ColorRect"]
-layout_mode = 0
-offset_left = 345.0
-offset_top = 190.0
-offset_right = 2428.0
-offset_bottom = 2273.0
-scale = Vector2(0.02, 0.02)
-toggle_mode = true
-keep_pressed_outside = true
-texture_normal = ExtResource("6_ook0a")
-stretch_mode = 0
-
-[node name="Melee1" type="TextureButton" parent="ColorRect"]
-layout_mode = 0
-offset_left = 330.0
-offset_top = 305.0
-offset_right = 2413.0
-offset_bottom = 2388.0
-scale = Vector2(0.02, 0.02)
-toggle_mode = true
-keep_pressed_outside = true
-texture_normal = ExtResource("7_1etvw")
-stretch_mode = 0
-
-[node name="Ranged1" type="TextureButton" parent="ColorRect"]
-layout_mode = 0
-offset_left = 247.0
-offset_top = 229.0
-offset_right = 2330.0
-offset_bottom = 2312.0
-scale = Vector2(0.02, 0.02)
-toggle_mode = true
-keep_pressed_outside = true
-texture_normal = ExtResource("8_vlsg8")
-stretch_mode = 0
-
 [node name="Potion1" parent="ColorRect" node_paths=PackedStringArray("connected") instance=ExtResource("10_gkqvl")]
 layout_mode = 0
 offset_left = 96.0
 offset_top = 335.0
 offset_right = 2179.0
 offset_bottom = 2418.0
+connected = [NodePath("../Magic1")]
+
+[node name="Potion3" parent="ColorRect" node_paths=PackedStringArray("connected") instance=ExtResource("10_gkqvl")]
+layout_mode = 0
+offset_left = 327.0
+offset_top = 303.0
+offset_right = 2410.0
+offset_bottom = 2386.0
+texture_normal = ExtResource("7_1etvw")
+connected = [NodePath("../Ranged1"), NodePath("../Armor1")]
+
+[node name="Ranged1" parent="ColorRect" node_paths=PackedStringArray("connected") instance=ExtResource("10_gkqvl")]
+layout_mode = 0
+offset_left = 256.0
+offset_top = 238.0
+offset_right = 2339.0
+offset_bottom = 2321.0
+texture_normal = ExtResource("8_vlsg8")
+enabled = false
+connected = [NodePath("../Battlecry1")]
+
+[node name="Armor1" parent="ColorRect" node_paths=PackedStringArray("connected") instance=ExtResource("10_gkqvl")]
+layout_mode = 0
+offset_left = 354.0
+offset_top = 212.0
+offset_right = 2437.0
+offset_bottom = 2295.0
+texture_normal = ExtResource("6_ook0a")
+enabled = false
+connected = [NodePath("../Armor2")]
+
+[node name="Battlecry1" parent="ColorRect" node_paths=PackedStringArray("connected") instance=ExtResource("10_gkqvl")]
+layout_mode = 0
+offset_left = 253.0
+offset_top = 117.0
+offset_right = 2336.0
+offset_bottom = 2200.0
+texture_normal = ExtResource("1_8oy3q")
+enabled = false
+connected = [NodePath("../Treasure1")]
+
+[node name="Armor2" parent="ColorRect" node_paths=PackedStringArray("connected") instance=ExtResource("10_gkqvl")]
+layout_mode = 0
+offset_left = 355.0
+offset_top = 109.0
+offset_right = 2438.0
+offset_bottom = 2192.0
+texture_normal = ExtResource("5_tpk86")
+enabled = false
+connected = [NodePath("../Treasure1")]
+
+[node name="Treasure1" parent="ColorRect" node_paths=PackedStringArray("connected") instance=ExtResource("10_gkqvl")]
+layout_mode = 0
+offset_left = 294.0
+offset_top = 32.0
+offset_right = 2377.0
+offset_bottom = 2115.0
+texture_normal = ExtResource("2_l3jfk")
+enabled = false
 connected = [NodePath("../Magic1")]
 
 [node name="Potion2" parent="ColorRect" instance=ExtResource("10_gkqvl")]

@@ -1,11 +1,22 @@
-[gd_scene load_steps=7 format=3 uid="uid://cvg2hy1butyd8"]
+[gd_scene load_steps=10 format=3 uid="uid://cvg2hy1butyd8"]
 
 [ext_resource type="TileSet" uid="uid://djoa8d1igga7j" path="res://Levels/DeepCave/TileMaps/kingdomTileSet.tres" id="1_ef6cs"]
 [ext_resource type="Script" path="res://Levels/levelController.gd" id="1_gk1w6"]
-[ext_resource type="TileSet" uid="uid://cvu4pn3ikbugv" path="res://Levels/DeepCave/TileMaps/allTiles.tres" id="2_uuhyc"]
+[ext_resource type="TileSet" uid="uid://cvu4pn3ikbugv" path="res://allTiles.tres" id="2_uuhyc"]
 [ext_resource type="Texture2D" uid="uid://srmmdqe8x6c1" path="res://Assets/Legacy-Fantasy/Legacy-Fantasy - High Forest 2.3/Background/Background.png" id="3_kjkba"]
 [ext_resource type="Script" path="res://World/parallax.gd" id="4_anajk"]
 [ext_resource type="Texture2D" uid="uid://c22kgdo3hqtpi" path="res://Assets/Legacy-Fantasy/Legacy Fantasy - Kingdom Fortress - Update/Legacy Fantasy - Kingdom Fortress - Update/Background/Background.2-export.png" id="5_e0lkp"]
+[ext_resource type="PackedScene" uid="uid://bn8g0lgjvplhw" path="res://Player/Player.tscn" id="7_ks6ih"]
+[ext_resource type="Script" path="res://Player/PlayerStats.gd" id="8_lfd47"]
+
+[sub_resource type="Resource" id="Resource_xe4bf"]
+resource_local_to_scene = true
+script = ExtResource("8_lfd47")
+MAX_HEALTH = 100
+CURR_HEALTH = 100
+MOVE_SPEED = 150.0
+JUMP_POWER = -400.0
+NUM_JUMPS = 1
 
 [node name="Lobby" type="Node2D"]
 script = ExtResource("1_gk1w6")
@@ -93,3 +104,7 @@ position = Vector2(-802, 32)
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="LeftForestCollider"]
 polygon = PackedVector2Array(-15, -337, -11, 39, -38, 39, -38, -337)
+
+[node name="Player" parent="." instance=ExtResource("7_ks6ih")]
+position = Vector2(-12, 21)
+playerStats = SubResource("Resource_xe4bf")
