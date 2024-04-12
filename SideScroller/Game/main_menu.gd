@@ -6,7 +6,7 @@ func _input(event):
 		get_tree().quit()
 
 func _on_start_button_down():
-	get_tree().change_scene_to_file("res://Levels/lobby.tscn")
+	get_tree().change_scene_to_file("res://Levels/MainStage.tscn")
 
 func _on_quit_button_down():
 	get_tree().quit()
