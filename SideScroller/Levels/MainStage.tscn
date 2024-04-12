@@ -1,20 +1,29 @@
-[gd_scene load_steps=10 format=3 uid="uid://gkij33e5hhrw"]
+[gd_scene load_steps=19 format=3 uid="uid://gkij33e5hhrw"]
 
 [ext_resource type="Script" path="res://Levels/enemySpawnRate.gd" id="1_e6hjl"]
 [ext_resource type="PackedScene" uid="uid://bn8g0lgjvplhw" path="res://Player/Player.tscn" id="1_hwtgt"]
 [ext_resource type="PackedScene" uid="uid://cvg2hy1butyd8" path="res://Levels/lobby.tscn" id="1_vom34"]
 [ext_resource type="Script" path="res://Player/PlayerStats.gd" id="2_tgjjb"]
 [ext_resource type="PackedScene" uid="uid://bhbce7xdxl2ao" path="res://Levels/Gateway/gateway.tscn" id="2_u1bul"]
+[ext_resource type="PackedScene" uid="uid://de3jyfyvp8xty" path="res://Levels/Plains/room1 - plains.tscn" id="5_tl1h4"]
 [ext_resource type="PackedScene" uid="uid://dq17r77j5q7rt" path="res://Levels/Plains/PlainsLevel.tscn" id="5_yx3p7"]
+[ext_resource type="PackedScene" uid="uid://dsb1asatgnfwo" path="res://Levels/Plains/room2 - plains.tscn" id="6_iydyx"]
 [ext_resource type="PackedScene" uid="uid://dhvtxgbv1husf" path="res://Levels/DeepCave/DeepCaveLevel.tscn" id="6_lwqs2"]
+[ext_resource type="PackedScene" uid="uid://dfofh83uh6e3m" path="res://Levels/Plains/room3 - plains.tscn" id="7_5blhd"]
 [ext_resource type="PackedScene" uid="uid://b28hjbutwvblj" path="res://Levels/LevelManager.tscn" id="7_qslvo"]
+[ext_resource type="PackedScene" uid="uid://ej60se2bopfv" path="res://Levels/Plains/room5 - plains.tscn" id="8_rsri2"]
+[ext_resource type="PackedScene" uid="uid://dja1vngs8td73" path="res://Levels/Plains/room6 - plains.tscn" id="9_3jpjb"]
+[ext_resource type="PackedScene" uid="uid://kir4rjhh7whe" path="res://Levels/Plains/room7 - plains.tscn" id="10_uvyv2"]
+[ext_resource type="PackedScene" uid="uid://o6ih4vegxxxq" path="res://Levels/Plains/room8 - plains.tscn" id="11_koxt2"]
+[ext_resource type="PackedScene" uid="uid://btwydinuc23sr" path="res://Levels/Plains/room9 - plains.tscn" id="12_ry8cq"]
+[ext_resource type="PackedScene" uid="uid://cflnfofrodcqy" path="res://Levels/Plains/room10 - plains.tscn" id="13_cuuyy"]
 
 [sub_resource type="Resource" id="Resource_gxwti"]
 resource_local_to_scene = true
 script = ExtResource("2_tgjjb")
 MAX_HEALTH = 100
 CURR_HEALTH = 100
-MOVE_SPEED = 150.0
+MOVE_SPEED = 750.0
 JUMP_POWER = -400.0
 NUM_JUMPS = 1
 
@@ -47,12 +56,13 @@ position = Vector2(-8, 14)
 [node name="PlainsLevel" parent="." instance=ExtResource("5_yx3p7")]
 position = Vector2(3994, -2381)
 
+[node name="RoomManager" parent="PlainsLevel" index="0"]
+rooms = Array[PackedScene]([ExtResource("5_tl1h4"), ExtResource("6_iydyx"), ExtResource("7_5blhd"), ExtResource("8_rsri2"), ExtResource("9_3jpjb"), ExtResource("10_uvyv2"), ExtResource("11_koxt2"), ExtResource("12_ry8cq"), ExtResource("13_cuuyy")])
+min_rooms = 9
+max_rooms = 9
+
 [node name="DeepCaveLevel" parent="." instance=ExtResource("6_lwqs2")]
 position = Vector2(4005, 1400)
-
-[node name="RoomManager" parent="DeepCaveLevel" index="0"]
-min_rooms = 0
-max_rooms = 0
 
 [node name="LevelManager" parent="." node_paths=PackedStringArray("player") instance=ExtResource("7_qslvo")]
 levels = Array[NodePath]([NodePath("../Lobby"), NodePath("../PlainsLevel"), NodePath("../DeepCaveLevel")])

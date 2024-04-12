@@ -11,6 +11,11 @@ var ground_enemy_scene = load("res://Enemies/Ground/ground_enemy.tscn")
 func _ready():
 	player = get_node_or_null("/root/MainStage/Player")
 	enemy_spawn_rate_node = get_node_or_null("/root/MainStage")  
+	
+	if player:
+		print("Got player")
+	else:
+		print("No player found")
 
 func trigger_spawn(body):
 	if body == player and not has_player_triggered_spawn:
@@ -20,7 +25,7 @@ func trigger_spawn(body):
 
 func spawn_enemies():
 	var rate = enemy_spawn_rate_node.get_spawn_rate()
-	var spawn_count = int(rate * spawn_points.size())
+	var spawn_count = int(spawn_points.size())
 	var chosen_points = []
 	for path in spawn_points:
 		chosen_points.append(get_node(path)) 
@@ -44,9 +49,12 @@ func spawn_enemy_at(position):
 	var enemy_instance
 	if random_choice < spawn_threshold:
 		enemy_instance = flying_enemy_scene.instantiate()
+		print("Spawn flying enemy")
 	else:
 		enemy_instance = ground_enemy_scene.instantiate() 
+		print("Spawn ground enemy")
 
 	enemy_instance.global_position = position
-	add_child(enemy_instance)
+	print("Enemy Spawned at", enemy_instance.global_position)
+	call_deferred("add_child", enemy_instance)
 	

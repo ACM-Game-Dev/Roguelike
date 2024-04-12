@@ -18,7 +18,7 @@ var range = 150
 func _ready():
 	health = enemy_resource.health
 	if !player:
-		player = get_parent().get_parent().get_parent().get_node("Player")
+		player = get_node_or_null("/root/MainStage/Player")
 
 func _physics_process(delta):
 	if is_stunned:
