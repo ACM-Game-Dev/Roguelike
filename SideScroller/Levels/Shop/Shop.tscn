@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://c6hse44ngyp2q"]
+
+[ext_resource type="Texture2D" uid="uid://c8jdcrn75ukbq" path="res://Levels/Shop/Shopkeeper.png" id="1_rk4eq"]
+
+[node name="Shop" type="Node2D"]
+
+[node name="ShopKeeper" type="Sprite2D" parent="."]
+texture = ExtResource("1_rk4eq")
+region_enabled = true
+region_rect = Rect2(52.7183, 8.4294, 272.82, 368.485)

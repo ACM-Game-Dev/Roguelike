@@ -1,0 +1,31 @@
+[gd_scene load_steps=15 format=3 uid="uid://dhvtxgbv1husf"]
+
+[ext_resource type="Script" path="res://Levels/roommanager.gd" id="1_1q5v1"]
+[ext_resource type="Script" path="res://Levels/levelController.gd" id="1_55pli"]
+[ext_resource type="PackedScene" uid="uid://c6dxk86ljmsq6" path="res://Levels/DeepCave/room1 - deepCave.tscn" id="2_2f2re"]
+[ext_resource type="PackedScene" uid="uid://cl3m4g87j345w" path="res://Levels/DeepCave/room2 - deepCave.tscn" id="3_8dmgu"]
+[ext_resource type="PackedScene" uid="uid://nm05cnptsojt" path="res://Levels/DeepCave/room3 - deepCave.tscn" id="4_5wnii"]
+[ext_resource type="PackedScene" uid="uid://oleslu02vf1f" path="res://Levels/DeepCave/room4 - deepCave.tscn" id="5_m6rv4"]
+[ext_resource type="PackedScene" uid="uid://b25sywawf043f" path="res://Levels/DeepCave/room5 - deepCave.tscn" id="6_ji7kr"]
+[ext_resource type="PackedScene" uid="uid://yyentfbuuqie" path="res://Levels/DeepCave/room6 - deepCave.tscn" id="7_dcwup"]
+[ext_resource type="PackedScene" uid="uid://csbob0beqlivs" path="res://Levels/DeepCave/room7 - deepCave.tscn" id="8_8lvss"]
+[ext_resource type="PackedScene" uid="uid://cdfnn2k62epnh" path="res://Levels/DeepCave/roomStart - deepcave.tscn" id="9_i0wsf"]
+[ext_resource type="PackedScene" uid="uid://4mylvysvs7c2" path="res://Levels/DeepCave/room8 - deepCave.tscn" id="10_u0r46"]
+[ext_resource type="PackedScene" uid="uid://cpr8l7uf5ryhq" path="res://Levels/DeepCave/room9 - deepCave.tscn" id="11_hn1fn"]
+[ext_resource type="PackedScene" uid="uid://57klp4qxa5gm" path="res://Levels/DeepCave/room10 -  deepCave.tscn" id="12_5deqx"]
+[ext_resource type="PackedScene" uid="uid://c5ctd0sa5lpra" path="res://Levels/DeepCave/finalRoom - deepCave.tscn" id="14_r0hpt"]
+
+[node name="DeepCaveLevel" type="Node2D"]
+script = ExtResource("1_55pli")
+
+[node name="RoomManager" type="Node2D" parent="."]
+script = ExtResource("1_1q5v1")
+rooms = Array[PackedScene]([ExtResource("2_2f2re"), ExtResource("3_8dmgu"), ExtResource("4_5wnii"), ExtResource("5_m6rv4"), ExtResource("6_ji7kr"), ExtResource("7_dcwup"), ExtResource("8_8lvss"), ExtResource("10_u0r46"), ExtResource("11_hn1fn"), ExtResource("12_5deqx")])
+min_rooms = 10
+max_rooms = 10
+startRoom = ExtResource("9_i0wsf")
+finalRoom = ExtResource("14_r0hpt")
+
+[node name="FirstEntry" type="Node2D" parent="RoomManager"]
+
+[node name="PlayerSpawn" type="Node2D" parent="."]
