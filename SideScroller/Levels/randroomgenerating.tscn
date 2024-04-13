@@ -1,20 +1,21 @@
-[gd_scene load_steps=21 format=3 uid="uid://cg1mermfhged5"]
+[gd_scene load_steps=23 format=3 uid="uid://cg1mermfhged5"]
 
 [ext_resource type="Script" path="res://Levels/roommanager.gd" id="1_eyccr"]
 [ext_resource type="PackedScene" uid="uid://de3jyfyvp8xty" path="res://Levels/Plains/room1 - plains.tscn" id="2_fphch"]
-[ext_resource type="PackedScene" uid="uid://dsb1asatgnfwo" path="res://Levels/room2.tscn" id="3_j3rm6"]
-[ext_resource type="PackedScene" uid="uid://dfofh83uh6e3m" path="res://Levels/room3.tscn" id="4_2bgpu"]
-[ext_resource type="PackedScene" uid="uid://cbbn1kgdasovy" path="res://Levels/room4.tscn" id="5_4av1y"]
-[ext_resource type="PackedScene" uid="uid://ej60se2bopfv" path="res://Levels/room5.tscn" id="6_5bm8p"]
-[ext_resource type="PackedScene" uid="uid://dja1vngs8td73" path="res://Levels/room6.tscn" id="7_v04d0"]
-[ext_resource type="PackedScene" uid="uid://kir4rjhh7whe" path="res://Levels/room7.tscn" id="8_2nlhd"]
-[ext_resource type="PackedScene" uid="uid://o6ih4vegxxxq" path="res://Levels/room8.tscn" id="9_r3vwf"]
+[ext_resource type="PackedScene" uid="uid://dsb1asatgnfwo" path="res://Levels/Plains/room2 - plains.tscn" id="3_j3rm6"]
+[ext_resource type="PackedScene" uid="uid://dfofh83uh6e3m" path="res://Levels/Plains/room3 - plains.tscn" id="4_2bgpu"]
+[ext_resource type="PackedScene" uid="uid://cbbn1kgdasovy" path="res://Levels/Misc Rooms/room1 - cave.tscn" id="5_4av1y"]
+[ext_resource type="PackedScene" uid="uid://ej60se2bopfv" path="res://Levels/Plains/room5 - plains.tscn" id="6_5bm8p"]
+[ext_resource type="PackedScene" uid="uid://dja1vngs8td73" path="res://Levels/Plains/room6 - plains.tscn" id="7_v04d0"]
+[ext_resource type="PackedScene" uid="uid://kir4rjhh7whe" path="res://Levels/Plains/room7 - plains.tscn" id="8_2nlhd"]
+[ext_resource type="PackedScene" uid="uid://o6ih4vegxxxq" path="res://Levels/Plains/room8 - plains.tscn" id="9_r3vwf"]
 [ext_resource type="PackedScene" uid="uid://bn8g0lgjvplhw" path="res://Player/Player.tscn" id="10_8qk32"]
 [ext_resource type="PackedScene" uid="uid://vi0ltqnvwm0s" path="res://Levels/Plains/finalRoom - plains.tscn" id="10_654an"]
 [ext_resource type="PackedScene" uid="uid://cs4c7lvm3xp10" path="res://Levels/Plains/roomStart - plains.tscn" id="10_s2ir0"]
 [ext_resource type="Script" path="res://Player/PlayerStats.gd" id="11_ig7l4"]
 [ext_resource type="PackedScene" uid="uid://d1f7ngdq5rld7" path="res://Enemies/Flying/flying_enemy.tscn" id="12_st623"]
 [ext_resource type="Script" path="res://Enemies/Enemy_Resource.gd" id="13_pnl8p"]
+[ext_resource type="Script" path="res://Player/RunResource.gd" id="14_3ggmu"]
 [ext_resource type="PackedScene" uid="uid://bkmyv2a676e4u" path="res://Equipment/WeaponPickup.tscn" id="14_cqh01"]
 [ext_resource type="PackedScene" uid="uid://c71pit1rpvc4j" path="res://Spells/spell_pickup.tscn" id="15_imm3m"]
 [ext_resource type="PackedScene" uid="uid://c233y0pcx661r" path="res://Equipment/Axe/axe_pickup.tscn" id="16_7bfxu"]
@@ -27,6 +28,12 @@ CURR_HEALTH = 100
 MOVE_SPEED = 150.0
 JUMP_POWER = -400.0
 NUM_JUMPS = 1
+
+[sub_resource type="Resource" id="Resource_hk5wf"]
+resource_local_to_scene = true
+script = ExtResource("14_3ggmu")
+silver = 0
+xp = 0
 
 [sub_resource type="Resource" id="Resource_sg6nj"]
 resource_local_to_scene = true
@@ -56,6 +63,7 @@ position = Vector2(3, 426)
 [node name="Player" parent="." instance=ExtResource("10_8qk32")]
 position = Vector2(227, 365)
 playerStats = SubResource("Resource_18n32")
+runResource = SubResource("Resource_hk5wf")
 
 [node name="FlyingEnemy" parent="." instance=ExtResource("12_st623")]
 position = Vector2(331, 252)

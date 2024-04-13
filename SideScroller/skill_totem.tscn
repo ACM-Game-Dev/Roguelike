@@ -17,4 +17,7 @@ position = Vector2(10, 1)
 scale = Vector2(1, 1.51784)
 script = ExtResource("2_su5hj")
 
+[node name="EnterDoorText" parent="SkillTotem/Area2D" index="1"]
+text = "Press 'e' to access totem"
+
 [editable path="SkillTotem"]

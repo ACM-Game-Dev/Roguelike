@@ -26,7 +26,7 @@ offset_left = -81.0
 offset_top = -54.0
 offset_right = 89.0
 offset_bottom = -31.0
-text = "Press 'e' to enter door"
+text = "Press 'e' to enter gateway"
 
 [connection signal="body_entered" from="Area2D" to="Area2D" method="_on_Door_Entered"]
 [connection signal="body_exited" from="Area2D" to="Area2D" method="_on_Door_Exited"]
