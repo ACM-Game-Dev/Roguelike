@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://4mylvysvs7c2"]
+[gd_scene load_steps=3 format=3 uid="uid://4mylvysvs7c2"]
 
 [ext_resource type="TileSet" uid="uid://bpkc7m86duq3r" path="res://Levels/DeepCave/TileMaps/deepCave.tres" id="1_qux4n"]
+[ext_resource type="PackedScene" uid="uid://4l52xwrq8y0d" path="res://Levels/EnemySpawning/enemySpawner.tscn" id="2_83poc"]
 
 [node name="Room8-DeepCave" type="Node2D"]
 
@@ -30,74 +31,113 @@ position = Vector2(-976, 75)
 [node name="ExitPoint" type="Node2D" parent="."]
 position = Vector2(1024, 75)
 
-[node name="FloorCollider" type="StaticBody2D" parent="."]
+[node name="Colliders" type="Node2D" parent="."]
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="FloorCollider"]
+[node name="FloorCollider" type="StaticBody2D" parent="Colliders"]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Colliders/FloorCollider"]
 polygon = PackedVector2Array(-976, 76, -590, 76, -560, 92, -560, 140, -528, 156, -528, 284, -463, 316, 561, 316, 624, 283, 624, 204, 655, 188, 688, 188, 688, 92, 718, 76, 1024, 76, 1024, 928, -976, 928)
 
-[node name="CeilingCollider" type="StaticBody2D" parent="."]
+[node name="CeilingCollider" type="StaticBody2D" parent="Colliders"]
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="CeilingCollider"]
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Colliders/CeilingCollider"]
 polygon = PackedVector2Array(-975, -768, -976, -192, -927, -192, -904, -111, -881, -192, -874, -192, -849, -128, -831, -192, -750, -192, -718, -208, -671, -208, -648, -128, -625, -208, -592, -191, -592, -159, -562, -144, -537, -144, -528, -150, -528, -160, -496, -175, -496, -240, -462, -240, -431, -255, -431, -272, -415, -272, -392, -192, -368, -272, -368, -239, -336, -223, -336, -181, -330, -176, -305, -176, -274, -160, -254, -160, -224, -175, -224, -288, -206, -288, -176, -303, -176, -320, -112, -320, -112, -239, -82, -224, -48, -224, -48, -197, -42, -192, -33, -192, -2, -176, 18, -176, 48, -191, 64, -202, 64, -272, 80, -272, 95, -208, 113, -272, 130, -272, 160, -287, 160, -304, 214, -304, 224, -273, 234, -280, 248, -224, 272, -304, 352, -304, 352, -271, 382, -256, 401, -256, 424, -176, 448, -256, 496, -256, 496, -191, 526, -176, 578, -176, 610, -192, 657, -192, 680, -112, 705, -192, 752, -192, 767, -128, 785, -192, 897, -192, 920, -112, 945, -192, 1024, -192, 1025, -768)
 
-[node name="PlatformCollider8" type="StaticBody2D" parent="."]
+[node name="PlatformCollider8" type="StaticBody2D" parent="Colliders"]
 position = Vector2(467, 119)
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="PlatformCollider8"]
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Colliders/PlatformCollider8"]
 position = Vector2(34.3385, -1.00001)
 scale = Vector2(1.33464, 1)
 polygon = PackedVector2Array(-100, 10, 92, 10, 92, -10, -100, -10)
 
-[node name="PlatformCollider7" type="StaticBody2D" parent="."]
+[node name="PlatformCollider7" type="StaticBody2D" parent="Colliders"]
 position = Vector2(355, 262)
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="PlatformCollider7"]
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Colliders/PlatformCollider7"]
 position = Vector2(0.98436, -1.00001)
 scale = Vector2(0.996094, 1)
 polygon = PackedVector2Array(-100, 10, 92, 10, 92, -10, -100, -10)
 
-[node name="PlatformCollider6" type="StaticBody2D" parent="."]
+[node name="PlatformCollider6" type="StaticBody2D" parent="Colliders"]
 position = Vector2(211, 183)
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="PlatformCollider6"]
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Colliders/PlatformCollider6"]
 position = Vector2(0.98436, -1.00001)
 scale = Vector2(0.996094, 1)
 polygon = PackedVector2Array(-100, 10, 92, 10, 92, -10, -100, -10)
 
-[node name="PlatformCollider5" type="StaticBody2D" parent="."]
+[node name="PlatformCollider5" type="StaticBody2D" parent="Colliders"]
 position = Vector2(48, 263)
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="PlatformCollider5"]
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Colliders/PlatformCollider5"]
 position = Vector2(2.68227, -1.00001)
 scale = Vector2(0.670573, 1)
 polygon = PackedVector2Array(-100, 10, 92, 10, 92, -10, -100, -10)
 
-[node name="PlatformCollider4" type="StaticBody2D" parent="."]
+[node name="PlatformCollider4" type="StaticBody2D" parent="Colliders"]
 position = Vector2(32, 119)
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="PlatformCollider4"]
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Colliders/PlatformCollider4"]
 position = Vector2(2.68227, -1.00001)
 scale = Vector2(0.670573, 1)
 polygon = PackedVector2Array(-100, 10, 92, 10, 92, -10, -100, -10)
 
-[node name="PlatformCollider3" type="StaticBody2D" parent="."]
+[node name="PlatformCollider3" type="StaticBody2D" parent="Colliders"]
 position = Vector2(-348, 119)
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="PlatformCollider3"]
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Colliders/PlatformCollider3"]
 position = Vector2(7.99999, -1.00001)
 scale = Vector2(0.917969, 1)
 polygon = PackedVector2Array(-100, 10, 92, 10, 92, -10, -100, -10)
 
-[node name="PlatformCollider2" type="StaticBody2D" parent="."]
+[node name="PlatformCollider2" type="StaticBody2D" parent="Colliders"]
 position = Vector2(-258, 263)
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="PlatformCollider2"]
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Colliders/PlatformCollider2"]
 position = Vector2(5.00001, -2)
 scale = Vector2(0.670573, 1)
 polygon = PackedVector2Array(-100, 10, 92, 10, 92, -10, -100, -10)
 
-[node name="PlatformCollider1" type="StaticBody2D" parent="."]
+[node name="PlatformCollider1" type="StaticBody2D" parent="Colliders"]
 position = Vector2(-124, 182)
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="PlatformCollider1"]
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Colliders/PlatformCollider1"]
 polygon = PackedVector2Array(-100, 10, 92, 10, 92, -10, -100, -10)
+
+[node name="EnemySpawnPoints" type="Node2D" parent="."]
+
+[node name="Marker2D" type="Marker2D" parent="EnemySpawnPoints"]
+position = Vector2(-626, 44)
+
+[node name="Marker2D2" type="Marker2D" parent="EnemySpawnPoints"]
+position = Vector2(-314, 72)
+
+[node name="Marker2D3" type="Marker2D" parent="EnemySpawnPoints"]
+position = Vector2(-140, 138)
+
+[node name="Marker2D4" type="Marker2D" parent="EnemySpawnPoints"]
+position = Vector2(35, 57)
+
+[node name="Marker2D5" type="Marker2D" parent="EnemySpawnPoints"]
+position = Vector2(203, 124)
+
+[node name="Marker2D6" type="Marker2D" parent="EnemySpawnPoints"]
+position = Vector2(483, 71)
+
+[node name="Marker2D7" type="Marker2D" parent="EnemySpawnPoints"]
+position = Vector2(64, 207)
+
+[node name="Marker2D8" type="Marker2D" parent="EnemySpawnPoints"]
+position = Vector2(358, 212)
+
+[node name="Marker2D9" type="Marker2D" parent="EnemySpawnPoints"]
+position = Vector2(758, 30)
+
+[node name="EnemySpawner" parent="." instance=ExtResource("2_83poc")]
+position = Vector2(-965, 153)
+
+[node name="SpawnTrigger" parent="EnemySpawner" index="0"]
+spawn_points = Array[NodePath]([NodePath("../../EnemySpawnPoints/Marker2D"), NodePath("../../EnemySpawnPoints/Marker2D2"), NodePath("../../EnemySpawnPoints/Marker2D3"), NodePath("../../EnemySpawnPoints/Marker2D4"), NodePath("../../EnemySpawnPoints/Marker2D5"), NodePath("../../EnemySpawnPoints/Marker2D6"), NodePath("../../EnemySpawnPoints/Marker2D7"), NodePath("../../EnemySpawnPoints/Marker2D8"), NodePath("../../EnemySpawnPoints/Marker2D9")])
+
+[editable path="EnemySpawner"]

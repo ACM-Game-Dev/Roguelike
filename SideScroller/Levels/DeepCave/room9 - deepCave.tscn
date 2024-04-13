@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://cpr8l7uf5ryhq"]
+[gd_scene load_steps=3 format=3 uid="uid://cpr8l7uf5ryhq"]
 
 [ext_resource type="TileSet" uid="uid://bpkc7m86duq3r" path="res://Levels/DeepCave/TileMaps/deepCave.tres" id="1_7pp1j"]
+[ext_resource type="PackedScene" uid="uid://4l52xwrq8y0d" path="res://Levels/EnemySpawning/enemySpawner.tscn" id="2_csl7l"]
 
 [node name="Room9-DeepCave" type="Node2D"]
 
@@ -30,24 +31,63 @@ position = Vector2(-688, 91)
 [node name="ExitPoint" type="Node2D" parent="."]
 position = Vector2(752, 91)
 
-[node name="PlatformCollider2" type="StaticBody2D" parent="."]
+[node name="Colliders" type="Node2D" parent="."]
+
+[node name="PlatformCollider2" type="StaticBody2D" parent="Colliders"]
 position = Vector2(471, 33)
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="PlatformCollider2"]
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Colliders/PlatformCollider2"]
 polygon = PackedVector2Array(-65, -3, 69, -3, 69, 1, 58, 8, -58, 8, -65, 1)
 
-[node name="PlatformCollider1" type="StaticBody2D" parent="."]
+[node name="PlatformCollider1" type="StaticBody2D" parent="Colliders"]
 position = Vector2(-351, 49)
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="PlatformCollider1"]
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Colliders/PlatformCollider1"]
 polygon = PackedVector2Array(-61, -3, 59, -3, 59, 1, 49, 8, -52, 8, -61, 1)
 
-[node name="CeilingCollider" type="StaticBody2D" parent="."]
+[node name="CeilingCollider" type="StaticBody2D" parent="Colliders"]
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="CeilingCollider"]
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Colliders/CeilingCollider"]
 polygon = PackedVector2Array(-688, -544, -688, -176, -545, -176, -514, -160, -383, -160, -361, -80, -336, -160, -302, -160, -271, -176, -256, -176, -241, -112, -222, -176, -162, -176, -130, -160, -113, -160, -112, -63, -80, -47, -80, 1, -49, 16, -25, 16, -16, 10, -16, -16, 16, -31, 16, -64, 48, -79, 48, -160, 66, -160, 97, -176, 143, -176, 176, -160, 176, -128, 207, -112, 226, -112, 256, -127, 256, -144, 289, -144, 353, -176, 400, -176, 415, -112, 433, -176, 513, -176, 536, -96, 560, -176, 688, -176, 697, -145, 706, -176, 752, -176, 752, -544)
 
-[node name="FloorCollider" type="StaticBody2D" parent="."]
+[node name="FloorCollider" type="StaticBody2D" parent="Colliders"]
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="FloorCollider"]
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Colliders/FloorCollider"]
 polygon = PackedVector2Array(-688, 92, -479, 92, -446, 109, -259, 109, -227, 93, -146, 93, -144, 92, 16, 92, 19, 93, 77, 93, 109, 77, 307, 77, 338, 93, 752, 92, 752, 496, -688, 496)
+
+[node name="EnemySpawnPoints" type="Node2D" parent="."]
+
+[node name="Marker2D" type="Marker2D" parent="EnemySpawnPoints"]
+position = Vector2(-368, 23)
+
+[node name="Marker2D2" type="Marker2D" parent="EnemySpawnPoints"]
+position = Vector2(-302, 79)
+
+[node name="Marker2D3" type="Marker2D" parent="EnemySpawnPoints"]
+position = Vector2(-229, 59)
+
+[node name="Marker2D4" type="Marker2D" parent="EnemySpawnPoints"]
+position = Vector2(-120, 55)
+
+[node name="Marker2D5" type="Marker2D" parent="EnemySpawnPoints"]
+position = Vector2(-58, 55)
+
+[node name="Marker2D6" type="Marker2D" parent="EnemySpawnPoints"]
+position = Vector2(7, 54)
+
+[node name="Marker2D7" type="Marker2D" parent="EnemySpawnPoints"]
+position = Vector2(227, 37)
+
+[node name="Marker2D8" type="Marker2D" parent="EnemySpawnPoints"]
+position = Vector2(469, -7)
+
+[node name="Marker2D9" type="Marker2D" parent="EnemySpawnPoints"]
+position = Vector2(387, 58)
+
+[node name="EnemySpawner" parent="." instance=ExtResource("2_csl7l")]
+position = Vector2(-680, 121)
+
+[node name="SpawnTrigger" parent="EnemySpawner" index="0"]
+spawn_points = Array[NodePath]([NodePath("../../EnemySpawnPoints/Marker2D"), NodePath("../../EnemySpawnPoints/Marker2D2"), NodePath("../../EnemySpawnPoints/Marker2D3"), NodePath("../../EnemySpawnPoints/Marker2D4"), NodePath("../../EnemySpawnPoints/Marker2D5"), NodePath("../../EnemySpawnPoints/Marker2D6"), NodePath("../../EnemySpawnPoints/Marker2D7"), NodePath("../../EnemySpawnPoints/Marker2D8"), NodePath("../../EnemySpawnPoints/Marker2D9")])
+
+[editable path="EnemySpawner"]

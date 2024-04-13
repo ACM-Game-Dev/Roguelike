@@ -1,8 +1,11 @@
 extends Node2D
 
 @export var parallax_strength: float = 10 # Lower is stronger!!
-@export var player: Node = null # Initialize player as null
+var player: Node = null # Initialize player as null
 var original_player_pos: Vector2
+
+func _ready():
+	player = get_node_or_null("/root/MainStage/Player")
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):

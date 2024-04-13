@@ -18,13 +18,16 @@ var range = 150
 func _ready():
 	health = enemy_resource.health
 	if !player:
-		player = get_parent().get_parent().get_parent().get_node("Player")
+		player = Globals.get_player()
 
 func _physics_process(delta):
 	if is_stunned:
 		velocity = Vector2.ZERO #While stunned, cannot move
 		return
 	
+	if not player:
+		return
+		
 	if player:
 		distance = (player.global_position - global_position).length()
 		

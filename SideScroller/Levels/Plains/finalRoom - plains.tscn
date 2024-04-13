@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://vi0ltqnvwm0s"]
+[gd_scene load_steps=4 format=3 uid="uid://vi0ltqnvwm0s"]
 
 [ext_resource type="TileSet" uid="uid://cvu4pn3ikbugv" path="res://allTiles.tres" id="1_snh8t"]
 [ext_resource type="PackedScene" uid="uid://bhbce7xdxl2ao" path="res://Levels/Gateway/gateway.tscn" id="2_rdq0p"]
+[ext_resource type="PackedScene" uid="uid://4l52xwrq8y0d" path="res://Levels/EnemySpawning/enemySpawner.tscn" id="3_l136n"]
 
 [node name="FinalRoom-Plains" type="Node2D"]
 
@@ -26,12 +27,60 @@ layer_0/tile_data = PackedInt32Array(851912, 131078, 2, 786377, 196614, 1, 85191
 [node name="EntryPoint" type="Node2D" parent="."]
 position = Vector2(-1200, 170)
 
-[node name="FloorCollider" type="StaticBody2D" parent="."]
-position = Vector2(-2064, 170)
-
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="FloorCollider"]
-polygon = PackedVector2Array(864, 2, 1315, 2, 1344, 18, 1379, 18, 1440, 50, 1635, 50, 1664, 66, 1731, 66, 1760, 82, 1859, 82, 1888, 98, 2384, 98, 2445, 66, 2543, 66, 2669, 2, 2784, 2, 2813, -14, 3104, -14, 3133, -30, 3264, -30, 3325, -62, 3697, -62, 3699, -82, 3697, -96, 3697, -134, 3703, -156, 3717, -159, 3729, -159, 3729, -231, 3734, -251, 3737, -253, 3745, -253, 3745, -362, 3731, -371, 3729, -399, 3729, -522, 3725, -522, 3715, -531, 3713, -554, 3699, -563, 3696, -586, 3683, -595, 3679, -618, 3476, -618, 3474, -650, 3459, -660, 3453, -666, 3163, -666, 3165, -645, 3162, -635, 3147, -634, 3149, -614, 3145, -602, 2989, -602, 2978, -612, 2974, -650, 2963, -659, 2959, -698, 2815, -698, 2813, -564, 2809, -554, 2781, -554, 2770, -564, 2767, -603, 2741, -624, 2720, -634, 2545, -634, 2541, -597, 2536, -586, 2495, -586, 2493, -548, 2490, -539, 2473, -523, 2457, -506, 2397, -506, 2387, -515, 2371, -547, 2349, -586, 2189, -586, 2179, -595, 2173, -602, 1996, -602, 1997, -582, 1994, -572, 1983, -560, 1981, -533, 1978, -525, 1976, -522, 1789, -522, 1778, -532, 1776, -650, 1676, -650, 1677, -629, 1674, -620, 1670, -617, 1660, -618, 1661, -597, 1657, -586, 1629, -586, 1619, -595, 1616, -619, 1604, -626, 1597, -666, 1500, -666, 1501, -644, 1498, -635, 1487, -630, 1487, -622, 1483, -613, 1485, -600, 1483, -588, 1471, -583, 1469, -551, 1453, -502, 1450, -491, 1434, -444, 1432, -442, 1377, -442, 1371, -396, 1357, -357, 1353, -346, 1312, -346, 1306, -316, 1290, -284, 1274, -252, 1257, -202, 1242, -171, 1225, -138, 1116, -138, 1107, -148, 1106, -186, 1091, -195, 1075, -245, 1059, -293, 1043, -341, 1027, -389, 1011, -422, 995, -454, 998, -1151, 4206, -1151, 4206, 661, 867, 663)
-
 [node name="Gateway" parent="." instance=ExtResource("2_rdq0p")]
 z_index = -5
 position = Vector2(161, 239)
+
+[node name="Colliders" type="Node2D" parent="."]
+
+[node name="FloorCollider" type="StaticBody2D" parent="Colliders"]
+position = Vector2(-2064, 170)
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Colliders/FloorCollider"]
+polygon = PackedVector2Array(864, 2, 1315, 2, 1344, 18, 1379, 18, 1440, 50, 1635, 50, 1664, 66, 1731, 66, 1760, 82, 1859, 82, 1888, 98, 2384, 98, 2445, 66, 2543, 66, 2669, 2, 2784, 2, 2813, -14, 3104, -14, 3133, -30, 3264, -30, 3325, -62, 3697, -62, 3699, -82, 3697, -96, 3697, -134, 3703, -156, 3717, -159, 3729, -159, 3729, -231, 3734, -251, 3737, -253, 3745, -253, 3745, -362, 3731, -371, 3729, -399, 3729, -522, 3725, -522, 3715, -531, 3713, -554, 3699, -563, 3696, -586, 3683, -595, 3679, -618, 3476, -618, 3474, -650, 3459, -660, 3453, -666, 3163, -666, 3165, -645, 3162, -635, 3147, -634, 3149, -614, 3145, -602, 2989, -602, 2978, -612, 2974, -650, 2963, -659, 2959, -698, 2815, -698, 2813, -564, 2809, -554, 2781, -554, 2770, -564, 2767, -603, 2741, -624, 2720, -634, 2545, -634, 2541, -597, 2536, -586, 2495, -586, 2493, -548, 2490, -539, 2473, -523, 2457, -506, 2397, -506, 2387, -515, 2371, -547, 2349, -586, 2189, -586, 2179, -595, 2173, -602, 1996, -602, 1997, -582, 1994, -572, 1983, -560, 1981, -533, 1978, -525, 1976, -522, 1789, -522, 1778, -532, 1776, -650, 1676, -650, 1677, -629, 1674, -620, 1670, -617, 1660, -618, 1661, -597, 1657, -586, 1629, -586, 1619, -595, 1616, -619, 1604, -626, 1597, -666, 1500, -666, 1501, -644, 1498, -635, 1487, -630, 1487, -622, 1483, -613, 1485, -600, 1483, -588, 1471, -583, 1469, -551, 1453, -502, 1450, -491, 1434, -444, 1432, -442, 1377, -442, 1371, -396, 1357, -357, 1353, -346, 1312, -346, 1306, -316, 1290, -284, 1274, -252, 1257, -202, 1242, -171, 1225, -138, 1116, -138, 1107, -148, 1106, -186, 1091, -195, 1075, -245, 1059, -293, 1043, -341, 1027, -389, 1011, -422, 995, -454, 998, -1151, 4206, -1151, 4206, 661, 867, 663)
+
+[node name="EnemySpawnPoints" type="Node2D" parent="."]
+
+[node name="Marker2D" type="Marker2D" parent="EnemySpawnPoints"]
+position = Vector2(-411, 126)
+
+[node name="Marker2D2" type="Marker2D" parent="EnemySpawnPoints"]
+position = Vector2(-166, 171)
+
+[node name="Marker2D3" type="Marker2D" parent="EnemySpawnPoints"]
+position = Vector2(43, 200)
+
+[node name="Marker2D4" type="Marker2D" parent="EnemySpawnPoints"]
+position = Vector2(285, 205)
+
+[node name="Marker2D5" type="Marker2D" parent="EnemySpawnPoints"]
+position = Vector2(452, 166)
+
+[node name="Marker2D6" type="Marker2D" parent="EnemySpawnPoints"]
+position = Vector2(580, 119)
+
+[node name="Marker2D7" type="Marker2D" parent="EnemySpawnPoints"]
+position = Vector2(699, 95)
+
+[node name="Marker2D8" type="Marker2D" parent="EnemySpawnPoints"]
+position = Vector2(176, -100)
+
+[node name="Marker2D9" type="Marker2D" parent="EnemySpawnPoints"]
+position = Vector2(502, -90)
+
+[node name="Marker2D10" type="Marker2D" parent="EnemySpawnPoints"]
+position = Vector2(678, -93)
+
+[node name="Marker2D11" type="Marker2D" parent="EnemySpawnPoints"]
+position = Vector2(880, 74)
+
+[node name="Marker2D12" type="Marker2D" parent="EnemySpawnPoints"]
+position = Vector2(999, 55)
+
+[node name="EnemySpawner" parent="." instance=ExtResource("3_l136n")]
+position = Vector2(-935, 120)
+
+[node name="SpawnTrigger" parent="EnemySpawner" index="0"]
+spawn_points = Array[NodePath]([NodePath("../../EnemySpawnPoints/Marker2D"), NodePath("../../EnemySpawnPoints/Marker2D2"), NodePath("../../EnemySpawnPoints/Marker2D3"), NodePath("../../EnemySpawnPoints/Marker2D4"), NodePath("../../EnemySpawnPoints/Marker2D5"), NodePath("../../EnemySpawnPoints/Marker2D6"), NodePath("../../EnemySpawnPoints/Marker2D7"), NodePath("../../EnemySpawnPoints/Marker2D8"), NodePath("../../EnemySpawnPoints/Marker2D9"), NodePath("../../EnemySpawnPoints/Marker2D10"), NodePath("../../EnemySpawnPoints/Marker2D11"), NodePath("../../EnemySpawnPoints/Marker2D12")])
+
+[editable path="EnemySpawner"]
