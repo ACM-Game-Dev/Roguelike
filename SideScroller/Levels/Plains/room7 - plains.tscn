@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://kir4rjhh7whe"]
+[gd_scene load_steps=3 format=3 uid="uid://kir4rjhh7whe"]
 
 [ext_resource type="TileSet" uid="uid://cvu4pn3ikbugv" path="res://allTiles.tres" id="1_utk8p"]
+[ext_resource type="PackedScene" uid="uid://4l52xwrq8y0d" path="res://Levels/EnemySpawning/enemySpawner.tscn" id="2_y1wqk"]
 
 [node name="Room7 - Plains" type="Node2D"]
 
@@ -36,15 +37,6 @@ polygon = PackedVector2Array(-10.3293, 3.66877, -10.3369, 39.4277, 4.28253, 39.5
 
 [node name="EnemySpawnPoints" type="Node2D" parent="."]
 
-[node name="EnemySpawn10" type="Marker2D" parent="EnemySpawnPoints"]
-position = Vector2(-469, -3)
-
-[node name="EnemySpawn9" type="Marker2D" parent="EnemySpawnPoints"]
-position = Vector2(-391, 10)
-
-[node name="EnemySpawn8" type="Marker2D" parent="EnemySpawnPoints"]
-position = Vector2(-340, 55)
-
 [node name="EnemySpawn7" type="Marker2D" parent="EnemySpawnPoints"]
 position = Vector2(541, -15)
 
@@ -65,3 +57,11 @@ position = Vector2(-159, 105)
 
 [node name="EnemySpawn" type="Marker2D" parent="EnemySpawnPoints"]
 position = Vector2(220, 111)
+
+[node name="EnemySpawner" parent="." instance=ExtResource("2_y1wqk")]
+position = Vector2(-904, -32)
+
+[node name="SpawnTrigger" parent="EnemySpawner" index="0"]
+spawn_points = Array[NodePath]([NodePath("../../EnemySpawnPoints/EnemySpawn"), NodePath("../../EnemySpawnPoints/EnemySpawn2"), NodePath("../../EnemySpawnPoints/EnemySpawn3"), NodePath("../../EnemySpawnPoints/EnemySpawn4"), NodePath("../../EnemySpawnPoints/EnemySpawn5"), NodePath("../../EnemySpawnPoints/EnemySpawn6"), NodePath("../../EnemySpawnPoints/EnemySpawn7")])
+
+[editable path="EnemySpawner"]

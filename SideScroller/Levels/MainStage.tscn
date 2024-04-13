@@ -5,18 +5,18 @@
 [ext_resource type="PackedScene" uid="uid://cvg2hy1butyd8" path="res://Levels/lobby.tscn" id="1_vom34"]
 [ext_resource type="Script" path="res://Player/PlayerStats.gd" id="2_tgjjb"]
 [ext_resource type="PackedScene" uid="uid://bhbce7xdxl2ao" path="res://Levels/Gateway/gateway.tscn" id="2_u1bul"]
-[ext_resource type="PackedScene" uid="uid://de3jyfyvp8xty" path="res://Levels/Plains/room1 - plains.tscn" id="5_tl1h4"]
+[ext_resource type="PackedScene" uid="uid://de3jyfyvp8xty" path="res://Levels/Plains/room1 - plains.tscn" id="5_h6a51"]
 [ext_resource type="PackedScene" uid="uid://dq17r77j5q7rt" path="res://Levels/Plains/PlainsLevel.tscn" id="5_yx3p7"]
-[ext_resource type="PackedScene" uid="uid://dsb1asatgnfwo" path="res://Levels/Plains/room2 - plains.tscn" id="6_iydyx"]
+[ext_resource type="PackedScene" uid="uid://dsb1asatgnfwo" path="res://Levels/Plains/room2 - plains.tscn" id="6_42nid"]
 [ext_resource type="PackedScene" uid="uid://dhvtxgbv1husf" path="res://Levels/DeepCave/DeepCaveLevel.tscn" id="6_lwqs2"]
-[ext_resource type="PackedScene" uid="uid://dfofh83uh6e3m" path="res://Levels/Plains/room3 - plains.tscn" id="7_5blhd"]
+[ext_resource type="PackedScene" uid="uid://dfofh83uh6e3m" path="res://Levels/Plains/room3 - plains.tscn" id="7_m7een"]
 [ext_resource type="PackedScene" uid="uid://b28hjbutwvblj" path="res://Levels/LevelManager.tscn" id="7_qslvo"]
-[ext_resource type="PackedScene" uid="uid://ej60se2bopfv" path="res://Levels/Plains/room5 - plains.tscn" id="8_rsri2"]
-[ext_resource type="PackedScene" uid="uid://dja1vngs8td73" path="res://Levels/Plains/room6 - plains.tscn" id="9_3jpjb"]
-[ext_resource type="PackedScene" uid="uid://kir4rjhh7whe" path="res://Levels/Plains/room7 - plains.tscn" id="10_uvyv2"]
-[ext_resource type="PackedScene" uid="uid://o6ih4vegxxxq" path="res://Levels/Plains/room8 - plains.tscn" id="11_koxt2"]
-[ext_resource type="PackedScene" uid="uid://btwydinuc23sr" path="res://Levels/Plains/room9 - plains.tscn" id="12_ry8cq"]
-[ext_resource type="PackedScene" uid="uid://cflnfofrodcqy" path="res://Levels/Plains/room10 - plains.tscn" id="13_cuuyy"]
+[ext_resource type="PackedScene" uid="uid://ej60se2bopfv" path="res://Levels/Plains/room5 - plains.tscn" id="8_3rvhw"]
+[ext_resource type="PackedScene" uid="uid://dja1vngs8td73" path="res://Levels/Plains/room6 - plains.tscn" id="9_mf1mk"]
+[ext_resource type="PackedScene" uid="uid://kir4rjhh7whe" path="res://Levels/Plains/room7 - plains.tscn" id="10_r7hti"]
+[ext_resource type="PackedScene" uid="uid://o6ih4vegxxxq" path="res://Levels/Plains/room8 - plains.tscn" id="11_mvwdu"]
+[ext_resource type="PackedScene" uid="uid://btwydinuc23sr" path="res://Levels/Plains/room9 - plains.tscn" id="12_4rr2o"]
+[ext_resource type="PackedScene" uid="uid://cflnfofrodcqy" path="res://Levels/Plains/room10 - plains.tscn" id="13_5sfv0"]
 
 [sub_resource type="Resource" id="Resource_gxwti"]
 resource_local_to_scene = true
@@ -24,42 +24,49 @@ script = ExtResource("2_tgjjb")
 MAX_HEALTH = 100
 CURR_HEALTH = 100
 MOVE_SPEED = 750.0
-JUMP_POWER = -400.0
+JUMP_POWER = -800.0
 NUM_JUMPS = 1
 
 [node name="MainStage" type="Node2D"]
 script = ExtResource("1_e6hjl")
-spawn_rate = 1
-flying_spawn_rate = 1
 ground_spawn_rate = 1
 
 [node name="Lobby" parent="." instance=ExtResource("1_vom34")]
 z_index = -1
-
-[node name="SkyBackground" parent="Lobby/Node" index="0" node_paths=PackedStringArray("player")]
-position = Vector2(51, 16)
-parallax_strength = 50.0
-player = NodePath("../../../Player")
-
-[node name="MountainBackground - Sprite2" parent="Lobby/Node" index="1" node_paths=PackedStringArray("player")]
-parallax_strength = 50.0
-player = NodePath("../../../Player")
-
-[node name="MountainBackground - Sprite" parent="Lobby/Node" index="2" node_paths=PackedStringArray("player")]
-parallax_strength = 50.0
-player = NodePath("../../../Player")
 
 [node name="Gateway" parent="Lobby" instance=ExtResource("2_u1bul")]
 z_index = -5
 position = Vector2(-8, 14)
 
 [node name="PlainsLevel" parent="." instance=ExtResource("5_yx3p7")]
-position = Vector2(3994, -2381)
+position = Vector2(8441, -2381)
 
 [node name="RoomManager" parent="PlainsLevel" index="0"]
-rooms = Array[PackedScene]([ExtResource("5_tl1h4"), ExtResource("6_iydyx"), ExtResource("7_5blhd"), ExtResource("8_rsri2"), ExtResource("9_3jpjb"), ExtResource("10_uvyv2"), ExtResource("11_koxt2"), ExtResource("12_ry8cq"), ExtResource("13_cuuyy")])
-min_rooms = 9
-max_rooms = 9
+rooms = Array[PackedScene]([ExtResource("5_h6a51"), ExtResource("6_42nid"), ExtResource("7_m7een"), ExtResource("8_3rvhw"), ExtResource("9_mf1mk"), ExtResource("10_r7hti"), ExtResource("11_mvwdu"), ExtResource("12_4rr2o"), ExtResource("13_5sfv0")])
+min_rooms = 8
+max_rooms = 8
+
+[node name="PlainsBackground" parent="PlainsLevel" index="2"]
+visible = false
+z_index = -99
+position = Vector2(-12334, 422)
+scale = Vector2(8.5, 8.5)
+parallax_strength = 0.1
+
+[node name="Sprite2D4" parent="PlainsLevel/PlainsBackground" index="7"]
+visible = false
+position = Vector2(5024, 0)
+
+[node name="Sprite2D3" parent="PlainsLevel/PlainsBackground" index="8"]
+visible = false
+position = Vector2(-2499, 0)
+
+[node name="Sprite2D2" parent="PlainsLevel/PlainsBackground" index="9"]
+visible = false
+position = Vector2(2514, 0)
+
+[node name="Sprite2D" parent="PlainsLevel/PlainsBackground" index="10"]
+visible = false
 
 [node name="DeepCaveLevel" parent="." instance=ExtResource("6_lwqs2")]
 position = Vector2(4005, 1400)

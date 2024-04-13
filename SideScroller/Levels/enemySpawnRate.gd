@@ -1,7 +1,7 @@
 extends Node
 
 
-@export var spawn_rate = 0
+@export var spawn_rate = 0.1
 @export var flying_spawn_rate = 0
 @export var ground_spawn_rate = 0
 

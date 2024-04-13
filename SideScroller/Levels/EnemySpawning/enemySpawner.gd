@@ -5,11 +5,11 @@ var player: Node = null
 var enemy_spawn_rate_node: Node = null 
 var has_player_triggered_spawn = false
 
-var flying_enemy_scene = load("res://Enemies/Flying/flying_enemy.tscn")
-var ground_enemy_scene = load("res://Enemies/Ground/ground_enemy.tscn")
+var flying_enemy_scene = preload("res://Enemies/Flying/flying_enemy.tscn")
+var ground_enemy_scene = preload("res://Enemies/Ground/ground_enemy.tscn")
 
 func _ready():
-	player = get_node_or_null("/root/MainStage/Player")
+	player = get_node_or_null("/root/MainStage/Player")  
 	enemy_spawn_rate_node = get_node_or_null("/root/MainStage")  
 	
 	if player:
@@ -25,7 +25,7 @@ func trigger_spawn(body):
 
 func spawn_enemies():
 	var rate = enemy_spawn_rate_node.get_spawn_rate()
-	var spawn_count = int(spawn_points.size())
+	var spawn_count = int(spawn_points.size() / 2)
 	var chosen_points = []
 	for path in spawn_points:
 		chosen_points.append(get_node(path)) 
@@ -53,8 +53,10 @@ func spawn_enemy_at(position):
 	else:
 		enemy_instance = ground_enemy_scene.instantiate() 
 		print("Spawn ground enemy")
-
-	enemy_instance.global_position = position
-	print("Enemy Spawned at", enemy_instance.global_position)
-	call_deferred("add_child", enemy_instance)
+		
 	
+
+	get_tree().root.call_deferred("add_child", enemy_instance)
+	
+	print("Enemy Spawned at", enemy_instance.global_position)
+	enemy_instance.global_position = position

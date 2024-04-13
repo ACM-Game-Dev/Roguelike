@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://dja1vngs8td73"]
+[gd_scene load_steps=3 format=3 uid="uid://dja1vngs8td73"]
 
 [ext_resource type="TileSet" uid="uid://cvu4pn3ikbugv" path="res://allTiles.tres" id="1_bvrsx"]
+[ext_resource type="PackedScene" uid="uid://4l52xwrq8y0d" path="res://Levels/EnemySpawning/enemySpawner.tscn" id="2_0dail"]
 
 [node name="Room6 - Plains" type="Node2D"]
 
@@ -31,23 +32,33 @@ position = Vector2(-656, -6)
 [node name="ExitPoint" type="Node2D" parent="."]
 position = Vector2(816, -6)
 
-[node name="EnemySpawn7" type="Marker2D" parent="."]
+[node name="EnemySpawnPoints" type="Node2D" parent="."]
+
+[node name="EnemySpawn7" type="Marker2D" parent="EnemySpawnPoints"]
 position = Vector2(-182, -136)
 
-[node name="EnemySpawn6" type="Marker2D" parent="."]
+[node name="EnemySpawn6" type="Marker2D" parent="EnemySpawnPoints"]
 position = Vector2(525, -68)
 
-[node name="EnemySpawn5" type="Marker2D" parent="."]
+[node name="EnemySpawn5" type="Marker2D" parent="EnemySpawnPoints"]
 position = Vector2(396, -123)
 
-[node name="EnemySpawn4" type="Marker2D" parent="."]
+[node name="EnemySpawn4" type="Marker2D" parent="EnemySpawnPoints"]
 position = Vector2(165, -182)
 
-[node name="EnemySpawn3" type="Marker2D" parent="."]
+[node name="EnemySpawn3" type="Marker2D" parent="EnemySpawnPoints"]
 position = Vector2(68, -182)
 
-[node name="EnemySpawn2" type="Marker2D" parent="."]
+[node name="EnemySpawn2" type="Marker2D" parent="EnemySpawnPoints"]
 position = Vector2(-42, -178)
 
-[node name="EnemySpawn" type="Marker2D" parent="."]
+[node name="EnemySpawn" type="Marker2D" parent="EnemySpawnPoints"]
 position = Vector2(-379, -47)
+
+[node name="EnemySpawner" parent="." instance=ExtResource("2_0dail")]
+position = Vector2(-644, -38)
+
+[node name="SpawnTrigger" parent="EnemySpawner" index="0"]
+spawn_points = Array[NodePath]([NodePath("../../EnemySpawnPoints/EnemySpawn"), NodePath("../../EnemySpawnPoints/EnemySpawn2"), NodePath("../../EnemySpawnPoints/EnemySpawn3"), NodePath("../../EnemySpawnPoints/EnemySpawn4"), NodePath("../../EnemySpawnPoints/EnemySpawn5"), NodePath("../../EnemySpawnPoints/EnemySpawn6"), NodePath("../../EnemySpawnPoints/EnemySpawn7")])
+
+[editable path="EnemySpawner"]

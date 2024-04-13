@@ -1,8 +1,10 @@
-[gd_scene load_steps=6 format=3 uid="uid://dq17r77j5q7rt"]
+[gd_scene load_steps=8 format=3 uid="uid://dq17r77j5q7rt"]
 
 [ext_resource type="Script" path="res://Levels/levelController.gd" id="1_5rmig"]
 [ext_resource type="Script" path="res://Levels/roommanager.gd" id="1_413ty"]
 [ext_resource type="PackedScene" uid="uid://de3jyfyvp8xty" path="res://Levels/Plains/room1 - plains.tscn" id="2_a8cfh"]
+[ext_resource type="Texture2D" uid="uid://nx5ut3tkmnth" path="res://Assets/Legacy-Fantasy/Legacy Fantasy - Kingdom Fortress - Update/Legacy Fantasy - Kingdom Fortress - Update/Background/02.png" id="6_bq38l"]
+[ext_resource type="Script" path="res://World/parallax.gd" id="7_r6584"]
 [ext_resource type="PackedScene" uid="uid://cs4c7lvm3xp10" path="res://Levels/Plains/roomStart - plains.tscn" id="10_4s7tm"]
 [ext_resource type="PackedScene" uid="uid://vi0ltqnvwm0s" path="res://Levels/Plains/finalRoom - plains.tscn" id="11_nc350"]
 
@@ -22,3 +24,52 @@ position = Vector2(3, 426)
 
 [node name="PlayerSpawn" type="Node2D" parent="."]
 position = Vector2(0, 415)
+
+[node name="PlainsBackground" type="Node2D" parent="."]
+position = Vector2(3821, 724)
+scale = Vector2(10, 10)
+script = ExtResource("7_r6584")
+parallax_strength = 2.0
+
+[node name="Sprite2D11" type="Sprite2D" parent="PlainsBackground"]
+position = Vector2(1336.4, 0)
+texture = ExtResource("6_bq38l")
+
+[node name="Sprite2D10" type="Sprite2D" parent="PlainsBackground"]
+position = Vector2(2997.6, 0)
+texture = ExtResource("6_bq38l")
+
+[node name="Sprite2D9" type="Sprite2D" parent="PlainsBackground"]
+position = Vector2(2667.6, 0)
+texture = ExtResource("6_bq38l")
+
+[node name="Sprite2D8" type="Sprite2D" parent="PlainsBackground"]
+position = Vector2(2335.47, 0)
+texture = ExtResource("6_bq38l")
+
+[node name="Sprite2D7" type="Sprite2D" parent="PlainsBackground"]
+position = Vector2(2003.2, 0)
+texture = ExtResource("6_bq38l")
+
+[node name="Sprite2D6" type="Sprite2D" parent="PlainsBackground"]
+position = Vector2(1668.67, 0)
+texture = ExtResource("6_bq38l")
+
+[node name="Sprite2D5" type="Sprite2D" parent="PlainsBackground"]
+position = Vector2(1003.47, 0)
+texture = ExtResource("6_bq38l")
+
+[node name="Sprite2D4" type="Sprite2D" parent="PlainsBackground"]
+position = Vector2(-334, 0)
+texture = ExtResource("6_bq38l")
+
+[node name="Sprite2D3" type="Sprite2D" parent="PlainsBackground"]
+position = Vector2(669, 0)
+texture = ExtResource("6_bq38l")
+
+[node name="Sprite2D2" type="Sprite2D" parent="PlainsBackground"]
+position = Vector2(336, 0)
+texture = ExtResource("6_bq38l")
+
+[node name="Sprite2D" type="Sprite2D" parent="PlainsBackground"]
+texture = ExtResource("6_bq38l")

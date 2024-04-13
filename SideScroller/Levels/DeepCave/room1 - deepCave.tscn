@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://c6dxk86ljmsq6"]
+[gd_scene load_steps=3 format=3 uid="uid://c6dxk86ljmsq6"]
 
 [ext_resource type="TileSet" uid="uid://bpkc7m86duq3r" path="res://Levels/DeepCave/TileMaps/deepCave.tres" id="1_46nfu"]
+[ext_resource type="PackedScene" uid="uid://4l52xwrq8y0d" path="res://Levels/EnemySpawning/enemySpawner.tscn" id="2_virq7"]
 
 [node name="Room1-DeepCave" type="Node2D"]
 
@@ -81,8 +82,10 @@ position = Vector2(-309, -25)
 [node name="Marker2D8" type="Marker2D" parent="EnemySpawnPoints"]
 position = Vector2(-376, -126)
 
-[node name="Marker2D9" type="Marker2D" parent="EnemySpawnPoints"]
-position = Vector2(342, -125)
+[node name="EnemySpawner" parent="." instance=ExtResource("2_virq7")]
+position = Vector2(-695, 0)
 
-[node name="Marker2D10" type="Marker2D" parent="EnemySpawnPoints"]
-position = Vector2(-482, -24)
+[node name="SpawnTrigger" parent="EnemySpawner" index="0"]
+spawn_points = Array[NodePath]([NodePath("../../EnemySpawnPoints/Marker2D"), NodePath("../../EnemySpawnPoints/Marker2D2"), NodePath("../../EnemySpawnPoints/Marker2D3"), NodePath("../../EnemySpawnPoints/Marker2D4"), NodePath("../../EnemySpawnPoints/Marker2D5"), NodePath("../../EnemySpawnPoints/Marker2D6"), NodePath("../../EnemySpawnPoints/Marker2D7"), NodePath("../../EnemySpawnPoints/Marker2D8")])
+
+[editable path="EnemySpawner"]
