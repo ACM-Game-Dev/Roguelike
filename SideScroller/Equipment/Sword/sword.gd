@@ -5,8 +5,10 @@ class_name Sword
 @export var weapon_resource: Weapon_Resource
 @onready var hitbox1 = $AttackArea1/CollisionShape2D
 @onready var hitbox2 = $AttackArea2/CollisionShape2D
+
 var swings = 0
 var cooledDown = true
+var player = Globals.get_player()
 
 func equip(player):
 	#Since this is going to be (practically) the same across all weapons, could it be done in Equipment.gd? 
@@ -64,10 +66,13 @@ func drop(player):
 
 func hitbox1_detection(body):
 	if body.has_method("enemy_take_damage"):
+		var damage = weapon_resource.damage
 		if swings == 1: #Combo 1
-			body.enemy_take_damage(weapon_resource.damage)
+			body.enemy_take_damage(damage)
 		elif swings == 3: #Combo 3
-			body.enemy_take_damage(weapon_resource.damage + 10)
+			damage = damage + 10
+			body.enemy_take_damage(damage)
+		print(damage)
 
 
 func hitbox2_detection(body):

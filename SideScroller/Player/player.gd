@@ -2,12 +2,15 @@ extends CharacterBody2D
 
 class_name Player
 
-signal health_changed
+signal health_changed(int)
+signal silver_changed(int)
+signal xp_changed(int)
 
 @export var playerStats: PlayerStats
 @export var itemCount: ItemCount
 
 @export var runResource: RunResource
+@export var postRunResource: PostRunResource
 
 @onready var equipment_list = %Equipment.get_children()
 @onready var sprite = $AnimatedSprite2D

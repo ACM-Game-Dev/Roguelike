@@ -1,8 +1,9 @@
-[gd_resource type="TileSet" load_steps=7 format=3 uid="uid://djoa8d1igga7j"]
+[gd_resource type="TileSet" load_steps=9 format=3 uid="uid://djoa8d1igga7j"]
 
 [ext_resource type="Texture2D" uid="uid://dujyhakin320r" path="res://Assets/Legacy-Fantasy/Legacy Fantasy - Kingdom Fortress - Update/Legacy Fantasy - Kingdom Fortress - Update/Tiles/Assets.png" id="1_olaew"]
 [ext_resource type="Texture2D" uid="uid://c4phkarno6h6s" path="res://Assets/Legacy-Fantasy/Legacy Fantasy - Kingdom Fortress - Update/Legacy Fantasy - Kingdom Fortress - Update/Tiles/Props.png" id="2_a78kr"]
 [ext_resource type="Texture2D" uid="uid://dgp2riluo0q8n" path="res://Assets/Legacy-Fantasy/Legacy Fantasy - Kingdom Fortress - Update/Legacy Fantasy - Kingdom Fortress - Update/Tiles/Vegetation-export.png" id="3_xvx0a"]
+[ext_resource type="Texture2D" uid="uid://wvdpyqub7xyx" path="res://Assets/Legacy-Fantasy/Legacy Fantasy - Castle Prison/Legacy Fantasy - Castle Prison/Assets/Props.png" id="4_ocgtk"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_g5n61"]
 texture = ExtResource("1_olaew")
@@ -923,7 +924,110 @@ texture = ExtResource("3_xvx0a")
 27:29/0 = 0
 28:29/0 = 0
 
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_k0rt8"]
+texture = ExtResource("4_ocgtk")
+0:0/0 = 0
+1:0/0 = 0
+2:0/0 = 0
+3:0/0 = 0
+4:0/0 = 0
+5:0/0 = 0
+6:0/0 = 0
+0:1/0 = 0
+1:1/0 = 0
+2:1/0 = 0
+3:1/0 = 0
+4:1/0 = 0
+5:1/0 = 0
+6:1/0 = 0
+0:2/0 = 0
+1:2/0 = 0
+2:2/0 = 0
+3:2/0 = 0
+4:2/0 = 0
+5:2/0 = 0
+6:2/0 = 0
+0:3/0 = 0
+1:3/0 = 0
+2:3/0 = 0
+3:3/0 = 0
+4:3/0 = 0
+5:3/0 = 0
+6:3/0 = 0
+0:4/0 = 0
+1:4/0 = 0
+2:4/0 = 0
+3:4/0 = 0
+4:4/0 = 0
+5:4/0 = 0
+6:4/0 = 0
+0:5/0 = 0
+1:5/0 = 0
+2:5/0 = 0
+3:5/0 = 0
+4:5/0 = 0
+5:5/0 = 0
+6:5/0 = 0
+0:6/0 = 0
+1:6/0 = 0
+2:6/0 = 0
+3:6/0 = 0
+4:6/0 = 0
+5:6/0 = 0
+6:6/0 = 0
+0:7/0 = 0
+1:7/0 = 0
+2:7/0 = 0
+3:7/0 = 0
+4:7/0 = 0
+5:7/0 = 0
+6:7/0 = 0
+0:8/0 = 0
+1:8/0 = 0
+2:8/0 = 0
+3:8/0 = 0
+4:8/0 = 0
+5:8/0 = 0
+6:8/0 = 0
+0:9/0 = 0
+1:9/0 = 0
+2:9/0 = 0
+3:9/0 = 0
+4:9/0 = 0
+5:9/0 = 0
+6:9/0 = 0
+0:10/0 = 0
+1:10/0 = 0
+2:10/0 = 0
+3:10/0 = 0
+4:10/0 = 0
+5:10/0 = 0
+6:10/0 = 0
+0:11/0 = 0
+1:11/0 = 0
+2:11/0 = 0
+3:11/0 = 0
+4:11/0 = 0
+5:11/0 = 0
+6:11/0 = 0
+0:12/0 = 0
+1:12/0 = 0
+2:12/0 = 0
+3:12/0 = 0
+4:12/0 = 0
+0:13/0 = 0
+1:13/0 = 0
+2:13/0 = 0
+3:13/0 = 0
+4:13/0 = 0
+0:14/0 = 0
+1:14/0 = 0
+2:14/0 = 0
+3:14/0 = 0
+4:14/0 = 0
+
 [resource]
 sources/0 = SubResource("TileSetAtlasSource_g5n61")
 sources/1 = SubResource("TileSetAtlasSource_hpa4s")
 sources/2 = SubResource("TileSetAtlasSource_kepkq")
+sources/3 = SubResource("TileSetAtlasSource_k0rt8")

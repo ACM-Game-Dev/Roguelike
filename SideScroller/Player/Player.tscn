@@ -1,4 +1,4 @@
-[gd_scene load_steps=80 format=3 uid="uid://bn8g0lgjvplhw"]
+[gd_scene load_steps=87 format=3 uid="uid://bn8g0lgjvplhw"]
 
 [ext_resource type="Script" path="res://Player/player.gd" id="1_il1mb"]
 [ext_resource type="Script" path="res://Player/Camerafollow.gd" id="2_27jpg"]
@@ -6,11 +6,14 @@
 [ext_resource type="Texture2D" uid="uid://bh1kmisu8d5hw" path="res://Assets/Fullmain.png" id="2_yscfa"]
 [ext_resource type="Script" path="res://Items/ItemCount.gd" id="3_w3gpo"]
 [ext_resource type="Script" path="res://Player/PlayerHealthGUI.gd" id="4_3gsxi"]
+[ext_resource type="Script" path="res://Player/RunResource.gd" id="4_88ty6"]
+[ext_resource type="Script" path="res://Player/PostRunResource.gd" id="5_4ebhp"]
 [ext_resource type="Texture2D" uid="uid://xgaop3hljpqa" path="res://Assets/hammer.png" id="5_ilvkl"]
 [ext_resource type="Texture2D" uid="uid://ccmae5y01il5c" path="res://Assets/bow.png" id="5_o18et"]
 [ext_resource type="PackedScene" uid="uid://chrbdxkldsppe" path="res://Equipment/Sword/sword.tscn" id="8_sm4dw"]
 [ext_resource type="PackedScene" uid="uid://cdf5evnlh8cda" path="res://Equipment/Hammer/hammer.tscn" id="9_hu5a4"]
 [ext_resource type="Texture2D" uid="uid://o8qsvt7ty3et" path="res://Assets/bow_icon.png" id="9_lyb56"]
+[ext_resource type="Script" path="res://Player/XPBar.gd" id="10_0wb66"]
 [ext_resource type="Texture2D" uid="uid://ycou54mmr2gq" path="res://Assets/hammer_icon.png" id="10_716ix"]
 [ext_resource type="Texture2D" uid="uid://buvkmky5uodnw" path="res://Assets/Sword.svg" id="10_bqwpi"]
 [ext_resource type="PackedScene" uid="uid://dnl5oo3iuuadv" path="res://Equipment/Bow/bow.tscn" id="11_0jb04"]
@@ -29,6 +32,21 @@ script = ExtResource("3_w3gpo")
 itemCountDict = {
 "ACM_BRAND_PIZZA": 0,
 "feather": 0
+}
+
+[sub_resource type="Resource" id="Resource_agkw5"]
+resource_local_to_scene = true
+script = ExtResource("4_88ty6")
+silver = 0
+xp = 0
+
+[sub_resource type="Resource" id="Resource_fjfkb"]
+script = ExtResource("5_4ebhp")
+skill_points = 1
+unlocked_skills = {
+"Armor1": 0,
+"Melee1": 0,
+"Ranged1": 0
 }
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_cb1s0"]
@@ -521,10 +539,26 @@ corner_radius_top_right = 12
 corner_radius_bottom_right = 12
 corner_radius_bottom_left = 12
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_psngq"]
+bg_color = Color(0.203922, 0.717647, 0, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_v75go"]
+bg_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
 [node name="Player" type="CharacterBody2D"]
 script = ExtResource("1_il1mb")
 playerStats = SubResource("Resource_4pgi6")
 itemCount = SubResource("Resource_dgti8")
+runResource = SubResource("Resource_agkw5")
+postRunResource = SubResource("Resource_fjfkb")
 
 [node name="Collider" type="CollisionShape2D" parent="."]
 shape = SubResource("CapsuleShape2D_cb1s0")
@@ -568,6 +602,19 @@ theme_override_styles/fill = SubResource("StyleBoxFlat_qttu6")
 show_percentage = false
 script = ExtResource("4_3gsxi")
 player = NodePath("../..")
+
+[node name="XPBar" type="ProgressBar" parent="PlayerGUI"]
+z_index = 10
+z_as_relative = false
+layout_mode = 0
+offset_left = -80.0
+offset_top = 192.0
+offset_right = 82.0
+offset_bottom = 213.0
+theme_override_styles/background = SubResource("StyleBoxFlat_psngq")
+theme_override_styles/fill = SubResource("StyleBoxFlat_v75go")
+show_percentage = false
+script = ExtResource("10_0wb66")
 
 [node name="HBoxContainer" type="HBoxContainer" parent="PlayerGUI"]
 z_index = 10
@@ -617,3 +664,5 @@ unique_name_in_owner = true
 [node name="Hammer" parent="Equipment" instance=ExtResource("9_hu5a4")]
 
 [connection signal="health_changed" from="." to="PlayerGUI/HealthBar" method="_on_player_health_changed"]
+
+[editable path="Equipment/Sword"]
