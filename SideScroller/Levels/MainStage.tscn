@@ -1,10 +1,9 @@
-[gd_scene load_steps=12 format=3 uid="uid://gkij33e5hhrw"]
+[gd_scene load_steps=11 format=3 uid="uid://gkij33e5hhrw"]
 
 [ext_resource type="PackedScene" uid="uid://bn8g0lgjvplhw" path="res://Player/Player.tscn" id="1_hwtgt"]
 [ext_resource type="PackedScene" uid="uid://cvg2hy1butyd8" path="res://Levels/lobby.tscn" id="1_vom34"]
 [ext_resource type="Script" path="res://Player/PlayerStats.gd" id="2_tgjjb"]
 [ext_resource type="PackedScene" uid="uid://bhbce7xdxl2ao" path="res://Levels/Gateway/gateway.tscn" id="2_u1bul"]
-[ext_resource type="Script" path="res://Levels/SkillTreeInteract.gd" id="3_r2h6g"]
 [ext_resource type="PackedScene" uid="uid://dq17r77j5q7rt" path="res://Levels/Plains/PlainsLevel.tscn" id="5_yx3p7"]
 [ext_resource type="PackedScene" uid="uid://dhvtxgbv1husf" path="res://Levels/DeepCave/DeepCaveLevel.tscn" id="6_lwqs2"]
 [ext_resource type="PackedScene" uid="uid://b28hjbutwvblj" path="res://Levels/LevelManager.tscn" id="7_qslvo"]
@@ -47,18 +46,6 @@ player = NodePath("../../../Player")
 z_index = -5
 position = Vector2(-8, 14)
 
-[node name="SkillTotem" parent="Lobby" instance=ExtResource("2_u1bul")]
-z_index = -5
-position = Vector2(115, 29)
-
-[node name="TileMap" parent="Lobby/SkillTotem" index="0"]
-layer_0/tile_data = PackedInt32Array(-65537, 3, 1, -1, 3, 2, 65535, 3, 3, 131071, 3, 4, -131072, 65539, 1, -65536, 65539, 2, 0, 65539, 3, 65536, 65539, 4, -131073, 3, 0, -196608, 65539, 0)
-
-[node name="Area2D" parent="Lobby/SkillTotem" index="1"]
-position = Vector2(10, 1)
-scale = Vector2(1, 1.51784)
-script = ExtResource("3_r2h6g")
-
 [node name="PlainsLevel" parent="." instance=ExtResource("5_yx3p7")]
 position = Vector2(3994, -2381)
 
@@ -84,7 +71,6 @@ runResource = SubResource("Resource_j6uk2")
 
 [editable path="Lobby"]
 [editable path="Lobby/Gateway"]
-[editable path="Lobby/SkillTotem"]
 [editable path="PlainsLevel"]
 [editable path="DeepCaveLevel"]
 [editable path="LevelManager"]
