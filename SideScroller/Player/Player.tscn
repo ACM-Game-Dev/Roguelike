@@ -1,4 +1,4 @@
-[gd_scene load_steps=87 format=3 uid="uid://bn8g0lgjvplhw"]
+[gd_scene load_steps=88 format=3 uid="uid://bn8g0lgjvplhw"]
 
 [ext_resource type="Script" path="res://Player/player.gd" id="1_il1mb"]
 [ext_resource type="Script" path="res://Player/Camerafollow.gd" id="2_27jpg"]
@@ -17,6 +17,7 @@
 [ext_resource type="Texture2D" uid="uid://ycou54mmr2gq" path="res://Assets/hammer_icon.png" id="10_716ix"]
 [ext_resource type="Texture2D" uid="uid://buvkmky5uodnw" path="res://Assets/Sword.svg" id="10_bqwpi"]
 [ext_resource type="PackedScene" uid="uid://dnl5oo3iuuadv" path="res://Equipment/Bow/bow.tscn" id="11_0jb04"]
+[ext_resource type="Script" path="res://Player/Silver.gd" id="15_ctb8d"]
 
 [sub_resource type="Resource" id="Resource_4pgi6"]
 resource_local_to_scene = true
@@ -41,8 +42,9 @@ silver = 0
 xp = 0
 
 [sub_resource type="Resource" id="Resource_fjfkb"]
+resource_local_to_scene = true
 script = ExtResource("5_4ebhp")
-skill_points = 1
+skill_points = 0
 unlocked_skills = {
 "Armor1": 0,
 "Melee1": 0,
@@ -654,6 +656,15 @@ text = "  3  "
 icon = ExtResource("10_716ix")
 icon_alignment = 1
 
+[node name="Silver" type="Label" parent="PlayerGUI"]
+layout_mode = 0
+offset_left = -316.0
+offset_top = 154.0
+offset_right = -276.0
+offset_bottom = 177.0
+text = "Silver: 0"
+script = ExtResource("15_ctb8d")
+
 [node name="Equipment" type="Node2D" parent="."]
 unique_name_in_owner = true
 
@@ -662,7 +673,9 @@ unique_name_in_owner = true
 [node name="Sword" parent="Equipment" instance=ExtResource("8_sm4dw")]
 
 [node name="Hammer" parent="Equipment" instance=ExtResource("9_hu5a4")]
+position = Vector2(0, 4)
 
 [connection signal="health_changed" from="." to="PlayerGUI/HealthBar" method="_on_player_health_changed"]
+[connection signal="silver_changed" from="." to="PlayerGUI/Silver" method="_on_player_silver_changed"]
 
 [editable path="Equipment/Sword"]

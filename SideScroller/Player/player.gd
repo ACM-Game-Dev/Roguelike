@@ -24,11 +24,18 @@ var attacking = false
 var curr_weapon: String
 var idle_anim: String 
 var attack_anim: String 
+var save_path = "user://save_1.tres"
+
+func load_post_run():
+	LoadSaver.load_player_resource(self)
+	print("Skill points: " + str(postRunResource.skill_points))
 
 func _ready():
 	# This is only here so we spawn with a weapon. Right now, we never "encounter" a weapon
 	reequip()
 	Globals.player = self
+	load_post_run()
+	print(postRunResource)
 
 func update_animation_parameters():
 	if velocity.x < -0.1:
@@ -105,6 +112,8 @@ func jump_and_fall(delta):
 
 	# Handle jump.
 	if Input.is_action_just_pressed("jump") and is_on_floor():
+		postRunResource.skill_points += 1
+		print(postRunResource.skill_points)
 		velocity.y = playerStats.JUMP_POWER
 
 func move_horizontal():

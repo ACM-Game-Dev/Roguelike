@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://gkij33e5hhrw"]
+[gd_scene load_steps=24 format=3 uid="uid://gkij33e5hhrw"]
 
 [ext_resource type="Script" path="res://Levels/enemySpawnRate.gd" id="1_e6hjl"]
 [ext_resource type="PackedScene" uid="uid://bn8g0lgjvplhw" path="res://Player/Player.tscn" id="1_hwtgt"]
@@ -18,6 +18,7 @@
 [ext_resource type="PackedScene" uid="uid://btwydinuc23sr" path="res://Levels/Plains/room9 - plains.tscn" id="12_4rr2o"]
 [ext_resource type="PackedScene" uid="uid://cflnfofrodcqy" path="res://Levels/Plains/room10 - plains.tscn" id="13_5sfv0"]
 [ext_resource type="Script" path="res://Player/RunResource.gd" id="18_t5lc6"]
+[ext_resource type="Script" path="res://Player/PostRunResource.gd" id="19_av41a"]
 [ext_resource type="PackedScene" uid="uid://c5tl2o2r3o5v1" path="res://skill_totem.tscn" id="19_wkybo"]
 
 [sub_resource type="Resource" id="Resource_gxwti"]
@@ -34,6 +35,16 @@ resource_local_to_scene = true
 script = ExtResource("18_t5lc6")
 silver = 0
 xp = 0
+
+[sub_resource type="Resource" id="Resource_5dhkn"]
+resource_local_to_scene = true
+script = ExtResource("19_av41a")
+skill_points = 1
+unlocked_skills = {
+"Armor1": 0,
+"Melee1": 0,
+"Ranged1": 0
+}
 
 [node name="MainStage" type="Node2D"]
 script = ExtResource("1_e6hjl")
@@ -87,6 +98,7 @@ player = NodePath("../Player")
 position = Vector2(-117, 40)
 playerStats = SubResource("Resource_gxwti")
 runResource = SubResource("Resource_gjg6d")
+postRunResource = SubResource("Resource_5dhkn")
 
 [node name="SkillTotem" parent="." instance=ExtResource("19_wkybo")]
 position = Vector2(6, 13)

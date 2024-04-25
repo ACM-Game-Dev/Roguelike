@@ -1,5 +1,6 @@
-[gd_scene load_steps=13 format=3 uid="uid://b62j0q5dxuq1n"]
+[gd_scene load_steps=15 format=3 uid="uid://b62j0q5dxuq1n"]
 
+[ext_resource type="FontFile" uid="uid://ckqljp7il51xl" path="res://Assets/warmonger-bb/warmongerbb.ttf" id="1_0opqr"]
 [ext_resource type="Texture2D" uid="uid://cippfkhs6m3xi" path="res://Assets/Banner.png" id="1_8oy3q"]
 [ext_resource type="Script" path="res://skill_tree.gd" id="1_t7ks8"]
 [ext_resource type="Texture2D" uid="uid://bdb4c2tlp07gt" path="res://Assets/Chest.svg" id="2_l3jfk"]
@@ -13,6 +14,10 @@
 [ext_resource type="PackedScene" uid="uid://b5lwt7b86qs4g" path="res://skill_button.tscn" id="10_gkqvl"]
 [ext_resource type="Texture2D" uid="uid://btirut8mmc0bn" path="res://Assets/Fireball.png" id="11_2samn"]
 
+[sub_resource type="Theme" id="Theme_ovo5n"]
+default_font = ExtResource("1_0opqr")
+default_font_size = 16
+
 [node name="SkillTree" type="Control"]
 layout_mode = 3
 anchors_preset = 15
@@ -24,6 +29,7 @@ offset_right = -1.0
 offset_bottom = -62.0
 grow_horizontal = 2
 grow_vertical = 2
+theme = SubResource("Theme_ovo5n")
 script = ExtResource("1_t7ks8")
 
 [node name="ColorRect" type="ColorRect" parent="."]

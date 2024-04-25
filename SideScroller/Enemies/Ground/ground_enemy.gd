@@ -15,6 +15,9 @@ var direction = Vector2.RIGHT
 var distance = 100
 var range = 150
 
+var silver_reward = 15
+var xp_reward = 10
+
 func _ready():
 	health = enemy_resource.health
 	if !player:
@@ -51,6 +54,11 @@ func enemy_take_damage(damage):
 	print(health)
 	if health <= 0:
 		print("Ground Enemy Dead!")
+		player.runResource.silver += silver_reward
+		player.runResource.xp += xp_reward
+		player.silver_changed.emit()
+		print(player.silver)
+		print("Silver got!")
 		queue_free() #Die
 	await get_tree().create_timer(stun_timer).timeout
 	is_stunned = false #stun to false after half a second
