@@ -17,5 +17,5 @@ class_name Weapon_Resource
 @export_group("Statistics")
 @export var damage: int
 @export var attack_delay: int
-
+@export var knockback: Vector2
 

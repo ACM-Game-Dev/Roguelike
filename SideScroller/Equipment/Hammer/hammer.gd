@@ -4,6 +4,7 @@ class_name Hammer
 
 @export var weapon_resource: Weapon_Resource
 @onready var hitbox = $Area2D/CollisionShape2D
+@onready var player = Globals.player
 var cooledDown = true
 
 func equip(player):
@@ -14,7 +15,13 @@ func equip(player):
 	player.idle_anim = weapon_resource.idle_anim
 	player.attack_anim = weapon_resource.activate_anim
 	hitbox.disabled = true
-	
+
+func hit_enemy(body,damage):
+	var knockback = weapon_resource.knockback
+	if player and player.global_position.x < body.global_position:
+		knockback.x *= -1
+	body.enemy_take_damage(damage,{"knockback":knockback})
+
 func activate(player):
 	if not cooledDown:
 		return
@@ -23,10 +30,11 @@ func activate(player):
 		
 	cooledDown = false
 	player.attack_animation() # Playing the player's attack animation
-	hitbox.disabled = false
 	print("HAMMER SWUNG")
+	hitbox.disabled = false
 	await get_tree().create_timer(1).timeout #Keeps the hitbox active for the duration of the animation
 	hitbox.disabled = true
+	#dawait get_tree().create_timer(0.1).timeout #Keeps the hitbox active for the duration of the animation
 	await get_tree().create_timer(weapon_resource.attack_delay - 1).timeout #We subtract the amount of time the hitbox was active for
 	
 	cooledDown = true
@@ -48,5 +56,5 @@ func drop(player):
 func hitbox1_detection(body):
 	if body.has_method("enemy_take_damage"):
 		body.stun_timer = 1.5 #Hammer will stun for longer
-		body.enemy_take_damage(weapon_resource.damage)
+		hit_enemy(body,weapon_resource.damage)
 	

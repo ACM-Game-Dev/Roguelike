@@ -19,7 +19,14 @@ func equip(player):
 	player.attack_anim = weapon_resource.activate_anim
 	hitbox1.disabled = true
 	hitbox2.disabled = true
+
+func hit_enemy(body,damage):
+	var knockback = weapon_resource.knockback
+	if player and player.global_position.x < body.global_position.x:
+		knockback.x *= -1
+	body.enemy_take_damage(damage,{"knockback":knockback})
 	
+
 func activate(player):
 	if not cooledDown:
 		return
@@ -68,14 +75,14 @@ func hitbox1_detection(body):
 	if body.has_method("enemy_take_damage"):
 		var damage = weapon_resource.damage
 		if swings == 1: #Combo 1
-			body.enemy_take_damage(damage)
+			hit_enemy(body,damage)
 		elif swings == 3: #Combo 3
 			damage = damage + 10
-			body.enemy_take_damage(damage)
+			hit_enemy(body,damage)
 		print(damage)
 
 
 func hitbox2_detection(body):
 	if body.has_method("enemy_take_damage"):
-		body.enemy_take_damage(weapon_resource.damage + 5) #Combo 2
+		hit_enemy(body,weapon_resource.damage)
 	

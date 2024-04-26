@@ -24,6 +24,7 @@ func activate(player):
 	await get_tree().create_timer(0.5).timeout
 	var arrow = arrowScene.instantiate()
 	arrow.global_position = player.global_position
+	arrow.knockback = weapon_resource.knockback
 	get_parent().get_parent().add_sibling(arrow)
 	if player.sprite.flip_h:
 		arrow.SPEED *= -1
