@@ -18,7 +18,7 @@
 [ext_resource type="PackedScene" uid="uid://btwydinuc23sr" path="res://Levels/Plains/room9 - plains.tscn" id="12_4rr2o"]
 [ext_resource type="PackedScene" uid="uid://cflnfofrodcqy" path="res://Levels/Plains/room10 - plains.tscn" id="13_5sfv0"]
 [ext_resource type="PackedScene" uid="uid://d1nlgeas1wtvh" path="res://Levels/BloodMansion/BloodMansion.tscn" id="15_jboig"]
-[ext_resource type="PackedScene" uid="uid://b7i4n4wckxq3e" path="res://Levels/background_manager.tscn" id="17_e087t"]
+[ext_resource type="PackedScene" path="res://Levels/background_manager.tscn" id="17_e087t"]
 [ext_resource type="Script" path="res://Levels/followPlayer.gd" id="18_gvabo"]
 [ext_resource type="Script" path="res://Player/RunResource.gd" id="18_t5lc6"]
 [ext_resource type="Script" path="res://Player/PostRunResource.gd" id="19_av41a"]
@@ -97,8 +97,8 @@ position = Vector2(4005, 1400)
 position = Vector2(-3797, 4089)
 
 [node name="LevelManager" parent="." node_paths=PackedStringArray("player") instance=ExtResource("7_qslvo")]
-levels = Array[NodePath]([NodePath("../Lobby"), NodePath("../BloodMansionLevel"), NodePath("../PlainsLevel"), NodePath("../DeepCaveLevel")])
-backgrounds = Array[NodePath]([NodePath("BackgroundManager/Lobby"), NodePath("BackgroundManager/BloodMansion"), NodePath("BackgroundManager/Plains"), NodePath("BackgroundManager/DeepCave")])
+levels = Array[NodePath]([NodePath("../Lobby"), NodePath("../PlainsLevel"), NodePath("../BloodMansionLevel"), NodePath("../DeepCaveLevel")])
+backgrounds = Array[NodePath]([NodePath("BackgroundManager/Lobby"), NodePath("BackgroundManager/Plains"), NodePath("BackgroundManager/BloodMansion"), NodePath("BackgroundManager/DeepCave")])
 player = NodePath("../Player")
 
 [node name="BackgroundManager" parent="LevelManager" node_paths=PackedStringArray("player") instance=ExtResource("17_e087t")]
@@ -109,6 +109,24 @@ player = NodePath("../../Player")
 [node name="Lobby" parent="LevelManager/BackgroundManager" index="0"]
 visible = true
 position = Vector2(-4, -242)
+
+[node name="Plains" parent="LevelManager/BackgroundManager" index="1"]
+visible = true
+
+[node name="Sky" parent="LevelManager/BackgroundManager/Plains" index="0"]
+visible = true
+
+[node name="Sky2" parent="LevelManager/BackgroundManager/Plains" index="1"]
+visible = true
+
+[node name="Sky3" parent="LevelManager/BackgroundManager/Plains" index="2"]
+visible = true
+
+[node name="Sky4" parent="LevelManager/BackgroundManager/Plains" index="3"]
+visible = true
+
+[node name="BloodMansion" parent="LevelManager/BackgroundManager" index="3"]
+visible = true
 
 [node name="Player" parent="." instance=ExtResource("1_hwtgt")]
 position = Vector2(-117, 40)

@@ -2,7 +2,7 @@
 
 [ext_resource type="TileSet" uid="uid://djoa8d1igga7j" path="res://TileMaps/kingdomTileSet.tres" id="1_ef6cs"]
 [ext_resource type="Script" path="res://Levels/levelController.gd" id="1_gk1w6"]
-[ext_resource type="TileSet" uid="uid://cvu4pn3ikbugv" path="res://allTiles.tres" id="2_uuhyc"]
+[ext_resource type="TileSet" uid="uid://cvu4pn3ikbugv" path="res://TileMaps/allTiles.tres" id="2_uuhyc"]
 
 [node name="Lobby" type="Node2D"]
 script = ExtResource("1_gk1w6")
