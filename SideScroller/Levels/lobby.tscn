@@ -1,8 +1,8 @@
 [gd_scene load_steps=7 format=3 uid="uid://cvg2hy1butyd8"]
 
-[ext_resource type="TileSet" uid="uid://djoa8d1igga7j" path="res://Levels/DeepCave/TileMaps/kingdomTileSet.tres" id="1_ef6cs"]
+[ext_resource type="TileSet" uid="uid://djoa8d1igga7j" path="res://TileMaps/kingdomTileSet.tres" id="1_ef6cs"]
 [ext_resource type="Script" path="res://Levels/levelController.gd" id="1_gk1w6"]
-[ext_resource type="TileSet" uid="uid://cvu4pn3ikbugv" path="res://allTiles.tres" id="2_uuhyc"]
+[ext_resource type="TileSet" uid="uid://cvu4pn3ikbugv" path="res://TileMaps/allTiles.tres" id="2_uuhyc"]
 [ext_resource type="Texture2D" uid="uid://srmmdqe8x6c1" path="res://Assets/Legacy-Fantasy/Legacy-Fantasy - High Forest 2.3/Background/Background.png" id="3_kjkba"]
 [ext_resource type="Script" path="res://World/parallax.gd" id="4_anajk"]
 [ext_resource type="Texture2D" uid="uid://c22kgdo3hqtpi" path="res://Assets/Legacy-Fantasy/Legacy Fantasy - Kingdom Fortress - Update/Legacy Fantasy - Kingdom Fortress - Update/Background/Background.2-export.png" id="5_e0lkp"]

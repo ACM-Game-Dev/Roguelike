@@ -1,0 +1,25 @@
+[gd_scene load_steps=2 format=3 uid="uid://kw7gxor807ru"]
+
+[ext_resource type="TileSet" uid="uid://cvu4pn3ikbugv" path="res://TileMaps/allTiles.tres" id="1_47sq0"]
+
+[node name="Room7-DarkTemple" type="Node2D"]
+
+[node name="BackTileMap+" type="TileMap" parent="."]
+tile_set = ExtResource("1_47sq0")
+format = 2
+
+[node name="BackTileMap" type="TileMap" parent="."]
+tile_set = ExtResource("1_47sq0")
+format = 2
+
+[node name="MiddleTileMap" type="TileMap" parent="."]
+tile_set = ExtResource("1_47sq0")
+format = 2
+
+[node name="FrontTileMap" type="TileMap" parent="."]
+tile_set = ExtResource("1_47sq0")
+format = 2
+
+[node name="FrontTileMap+" type="TileMap" parent="."]
+tile_set = ExtResource("1_47sq0")
+format = 2

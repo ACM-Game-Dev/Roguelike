@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://cdfnn2k62epnh"]
 
-[ext_resource type="TileSet" uid="uid://bpkc7m86duq3r" path="res://Levels/DeepCave/TileMaps/deepCave.tres" id="1_5tj3s"]
+[ext_resource type="TileSet" uid="uid://bpkc7m86duq3r" path="res://TileMaps/darkCave.tres" id="1_5tj3s"]
 
 [node name="RoomStart-Deepcave" type="Node2D"]
 

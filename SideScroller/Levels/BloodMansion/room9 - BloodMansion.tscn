@@ -1,0 +1,25 @@
+[gd_scene load_steps=2 format=3 uid="uid://bbd1j3dsb0exl"]
+
+[ext_resource type="TileSet" uid="uid://c6prc3eyonblm" path="res://TileMaps/bloodMansion.tres" id="1_e00hj"]
+
+[node name="Room9-DarkTemple" type="Node2D"]
+
+[node name="BackTileMap+" type="TileMap" parent="."]
+tile_set = ExtResource("1_e00hj")
+format = 2
+
+[node name="BackTileMap" type="TileMap" parent="."]
+tile_set = ExtResource("1_e00hj")
+format = 2
+
+[node name="MiddleTileMap" type="TileMap" parent="."]
+tile_set = ExtResource("1_e00hj")
+format = 2
+
+[node name="FrontTileMap" type="TileMap" parent="."]
+tile_set = ExtResource("1_e00hj")
+format = 2
+
+[node name="FrontTileMap+" type="TileMap" parent="."]
+tile_set = ExtResource("1_e00hj")
+format = 2

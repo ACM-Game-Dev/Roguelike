@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://nm05cnptsojt"]
 
-[ext_resource type="TileSet" uid="uid://bpkc7m86duq3r" path="res://Levels/DeepCave/TileMaps/deepCave.tres" id="1_5rci2"]
+[ext_resource type="TileSet" uid="uid://bpkc7m86duq3r" path="res://TileMaps/darkCave.tres" id="1_5rci2"]
 [ext_resource type="PackedScene" uid="uid://4l52xwrq8y0d" path="res://Levels/EnemySpawning/enemySpawner.tscn" id="2_rrg58"]
 
 [node name="Room3-DeepCave" type="Node2D"]
