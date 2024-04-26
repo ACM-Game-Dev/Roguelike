@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://cdfnn2k62epnh"]
+[gd_scene load_steps=3 format=3 uid="uid://cdfnn2k62epnh"]
 
 [ext_resource type="TileSet" uid="uid://bpkc7m86duq3r" path="res://Levels/DeepCave/TileMaps/deepCave.tres" id="1_5tj3s"]
+[ext_resource type="PackedScene" uid="uid://dxhm0qfsxrcd3" path="res://Levels/DeepCave/Lights/purple_light.tscn" id="2_y48qb"]
 
 [node name="RoomStart-Deepcave" type="Node2D"]
 
@@ -30,3 +31,6 @@ position = Vector2(-111, 43)
 
 [node name="ExitPoint" type="Node2D" parent="."]
 position = Vector2(304, 43)
+
+[node name="PurpleLight" parent="." instance=ExtResource("2_y48qb")]
+position = Vector2(-283, 30)

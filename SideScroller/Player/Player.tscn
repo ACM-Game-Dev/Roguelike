@@ -1,4 +1,4 @@
-[gd_scene load_steps=88 format=3 uid="uid://bn8g0lgjvplhw"]
+[gd_scene load_steps=89 format=3 uid="uid://bn8g0lgjvplhw"]
 
 [ext_resource type="Script" path="res://Player/player.gd" id="1_il1mb"]
 [ext_resource type="Script" path="res://Player/Camerafollow.gd" id="2_27jpg"]
@@ -555,6 +555,9 @@ corner_radius_top_right = 10
 corner_radius_bottom_right = 10
 corner_radius_bottom_left = 10
 
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_31lpu"]
+polygon = PackedVector2Array(-8, -12, 6, -12, 6, 16, -7, 16)
+
 [node name="Player" type="CharacterBody2D"]
 script = ExtResource("1_il1mb")
 playerStats = SubResource("Resource_4pgi6")
@@ -572,7 +575,7 @@ script = ExtResource("2_27jpg")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 unique_name_in_owner = true
 sprite_frames = SubResource("SpriteFrames_1efgi")
-animation = &"Walk"
+animation = &"Idle"
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
@@ -674,6 +677,9 @@ unique_name_in_owner = true
 
 [node name="Hammer" parent="Equipment" instance=ExtResource("9_hu5a4")]
 position = Vector2(0, 4)
+
+[node name="LightOccluder2D" type="LightOccluder2D" parent="."]
+occluder = SubResource("OccluderPolygon2D_31lpu")
 
 [connection signal="health_changed" from="." to="PlayerGUI/HealthBar" method="_on_player_health_changed"]
 [connection signal="silver_changed" from="." to="PlayerGUI/Silver" method="_on_player_silver_changed"]
