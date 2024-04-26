@@ -44,10 +44,14 @@ func _physics_process(delta):
 		return
 	
 	if player:
+		
 		distance = (player.global_position - global_position).length()
 		if distance < range:
+			
 			direction = (player.global_position - global_position).normalized()
 			velocity.x = enemy_resource.speed * direction.x * delta
+			if !$GroundEnemySounds.is_playing():
+				$GroundEnemySounds.play()
 
 	if damaging:
 		player.take_damage(enemy_resource.damage)

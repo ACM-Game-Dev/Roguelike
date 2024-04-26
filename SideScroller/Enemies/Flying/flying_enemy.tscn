@@ -1,8 +1,9 @@
-[gd_scene load_steps=13 format=3 uid="uid://d1f7ngdq5rld7"]
+[gd_scene load_steps=14 format=3 uid="uid://d1f7ngdq5rld7"]
 
 [ext_resource type="Script" path="res://Enemies/Flying/FlyingEnemy.gd" id="1_hfp2b"]
 [ext_resource type="Script" path="res://Enemies/Enemy_Resource.gd" id="2_jbqag"]
 [ext_resource type="Texture2D" uid="uid://cr11d3fa7cm4j" path="res://Assets/Legacy-Fantasy/Legacy-Fantasy - High Forest 2.3/Mob/Small Bee/Fly/Fly-Sheet.png" id="2_v5wq8"]
+[ext_resource type="AudioStream" uid="uid://bpwnqeaic43nq" path="res://Assets/Sounds/Bee.mp3" id="4_p2a61"]
 
 [sub_resource type="Resource" id="Resource_rffcu"]
 resource_local_to_scene = true
@@ -91,6 +92,9 @@ shape = SubResource("CircleShape2D_sed0b")
 unique_name_in_owner = true
 sprite_frames = SubResource("SpriteFrames_gued3")
 autoplay = "default"
+
+[node name="BeeSounds" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_p2a61")
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
 [connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]

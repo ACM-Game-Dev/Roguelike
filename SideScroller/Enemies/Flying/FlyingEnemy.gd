@@ -63,10 +63,13 @@ func _on_range_body_entered(body):
 		if !target: 
 			target = body
 		in_range = true
+		if !$BeeSounds.is_playing():
+			$BeeSounds.play()
 		
 
 func _on_range_body_exited(body):
 	if body == player:
+		$BeeSounds.stop()
 		if target:
 			target = null
 		in_range = false
