@@ -3,6 +3,7 @@ extends Equipment
 class_name Sword
 
 @export var weapon_resource: Weapon_Resource
+@export var sound_array: Array[AudioStream] = []
 @onready var hitbox1 = $AttackArea1/CollisionShape2D
 @onready var hitbox2 = $AttackArea2/CollisionShape2D
 
@@ -37,12 +38,15 @@ func activate(player):
 	# We change the player's attack animation depending on the current state of our sword combo
 	if swings == 1:
 		player.attack_anim = weapon_resource.activate_anim
+		play_sound(swings - 1)
 		hitbox1.disabled = false
 	elif swings == 2:
 		player.attack_anim = "Sword_Swing2" 
+		play_sound(swings - 1)
 		hitbox2.disabled = false
 	elif swings > 2:
 		player.attack_anim = "Sword_Swing3"
+		play_sound(swings - 1)
 		hitbox1.disabled = false #The motion for 3 is similar to 1, hence reusing the same hitbox
 		
 	cooledDown = false
@@ -74,6 +78,7 @@ func drop(player):
 func hitbox1_detection(body):
 	if body.has_method("enemy_take_damage"):
 		var damage = weapon_resource.damage
+		$SwordHit.play()
 		if swings == 1: #Combo 1
 			hit_enemy(body,damage)
 		elif swings == 3: #Combo 3
@@ -84,5 +89,10 @@ func hitbox1_detection(body):
 
 func hitbox2_detection(body):
 	if body.has_method("enemy_take_damage"):
-		hit_enemy(body,weapon_resource.damage)
+		hit_enemy(body,weapon_resource.damage + 5)# Combo 2)
+		$SwordHit.play()
+		
+func play_sound(num):
+	$SwordSwing.set_stream(sound_array[num])
+	$SwordSwing.play()
 	
