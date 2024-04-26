@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://dfofh83uh6e3m"]
+[gd_scene load_steps=20 format=3 uid="uid://dfofh83uh6e3m"]
 
 [ext_resource type="Texture2D" uid="uid://c5uv2csl40mdi" path="res://Assets/Legacy-Fantasy/Legacy-Fantasy - High Forest 2.3/Assets/Tiles.png" id="1_tx71r"]
 [ext_resource type="Texture2D" uid="uid://c4yfntwwh8om3" path="res://Assets/Legacy-Fantasy/Legacy-Fantasy - High Forest 2.3/Assets/Props-Rocks.png" id="2_ycbvb"]
@@ -3443,6 +3443,12 @@ sources/2 = SubResource("TileSetAtlasSource_43rq7")
 sources/3 = SubResource("TileSetAtlasSource_qmmrs")
 sources/4 = SubResource("TileSetAtlasSource_3nohw")
 
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_145rr"]
+vertices = PackedVector2Array(634, -94, 516, -94, 410, -109, 410, -142, 816, -299, 427, -46, 519, -61, 634, -62, 816, -3, 424, -78, 246, -110, 356, -77, -278, -77, -278, -109, 246, -141, -832, -327, 359, -46, -427, -108, -832, -3, -427, -78)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3, 4), PackedInt32Array(5, 6, 7, 8), PackedInt32Array(4, 8, 7, 0), PackedInt32Array(6, 5, 9, 1), PackedInt32Array(10, 2, 1, 9, 11, 12, 13), PackedInt32Array(14, 10, 13, 15), PackedInt32Array(12, 11, 16), PackedInt32Array(15, 4, 3, 14), PackedInt32Array(15, 13, 17), PackedInt32Array(18, 15, 17, 19), PackedInt32Array(8, 18, 19, 12, 16), PackedInt32Array(8, 16, 5)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(-842, 7, -842, -338, 826, -309, 826, 7), PackedVector2Array(-417, -98, -417, -88, -288, -87, -288, -99), PackedVector2Array(256, -131, 256, -120, 400, -119, 400, -132), PackedVector2Array(367, -67, 368, -56, 416, -56, 415, -68), PackedVector2Array(527, -84, 528, -71, 624, -72, 624, -84)])
+source_geometry_group_name = &"navigation_polygon_source_group"
+
 [node name="Room3 - Plains" type="Node2D"]
 
 [node name="BackgroundTileMap" type="TileMap" parent="."]
@@ -3535,5 +3541,8 @@ position = Vector2(-820, -47)
 
 [node name="SpawnTrigger" parent="EnemySpawner" index="0"]
 spawn_points = Array[NodePath]([NodePath("../../EnemySpawnPoints/EnemeySpawn"), NodePath("../../EnemySpawnPoints/EnemeySpawn2"), NodePath("../../EnemySpawnPoints/EnemeySpawn3"), NodePath("../../EnemySpawnPoints/EnemeySpawn4"), NodePath("../../EnemySpawnPoints/EnemeySpawn5"), NodePath("../../EnemySpawnPoints/EnemeySpawn6"), NodePath("../../EnemySpawnPoints/EnemeySpawn7")])
+
+[node name="NavigationRegion2D" type="NavigationRegion2D" parent="."]
+navigation_polygon = SubResource("NavigationPolygon_145rr")
 
 [editable path="EnemySpawner"]

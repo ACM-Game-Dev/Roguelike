@@ -1,7 +1,13 @@
-[gd_scene load_steps=3 format=3 uid="uid://cflnfofrodcqy"]
+[gd_scene load_steps=4 format=3 uid="uid://cflnfofrodcqy"]
 
 [ext_resource type="TileSet" uid="uid://cvu4pn3ikbugv" path="res://allTiles.tres" id="1_jvyob"]
 [ext_resource type="PackedScene" uid="uid://4l52xwrq8y0d" path="res://Levels/EnemySpawning/enemySpawner.tscn" id="2_uevcv"]
+
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_hdfwh"]
+vertices = PackedVector2Array(-768, -261, -768, -507, 767, -504, -480, -261, 353, 156, 767, 156)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3), PackedInt32Array(4, 3, 2, 5)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(-778, -251, -778, -518, 777, -514, 778, 167, 351, 166, -482, -251)])
+source_geometry_group_name = &"navigation_polygon_source_group"
 
 [node name="Room10 - Plains" type="Node2D"]
 
@@ -59,5 +65,8 @@ position = Vector2(-756, -270)
 
 [node name="SpawnTrigger" parent="EnemySpawner" index="0"]
 spawn_points = Array[NodePath]([NodePath("../../EnemySpawnPoints/Marker2D"), NodePath("../../EnemySpawnPoints/Marker2D2"), NodePath("../../EnemySpawnPoints/Marker2D3"), NodePath("../../EnemySpawnPoints/Marker2D4"), NodePath("../../EnemySpawnPoints/Marker2D5"), NodePath("../../EnemySpawnPoints/Marker2D6")])
+
+[node name="NavigationRegion2D" type="NavigationRegion2D" parent="."]
+navigation_polygon = SubResource("NavigationPolygon_hdfwh")
 
 [editable path="EnemySpawner"]
