@@ -21,6 +21,7 @@ func activate(player):
 
 	cooledDown = false
 	player.attack_animation() # Playing the player's attack animation
+	$BowSound.play()
 	await get_tree().create_timer(0.5).timeout
 	var arrow = arrowScene.instantiate()
 	arrow.global_position = player.global_position

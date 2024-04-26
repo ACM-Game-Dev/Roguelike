@@ -30,6 +30,7 @@ func activate(player):
 		
 	cooledDown = false
 	player.attack_animation() # Playing the player's attack animation
+	$HammerSwing.play()
 	print("HAMMER SWUNG")
 	hitbox.disabled = false
 	await get_tree().create_timer(1).timeout #Keeps the hitbox active for the duration of the animation

@@ -1,8 +1,9 @@
-[gd_scene load_steps=14 format=3 uid="uid://ca1e85fn40l64"]
+[gd_scene load_steps=15 format=3 uid="uid://ca1e85fn40l64"]
 
 [ext_resource type="Script" path="res://Enemies/Ground/ground_enemy.gd" id="1_d58aw"]
 [ext_resource type="Script" path="res://Enemies/Enemy_Resource.gd" id="2_swqiw"]
 [ext_resource type="Texture2D" uid="uid://jl31vx036vl4" path="res://Assets/Legacy-Fantasy/Legacy-Fantasy - High Forest 2.3/Mob/Boar/Run/Run-Sheet-Black.png" id="4_ucgxk"]
+[ext_resource type="AudioStream" uid="uid://0a7h2voq7kkk" path="res://Assets/Sounds/GroundEnemyRoar.mp3" id="4_ynyeb"]
 
 [sub_resource type="Resource" id="Resource_pu3j5"]
 resource_local_to_scene = true
@@ -87,6 +88,9 @@ unique_name_in_owner = true
 sprite_frames = SubResource("SpriteFrames_w2npr")
 autoplay = "default"
 frame_progress = 0.152686
+
+[node name="GroundEnemySounds" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_ynyeb")
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
 [connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]
