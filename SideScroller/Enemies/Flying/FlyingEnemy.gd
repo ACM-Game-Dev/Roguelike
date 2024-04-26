@@ -2,36 +2,28 @@ extends CharacterBody2D
 
 class_name FlyingEnemy
 
-@export var player: Player = Globals.get_player()
-
-
 @export var enemy_resource: Enemy_Resource
 
-@onready var nav_agent = $NavigationAgent2D
+@onready var player: Player = Globals.player
+@onready var target: CharacterBody2D
+@onready var nav_agent: NavigationAgent2D = %NavigationAgent2D
 
 var direction = Vector2.RIGHT
-var health: int
-var is_stunned = false
-var stun_timer: float = .5
 var damaging = false
 var in_range = false
 
-
 func _ready():
-	health = enemy_resource.health
 	nav_agent.path_desired_distance = 4
 	nav_agent.target_desired_distance = 4
 
 
 func _physics_process(delta):
-	if is_stunned:
-		velocity = Vector2.ZERO #While stunned, cannot move
-		return
-		
-	if in_range and player:
-		nav_agent.target_position = player.global_position
+	if in_range and target:
+		nav_agent.target_position = target.global_position
+		print("NEW TARGET POS")
 	
 	if nav_agent.is_navigation_finished():
+		print("FINISHED")
 		return
 	
 	var direction = (nav_agent.get_next_path_position() - global_position).normalized()
@@ -42,20 +34,21 @@ func _physics_process(delta):
 	else:
 		%AnimatedSprite2D.flip_h = true
 
-	if damaging:
+
+	if damaging and player:
 		player.take_damage(enemy_resource.damage)
 
 	move_and_slide()
+	
+func take_damage_enemy(val: int):
+	enemy_resource.health -= val
+	# Check for enemy death
+	died()
 
-func enemy_take_damage(damage):
-	health -= damage
-	is_stunned = true #primitive "feedback", when enemy gets hit, halts movement 
-	print(health)
-	if health <= 0:
-		print("Flying Enemy Dead!")
-		queue_free() #Die
-	await get_tree().create_timer(stun_timer).timeout
-	is_stunned = false #stun to false after half a second
+func died():
+	if enemy_resource.health < 1:
+		player.gain_silver(enemy_resource.silver)
+		queue_free()
 
 func _on_area_2d_body_entered(body):
 	if body.has_method("take_damage"):
@@ -66,9 +59,15 @@ func _on_area_2d_body_exited(body):
 		damaging = false
 
 func _on_range_body_entered(body):
-	if body.name == "Player":
+	if body == player:
+		if !target: 
+			target = body
 		in_range = true
+		
 
 func _on_range_body_exited(body):
-	if body.name == "Player":
+	if body == player:
+		if target:
+			target = null
 		in_range = false
+
