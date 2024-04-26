@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://dxhm0qfsxrcd3"]
+
+[ext_resource type="Texture2D" uid="uid://vlmmtaotsdc3" path="res://Assets/light.webp" id="1_3i1m2"]
+
+[node name="PurpleLight" type="PointLight2D"]
+color = Color(1, 0.478431, 0.992157, 1)
+energy = 1.5
+texture = ExtResource("1_3i1m2")

@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://bqytbe0j42m3b"]
+
+[ext_resource type="Texture2D" uid="uid://vlmmtaotsdc3" path="res://Assets/light.webp" id="1_ain17"]
+
+[node name="GreenLight" type="PointLight2D"]
+color = Color(0.0470588, 0.772549, 0.470588, 1)
+energy = 1.5
+texture = ExtResource("1_ain17")
