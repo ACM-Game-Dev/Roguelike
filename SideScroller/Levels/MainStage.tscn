@@ -97,8 +97,8 @@ position = Vector2(4005, 1400)
 position = Vector2(-3797, 4089)
 
 [node name="LevelManager" parent="." node_paths=PackedStringArray("player") instance=ExtResource("7_qslvo")]
-levels = Array[NodePath]([NodePath("../Lobby"), NodePath("../PlainsLevel"), NodePath("../BloodMansionLevel"), NodePath("../DeepCaveLevel")])
-backgrounds = Array[NodePath]([NodePath("BackgroundManager/Lobby"), NodePath("BackgroundManager/Plains"), NodePath("BackgroundManager/BloodMansion"), NodePath("BackgroundManager/DeepCave")])
+levels = Array[NodePath]([NodePath("../Lobby"), NodePath("../PlainsLevel"), NodePath("../DeepCaveLevel"), NodePath("../BloodMansionLevel")])
+backgrounds = Array[NodePath]([NodePath("BackgroundManager/Lobby"), NodePath("BackgroundManager/Plains"), NodePath("BackgroundManager/DeepCave"), NodePath("BackgroundManager/BloodMansion")])
 player = NodePath("../Player")
 
 [node name="BackgroundManager" parent="LevelManager" node_paths=PackedStringArray("player") instance=ExtResource("17_e087t")]
@@ -108,7 +108,20 @@ player = NodePath("../../Player")
 
 [node name="Lobby" parent="LevelManager/BackgroundManager" index="0"]
 visible = true
-position = Vector2(-4, -242)
+position = Vector2(-4, -257)
+scale = Vector2(2, 2)
+
+[node name="Mountains" parent="LevelManager/BackgroundManager/Lobby" index="0"]
+parallax_strength = 8.0
+
+[node name="Mountains1" parent="LevelManager/BackgroundManager/Lobby" index="1"]
+parallax_strength = 8.0
+
+[node name="Sky" parent="LevelManager/BackgroundManager/Lobby" index="2"]
+position = Vector2(-497.5, 104)
+
+[node name="Sky2" parent="LevelManager/BackgroundManager/Lobby" index="3"]
+position = Vector2(510.5, 103)
 
 [node name="Plains" parent="LevelManager/BackgroundManager" index="1"]
 visible = true
