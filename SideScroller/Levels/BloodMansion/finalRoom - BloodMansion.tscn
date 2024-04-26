@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://drrccygwlmw23"]
+[gd_scene load_steps=3 format=3 uid="uid://drrccygwlmw23"]
 
 [ext_resource type="TileSet" uid="uid://c6prc3eyonblm" path="res://TileMaps/bloodMansion.tres" id="1_jixw6"]
+[ext_resource type="PackedScene" uid="uid://bhbce7xdxl2ao" path="res://Levels/Gateway/gateway.tscn" id="2_o40yj"]
 
 [node name="FinalRoom-DarkTemple" type="Node2D"]
 
@@ -130,3 +131,6 @@ polygon = PackedVector2Array(-720, 27, 832, 28, 832, -16, 760, -16, 752, -23, 75
 position = Vector2(-720, 27)
 
 [node name="ExitPoint" type="Node2D" parent="."]
+
+[node name="Gateway" parent="." instance=ExtResource("2_o40yj")]
+position = Vector2(237, -95)

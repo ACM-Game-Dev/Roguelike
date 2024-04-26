@@ -34,7 +34,7 @@ func _ready():
 	# This is only here so we spawn with a weapon. Right now, we never "encounter" a weapon
 	reequip()
 	Globals.player = self
-	load_post_run()
+	#load_post_run()
 	print(postRunResource)
 
 func update_animation_parameters():
