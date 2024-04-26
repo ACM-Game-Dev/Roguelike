@@ -26,12 +26,13 @@ func _ready():
 
 func _physics_process(delta):
 	if is_stunned:
-		velocity = Vector2.ZERO # While stunned, cannot move
+		#velocity = Vector2.ZERO # While stunned, cannot move
+		move_and_slide()
+		velocity /= 1.1
 		return
 	
 	# Apply gravity to enemy
 	velocity.y += gravity * delta
-	print("Gravity ing")
 	
 	# Swap sprite based on movement direction
 	if velocity.x < 0:
@@ -41,32 +42,33 @@ func _physics_process(delta):
 	
 	if not player:
 		return
-
-		
+	
 	if player:
 		distance = (player.global_position - global_position).length()
 		if distance < range:
 			direction = (player.global_position - global_position).normalized()
 			velocity.x = enemy_resource.speed * direction.x * delta
-	
 
 	if damaging:
 		player.take_damage(enemy_resource.damage)
 
 	move_and_slide()
 
-func enemy_take_damage(damage):
+func enemy_take_damage(damage, params: Dictionary):
 	health -= damage
 	is_stunned = true #primitive "feedback", when enemy gets hit, halts movement 
+	for param in params:
+		if param == "knockback":
+			velocity = params["knockback"]
+			print(params["knockback"])
+			
+	print(velocity)
 	print(health)
 	if health <= 0:
-		print("Ground Enemy Dead!")
 		player.runResource.silver += silver_reward
 		player.runResource.xp += xp_reward
 		player.silver_changed.emit()
-		print(player.runResource.silver)
-		print("Silver got!")
-		queue_free() #Die
+		queue_free() # Die
 	await get_tree().create_timer(stun_timer).timeout
 	is_stunned = false #stun to false after half a second
 
