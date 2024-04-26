@@ -2,6 +2,7 @@ extends Node
 
 @export var levels: Array[NodePath] = []
 @export var backgrounds: Array[NodePath] = []
+@export var level_music: Array[AudioStream] = []
 @export var player: Node2D
 var current_level_index = 0
 
@@ -13,7 +14,7 @@ func teleport_to_level(index: int):
 	if index < 0 or index >= levels.size():
 		print("Invalid level index.")
 		return
-
+		
 	current_level_index = index
 	var level_node = get_node_or_null(levels[current_level_index])
 	if level_node:
@@ -21,6 +22,7 @@ func teleport_to_level(index: int):
 		player.global_position = spawn_position
 		print("Teleported to level: ", level_node.name, " at position: ", spawn_position)
 		update_backgrounds(index)  # Update backgrounds when teleporting to a level
+		play_music(index)
 	else:
 		print("Level node not found.")
 
@@ -45,5 +47,9 @@ func update_backgrounds(level_index: int):
 		var background_node = get_node_or_null(backgrounds[i])
 		if background_node:
 			background_node.visible = (i == level_index) 
+			
+func play_music(index: int):
+	$Music.set_stream(level_music[index])
+	$Music.play()
 	
 	

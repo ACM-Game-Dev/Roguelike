@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=3 uid="uid://gkij33e5hhrw"]
+[gd_scene load_steps=31 format=3 uid="uid://gkij33e5hhrw"]
 
 [ext_resource type="Script" path="res://Levels/enemySpawnRate.gd" id="1_e6hjl"]
 [ext_resource type="PackedScene" uid="uid://bn8g0lgjvplhw" path="res://Player/Player.tscn" id="1_hwtgt"]
@@ -18,11 +18,15 @@
 [ext_resource type="PackedScene" uid="uid://btwydinuc23sr" path="res://Levels/Plains/room9 - plains.tscn" id="12_4rr2o"]
 [ext_resource type="PackedScene" uid="uid://cflnfofrodcqy" path="res://Levels/Plains/room10 - plains.tscn" id="13_5sfv0"]
 [ext_resource type="PackedScene" uid="uid://d1nlgeas1wtvh" path="res://Levels/BloodMansion/BloodMansion.tscn" id="15_jboig"]
-[ext_resource type="PackedScene" path="res://Levels/background_manager.tscn" id="17_e087t"]
+[ext_resource type="PackedScene" uid="uid://b7i4n4wckxq3e" path="res://Levels/background_manager.tscn" id="17_e087t"]
+[ext_resource type="AudioStream" uid="uid://b7y1t48qf5rdc" path="res://Assets/Sounds/Lobby.mp3" id="17_ghh6o"]
 [ext_resource type="Script" path="res://Levels/followPlayer.gd" id="18_gvabo"]
+[ext_resource type="AudioStream" uid="uid://dcscc6rkogqxl" path="res://Assets/Sounds/Plains.mp3" id="18_lua7j"]
 [ext_resource type="Script" path="res://Player/RunResource.gd" id="18_t5lc6"]
 [ext_resource type="Script" path="res://Player/PostRunResource.gd" id="19_av41a"]
+[ext_resource type="AudioStream" uid="uid://d1wgrs2kldlsk" path="res://Assets/Sounds/Deep_Cave.mp3" id="19_tpjir"]
 [ext_resource type="PackedScene" uid="uid://c5tl2o2r3o5v1" path="res://skill_totem.tscn" id="19_wkybo"]
+[ext_resource type="AudioStream" uid="uid://dj3bo8e8os2ch" path="res://Assets/Sounds/Blood_Mansion.mp3" id="20_pcscw"]
 
 [sub_resource type="Resource" id="Resource_gxwti"]
 resource_local_to_scene = true
@@ -99,6 +103,7 @@ position = Vector2(-3797, 4089)
 [node name="LevelManager" parent="." node_paths=PackedStringArray("player") instance=ExtResource("7_qslvo")]
 levels = Array[NodePath]([NodePath("../Lobby"), NodePath("../PlainsLevel"), NodePath("../DeepCaveLevel"), NodePath("../BloodMansionLevel")])
 backgrounds = Array[NodePath]([NodePath("BackgroundManager/Lobby"), NodePath("BackgroundManager/Plains"), NodePath("BackgroundManager/DeepCave"), NodePath("BackgroundManager/BloodMansion")])
+level_music = Array[AudioStream]([ExtResource("17_ghh6o"), ExtResource("18_lua7j"), ExtResource("19_tpjir"), ExtResource("20_pcscw")])
 player = NodePath("../Player")
 
 [node name="BackgroundManager" parent="LevelManager" node_paths=PackedStringArray("player") instance=ExtResource("17_e087t")]
@@ -140,6 +145,8 @@ visible = true
 
 [node name="BloodMansion" parent="LevelManager/BackgroundManager" index="3"]
 visible = true
+
+[node name="Music" type="AudioStreamPlayer" parent="LevelManager"]
 
 [node name="Player" parent="." instance=ExtResource("1_hwtgt")]
 position = Vector2(-117, 40)
