@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://d1nlgeas1wtvh"]
+[gd_scene load_steps=11 format=3 uid="uid://d1nlgeas1wtvh"]
 
 [ext_resource type="Script" path="res://Levels/roommanager.gd" id="1_7rn5l"]
 [ext_resource type="Script" path="res://Levels/levelController.gd" id="1_bxf32"]
@@ -9,15 +9,16 @@
 [ext_resource type="PackedScene" uid="uid://c62o2slrrfxyi" path="res://Levels/BloodMansion/room4 - BloodMansion.tscn" id="6_f1s8w"]
 [ext_resource type="PackedScene" uid="uid://drrccygwlmw23" path="res://Levels/BloodMansion/finalRoom - BloodMansion.tscn" id="6_vtnyo"]
 [ext_resource type="PackedScene" uid="uid://cbm78ge1ar4k7" path="res://Levels/BloodMansion/room5 - BloodMansion.tscn" id="7_kxlfu"]
+[ext_resource type="PackedScene" uid="uid://cmnowjnrbf3rx" path="res://Levels/BloodMansion/room6 - BloodMansion.tscn" id="8_y6j2t"]
 
 [node name="DarkTempleLevel" type="Node2D"]
 script = ExtResource("1_bxf32")
 
 [node name="RoomManager" type="Node2D" parent="."]
 script = ExtResource("1_7rn5l")
-rooms = Array[PackedScene]([ExtResource("2_mmwbn"), ExtResource("3_ctv7y"), ExtResource("4_66kql"), ExtResource("6_f1s8w"), ExtResource("7_kxlfu")])
-min_rooms = 5
-max_rooms = 5
+rooms = Array[PackedScene]([ExtResource("2_mmwbn"), ExtResource("3_ctv7y"), ExtResource("4_66kql"), ExtResource("6_f1s8w"), ExtResource("7_kxlfu"), ExtResource("8_y6j2t")])
+min_rooms = 6
+max_rooms = 6
 startRoom = ExtResource("5_elh32")
 finalRoom = ExtResource("6_vtnyo")
 

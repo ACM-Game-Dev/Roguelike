@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://drrccygwlmw23"]
+[gd_scene load_steps=4 format=3 uid="uid://drrccygwlmw23"]
 
 [ext_resource type="TileSet" uid="uid://c6prc3eyonblm" path="res://TileMaps/bloodMansion.tres" id="1_jixw6"]
 [ext_resource type="PackedScene" uid="uid://bhbce7xdxl2ao" path="res://Levels/Gateway/gateway.tscn" id="2_o40yj"]
+[ext_resource type="PackedScene" uid="uid://4l52xwrq8y0d" path="res://Levels/EnemySpawning/enemySpawner.tscn" id="3_xxcb6"]
 
 [node name="FinalRoom-DarkTemple" type="Node2D"]
 
@@ -127,6 +128,37 @@ polygon = PackedVector2Array(-720, 27, 832, 28, 832, -16, 760, -16, 752, -23, 75
 
 [node name="EnemySpawnPoints" type="Node2D" parent="."]
 
+[node name="Marker2D9" type="Marker2D" parent="EnemySpawnPoints"]
+
+[node name="Marker2D10" type="Marker2D" parent="EnemySpawnPoints"]
+
+[node name="Marker2D11" type="Marker2D" parent="EnemySpawnPoints"]
+
+[node name="Marker2D12" type="Marker2D" parent="EnemySpawnPoints"]
+
+[node name="Marker2D2" type="Marker2D" parent="EnemySpawnPoints"]
+
+[node name="Marker2D3" type="Marker2D" parent="EnemySpawnPoints"]
+position = Vector2(304, -76)
+
+[node name="Marker2D4" type="Marker2D" parent="EnemySpawnPoints"]
+position = Vector2(329, -159)
+
+[node name="Marker2D5" type="Marker2D" parent="EnemySpawnPoints"]
+position = Vector2(578, -255)
+
+[node name="Marker2D6" type="Marker2D" parent="EnemySpawnPoints"]
+position = Vector2(542, -61)
+
+[node name="Marker2D7" type="Marker2D" parent="EnemySpawnPoints"]
+position = Vector2(536, -161)
+
+[node name="Marker2D8" type="Marker2D" parent="EnemySpawnPoints"]
+position = Vector2(638, -11)
+
+[node name="Marker2D" type="Marker2D" parent="EnemySpawnPoints"]
+position = Vector2(-354, -57)
+
 [node name="EntryPoint" type="Node2D" parent="."]
 position = Vector2(-720, 27)
 
@@ -134,3 +166,11 @@ position = Vector2(-720, 27)
 
 [node name="Gateway" parent="." instance=ExtResource("2_o40yj")]
 position = Vector2(237, -95)
+
+[node name="EnemySpawner" parent="." instance=ExtResource("3_xxcb6")]
+position = Vector2(-729, 103)
+
+[node name="SpawnTrigger" parent="EnemySpawner" index="0"]
+spawn_points = Array[NodePath]([NodePath("../../EnemySpawnPoints/Marker2D"), NodePath("../../EnemySpawnPoints/Marker2D2"), NodePath("../../EnemySpawnPoints/Marker2D3"), NodePath("../../EnemySpawnPoints/Marker2D4"), NodePath("../../EnemySpawnPoints/Marker2D5"), NodePath("../../EnemySpawnPoints/Marker2D6"), NodePath("../../EnemySpawnPoints/Marker2D7"), NodePath("../../EnemySpawnPoints/Marker2D8"), NodePath("../../EnemySpawnPoints/Marker2D9"), NodePath("../../EnemySpawnPoints/Marker2D10"), NodePath("../../EnemySpawnPoints/Marker2D11"), NodePath("../../EnemySpawnPoints/Marker2D12")])
+
+[editable path="EnemySpawner"]
