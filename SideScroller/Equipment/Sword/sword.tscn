@@ -1,7 +1,11 @@
-[gd_scene load_steps=4 format=3 uid="uid://chrbdxkldsppe"]
+[gd_scene load_steps=8 format=3 uid="uid://chrbdxkldsppe"]
 
 [ext_resource type="Script" path="res://Equipment/Sword/sword.gd" id="1_7lc0g"]
 [ext_resource type="Resource" uid="uid://cmydrpha3yfie" path="res://Equipment/Sword/sword.tres" id="2_ryqpe"]
+[ext_resource type="AudioStream" uid="uid://5614556o6dwd" path="res://Assets/Sounds/SwordSwingSound1.mp3" id="3_x1eef"]
+[ext_resource type="AudioStream" uid="uid://cyywfshqjtt1x" path="res://Assets/Sounds/SwordSwingSound2.mp3" id="4_ef5s3"]
+[ext_resource type="AudioStream" uid="uid://y44i73imgikq" path="res://Assets/Sounds/SwordHit.mp3" id="4_nxi3a"]
+[ext_resource type="AudioStream" uid="uid://basquc4y7wpw" path="res://Assets/Sounds/SwordSwingSound3.mp3" id="5_ojagv"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_3xmcj"]
 radius = 15.0333
@@ -9,6 +13,7 @@ radius = 15.0333
 [node name="Sword" type="Node2D"]
 script = ExtResource("1_7lc0g")
 weapon_resource = ExtResource("2_ryqpe")
+sound_array = Array[AudioStream]([ExtResource("3_x1eef"), ExtResource("4_ef5s3"), ExtResource("5_ojagv")])
 
 [node name="AttackArea1" type="Area2D" parent="."]
 
@@ -27,6 +32,11 @@ scale = Vector2(0.634127, 0.939347)
 shape = SubResource("CircleShape2D_3xmcj")
 disabled = true
 debug_color = Color(0, 0.639216, 0.360784, 0.419608)
+
+[node name="SwordSwing" type="AudioStreamPlayer" parent="."]
+
+[node name="SwordHit" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_nxi3a")
 
 [connection signal="body_entered" from="AttackArea1" to="." method="hitbox1_detection"]
 [connection signal="body_entered" from="AttackArea2" to="." method="hitbox2_detection"]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=3 uid="uid://gkij33e5hhrw"]
+[gd_scene load_steps=27 format=3 uid="uid://gkij33e5hhrw"]
 
 [ext_resource type="Script" path="res://Levels/enemySpawnRate.gd" id="1_e6hjl"]
 [ext_resource type="PackedScene" uid="uid://bn8g0lgjvplhw" path="res://Player/Player.tscn" id="1_hwtgt"]
@@ -17,6 +17,9 @@
 [ext_resource type="PackedScene" uid="uid://o6ih4vegxxxq" path="res://Levels/Plains/room8 - plains.tscn" id="11_mvwdu"]
 [ext_resource type="PackedScene" uid="uid://btwydinuc23sr" path="res://Levels/Plains/room9 - plains.tscn" id="12_4rr2o"]
 [ext_resource type="PackedScene" uid="uid://cflnfofrodcqy" path="res://Levels/Plains/room10 - plains.tscn" id="13_5sfv0"]
+[ext_resource type="PackedScene" uid="uid://d1nlgeas1wtvh" path="res://Levels/BloodMansion/BloodMansion.tscn" id="15_jboig"]
+[ext_resource type="PackedScene" path="res://Levels/background_manager.tscn" id="17_e087t"]
+[ext_resource type="Script" path="res://Levels/followPlayer.gd" id="18_gvabo"]
 [ext_resource type="Script" path="res://Player/RunResource.gd" id="18_t5lc6"]
 [ext_resource type="Script" path="res://Player/PostRunResource.gd" id="19_av41a"]
 [ext_resource type="PackedScene" uid="uid://c5tl2o2r3o5v1" path="res://skill_totem.tscn" id="19_wkybo"]
@@ -90,9 +93,53 @@ visible = false
 [node name="DeepCaveLevel" parent="." instance=ExtResource("6_lwqs2")]
 position = Vector2(4005, 1400)
 
+[node name="BloodMansionLevel" parent="." instance=ExtResource("15_jboig")]
+position = Vector2(-3797, 4089)
+
 [node name="LevelManager" parent="." node_paths=PackedStringArray("player") instance=ExtResource("7_qslvo")]
-levels = Array[NodePath]([NodePath("../Lobby"), NodePath("../PlainsLevel"), NodePath("../DeepCaveLevel")])
+levels = Array[NodePath]([NodePath("../Lobby"), NodePath("../PlainsLevel"), NodePath("../DeepCaveLevel"), NodePath("../BloodMansionLevel")])
+backgrounds = Array[NodePath]([NodePath("BackgroundManager/Lobby"), NodePath("BackgroundManager/Plains"), NodePath("BackgroundManager/DeepCave"), NodePath("BackgroundManager/BloodMansion")])
 player = NodePath("../Player")
+
+[node name="BackgroundManager" parent="LevelManager" node_paths=PackedStringArray("player") instance=ExtResource("17_e087t")]
+z_index = -99
+script = ExtResource("18_gvabo")
+player = NodePath("../../Player")
+
+[node name="Lobby" parent="LevelManager/BackgroundManager" index="0"]
+visible = true
+position = Vector2(-4, -257)
+scale = Vector2(2, 2)
+
+[node name="Mountains" parent="LevelManager/BackgroundManager/Lobby" index="0"]
+parallax_strength = 8.0
+
+[node name="Mountains1" parent="LevelManager/BackgroundManager/Lobby" index="1"]
+parallax_strength = 8.0
+
+[node name="Sky" parent="LevelManager/BackgroundManager/Lobby" index="2"]
+position = Vector2(-497.5, 104)
+
+[node name="Sky2" parent="LevelManager/BackgroundManager/Lobby" index="3"]
+position = Vector2(510.5, 103)
+
+[node name="Plains" parent="LevelManager/BackgroundManager" index="1"]
+visible = true
+
+[node name="Sky" parent="LevelManager/BackgroundManager/Plains" index="0"]
+visible = true
+
+[node name="Sky2" parent="LevelManager/BackgroundManager/Plains" index="1"]
+visible = true
+
+[node name="Sky3" parent="LevelManager/BackgroundManager/Plains" index="2"]
+visible = true
+
+[node name="Sky4" parent="LevelManager/BackgroundManager/Plains" index="3"]
+visible = true
+
+[node name="BloodMansion" parent="LevelManager/BackgroundManager" index="3"]
+visible = true
 
 [node name="Player" parent="." instance=ExtResource("1_hwtgt")]
 position = Vector2(-117, 40)
@@ -107,4 +154,6 @@ position = Vector2(6, 13)
 [editable path="Lobby/Gateway"]
 [editable path="PlainsLevel"]
 [editable path="DeepCaveLevel"]
+[editable path="BloodMansionLevel"]
 [editable path="LevelManager"]
+[editable path="LevelManager/BackgroundManager"]

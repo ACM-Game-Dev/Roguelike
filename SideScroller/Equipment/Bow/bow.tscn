@@ -1,8 +1,17 @@
-[gd_scene load_steps=3 format=3 uid="uid://dnl5oo3iuuadv"]
+[gd_scene load_steps=5 format=3 uid="uid://dnl5oo3iuuadv"]
 
 [ext_resource type="Script" path="res://Equipment/Bow/bow.gd" id="1_upgij"]
 [ext_resource type="Resource" uid="uid://cp7nnsmuexgb2" path="res://Equipment/Bow/bow.tres" id="2_x88e0"]
+[ext_resource type="AudioStream" uid="uid://cljba87o6c756" path="res://Assets/Sounds/BowSnap.mp3" id="3_3f0y8"]
+[ext_resource type="AudioStream" uid="uid://bu7t0oya3lkpv" path="res://Assets/Sounds/ArrowHit.mp3" id="4_tgatj"]
 
 [node name="Bow" type="Node2D"]
 script = ExtResource("1_upgij")
 weapon_resource = ExtResource("2_x88e0")
+
+[node name="BowSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_3f0y8")
+max_polyphony = 2
+
+[node name="ArrowHitSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_tgatj")

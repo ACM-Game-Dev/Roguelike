@@ -59,14 +59,17 @@ func _on_area_2d_body_exited(body):
 		damaging = false
 
 func _on_range_body_entered(body):
-	if body.name == "Player":
+	if body == player:
 		if !target: 
 			target = body
 		in_range = true
+		if !$BeeSounds.is_playing():
+			$BeeSounds.play()
 		
 
 func _on_range_body_exited(body):
-	if body.name == "Player":
+	if body == player:
+		$BeeSounds.stop()
 		if target:
 			target = null
 		in_range = false

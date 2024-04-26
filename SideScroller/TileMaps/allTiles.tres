@@ -1,13 +1,13 @@
 [gd_resource type="TileSet" load_steps=11 format=3 uid="uid://cvu4pn3ikbugv"]
 
-[ext_resource type="Texture2D" uid="uid://bipo8ttibcn3f" path="res://Assets/Legacy-Fantasy/Legacy-Fantasy - High Forest 2.3/Assets/Tree-Assets.png" id="1_dk63f"]
-[ext_resource type="Texture2D" uid="uid://c5uv2csl40mdi" path="res://Assets/Legacy-Fantasy/Legacy-Fantasy - High Forest 2.3/Assets/Tiles.png" id="2_dupjm"]
-[ext_resource type="Texture2D" uid="uid://c4yfntwwh8om3" path="res://Assets/Legacy-Fantasy/Legacy-Fantasy - High Forest 2.3/Assets/Props-Rocks.png" id="3_j1hda"]
-[ext_resource type="Texture2D" uid="uid://gr0omqwgjmq0" path="res://Assets/Legacy-Fantasy/Legacy-Fantasy - High Forest 2.3/Assets/Interior-01.png" id="4_dcrag"]
-[ext_resource type="Texture2D" uid="uid://dk5r5n8k5fmhu" path="res://Assets/Legacy-Fantasy/Legacy-Fantasy - High Forest 2.3/Assets/Buildings.png" id="5_yxxvv"]
+[ext_resource type="Texture2D" uid="uid://bipo8ttibcn3f" path="res://Assets/Legacy-Fantasy/Legacy-Fantasy - High Forest 2.3/Assets/Tree-Assets.png" id="1_vr6t2"]
+[ext_resource type="Texture2D" uid="uid://c5uv2csl40mdi" path="res://Assets/Legacy-Fantasy/Legacy-Fantasy - High Forest 2.3/Assets/Tiles.png" id="2_2yibt"]
+[ext_resource type="Texture2D" uid="uid://c4yfntwwh8om3" path="res://Assets/Legacy-Fantasy/Legacy-Fantasy - High Forest 2.3/Assets/Props-Rocks.png" id="3_vw1c7"]
+[ext_resource type="Texture2D" uid="uid://gr0omqwgjmq0" path="res://Assets/Legacy-Fantasy/Legacy-Fantasy - High Forest 2.3/Assets/Interior-01.png" id="4_vq6ru"]
+[ext_resource type="Texture2D" uid="uid://dk5r5n8k5fmhu" path="res://Assets/Legacy-Fantasy/Legacy-Fantasy - High Forest 2.3/Assets/Buildings.png" id="5_me46e"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_suhyd"]
-texture = ExtResource("1_dk63f")
+texture = ExtResource("1_vr6t2")
 0:0/0 = 0
 1:0/0 = 0
 2:0/0 = 0
@@ -295,7 +295,7 @@ texture = ExtResource("1_dk63f")
 18:23/0 = 0
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_vqwss"]
-texture = ExtResource("2_dupjm")
+texture = ExtResource("2_2yibt")
 0:0/0 = 0
 1:0/0 = 0
 2:0/0 = 0
@@ -762,7 +762,7 @@ texture = ExtResource("2_dupjm")
 19:24/0 = 0
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_cfrkc"]
-texture = ExtResource("3_j1hda")
+texture = ExtResource("3_vw1c7")
 1:0/0 = 0
 2:0/0 = 0
 4:0/0 = 0
@@ -1097,7 +1097,7 @@ texture = ExtResource("3_j1hda")
 11:20/0 = 0
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_lh8bu"]
-texture = ExtResource("4_dcrag")
+texture = ExtResource("4_vq6ru")
 0:0/0 = 0
 1:0/0 = 0
 2:0/0 = 0
@@ -1350,7 +1350,7 @@ texture = ExtResource("4_dcrag")
 7:14/0 = 0
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_o6qp8"]
-texture = ExtResource("5_yxxvv")
+texture = ExtResource("5_me46e")
 0:0/0 = 0
 1:0/0 = 0
 2:0/0 = 0

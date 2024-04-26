@@ -12,4 +12,4 @@ hand_sprite = ""
 world_sprite = ""
 damage = 5
 attack_delay = 1
-knockback = Vector2(100, 50)
+knockback = Vector2(0, 0)

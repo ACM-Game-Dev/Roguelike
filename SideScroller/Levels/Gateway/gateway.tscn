@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://bhbce7xdxl2ao"]
 
-[ext_resource type="TileSet" uid="uid://djoa8d1igga7j" path="res://Levels/DeepCave/TileMaps/kingdomTileSet.tres" id="1_6a7ui"]
+[ext_resource type="TileSet" uid="uid://djoa8d1igga7j" path="res://TileMaps/kingdomTileSet.tres" id="1_6a7ui"]
 [ext_resource type="Script" path="res://Levels/Gateway/gateway.gd" id="2_mnd8y"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_n0a4q"]

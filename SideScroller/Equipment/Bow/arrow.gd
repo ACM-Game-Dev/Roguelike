@@ -26,6 +26,7 @@ func _on_visible_on_screen_notifier_2d_screen_exited():
 
 func arrow_hit(body):
 	if body.name != "Player": 
+		#get_node("Player").get_node("Bow").ArrowHitSound.play()
 		if body.has_method("enemy_take_damage"):
 			body.stun_timer = .2
 			hit_enemy(body,damage)
