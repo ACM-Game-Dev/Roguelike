@@ -1,0 +1,153 @@
+[gd_scene load_steps=10 format=3 uid="uid://b7i4n4wckxq3e"]
+
+[ext_resource type="Texture2D" uid="uid://c22kgdo3hqtpi" path="res://Assets/Legacy-Fantasy/Legacy Fantasy - Kingdom Fortress - Update/Legacy Fantasy - Kingdom Fortress - Update/Background/Background.2-export.png" id="2_ey413"]
+[ext_resource type="Script" path="res://World/parallax.gd" id="3_1mvo8"]
+[ext_resource type="Texture2D" uid="uid://nx5ut3tkmnth" path="res://Assets/Legacy-Fantasy/Legacy Fantasy - Kingdom Fortress - Update/Legacy Fantasy - Kingdom Fortress - Update/Background/02.png" id="3_pr85h"]
+[ext_resource type="Texture2D" uid="uid://srmmdqe8x6c1" path="res://Assets/Legacy-Fantasy/Legacy-Fantasy - High Forest 2.3/Background/Background.png" id="4_j8m0g"]
+[ext_resource type="Texture2D" uid="uid://b5s633u20phj0" path="res://Assets/Legacy-Fantasy/Legacy Fantasy - Deep Cave/Legacy Fantasy - Deep Cave/Background/Background-2.png" id="5_bddj0"]
+[ext_resource type="Texture2D" uid="uid://c4a4rs7tpkqfm" path="res://Assets/Legacy-Fantasy/Legacy Fantasy - Deep Cave/Legacy Fantasy - Deep Cave/Background/Background-1.png" id="5_kluhm"]
+[ext_resource type="Texture2D" uid="uid://c8p3a5tta0i0e" path="res://Assets/Legacy-Fantasy/Legacy Fantasy - Deep Cave/Legacy Fantasy - Deep Cave/Background/Background-3.png" id="6_yr36k"]
+[ext_resource type="Texture2D" uid="uid://bssisyv8lelfp" path="res://Assets/Legacy-Fantasy/Legacy Fantasy - Blood Mansion/Legacy Fantasy - Blood Mansion/Assets/Background.png" id="8_kk4yi"]
+
+[sub_resource type="GDScript" id="GDScript_4coua"]
+script/source = "
+
+"
+
+[node name="BackgroundManager" type="Node2D"]
+script = SubResource("GDScript_4coua")
+
+[node name="Lobby" type="Node2D" parent="."]
+visible = false
+
+[node name="Mountains" type="Sprite2D" parent="Lobby"]
+position = Vector2(-504, -11)
+scale = Vector2(3, 3)
+texture = ExtResource("2_ey413")
+script = ExtResource("3_1mvo8")
+
+[node name="Mountains1" type="Sprite2D" parent="Lobby"]
+position = Vector2(504, -11)
+scale = Vector2(3, 3)
+texture = ExtResource("2_ey413")
+script = ExtResource("3_1mvo8")
+
+[node name="Sky" type="Sprite2D" parent="Lobby"]
+z_index = -1
+position = Vector2(-504, -131)
+scale = Vector2(3, 3)
+texture = ExtResource("3_pr85h")
+script = ExtResource("3_1mvo8")
+
+[node name="Sky2" type="Sprite2D" parent="Lobby"]
+z_index = -1
+position = Vector2(504, -132)
+scale = Vector2(3, 3)
+texture = ExtResource("3_pr85h")
+script = ExtResource("3_1mvo8")
+
+[node name="Plains" type="Node2D" parent="."]
+visible = false
+
+[node name="Sky" type="Sprite2D" parent="Plains"]
+position = Vector2(-722, -130)
+scale = Vector2(3, 3)
+texture = ExtResource("4_j8m0g")
+script = ExtResource("3_1mvo8")
+
+[node name="Sky2" type="Sprite2D" parent="Plains"]
+position = Vector2(718, -129)
+scale = Vector2(3, 3)
+texture = ExtResource("4_j8m0g")
+script = ExtResource("3_1mvo8")
+
+[node name="DeepCave" type="Node2D" parent="."]
+visible = false
+
+[node name="ThirdLayer4" type="Sprite2D" parent="DeepCave"]
+position = Vector2(711, 10)
+scale = Vector2(2, 2)
+texture = ExtResource("6_yr36k")
+script = ExtResource("3_1mvo8")
+
+[node name="ThirdLayer3" type="Sprite2D" parent="DeepCave"]
+position = Vector2(339, -17)
+scale = Vector2(2, 2)
+texture = ExtResource("6_yr36k")
+script = ExtResource("3_1mvo8")
+
+[node name="ThirdLayer2" type="Sprite2D" parent="DeepCave"]
+position = Vector2(-44, -19)
+scale = Vector2(2, 2)
+texture = ExtResource("6_yr36k")
+script = ExtResource("3_1mvo8")
+
+[node name="ThirdLayer" type="Sprite2D" parent="DeepCave"]
+position = Vector2(-422, -29)
+scale = Vector2(2, 2)
+texture = ExtResource("6_yr36k")
+script = ExtResource("3_1mvo8")
+
+[node name="SecondLayer4" type="Sprite2D" parent="DeepCave"]
+position = Vector2(459, 0)
+scale = Vector2(2, 2)
+texture = ExtResource("5_bddj0")
+script = ExtResource("3_1mvo8")
+
+[node name="SecondLayer3" type="Sprite2D" parent="DeepCave"]
+position = Vector2(142, 0)
+scale = Vector2(2, 2)
+texture = ExtResource("5_bddj0")
+script = ExtResource("3_1mvo8")
+
+[node name="SecondLayer2" type="Sprite2D" parent="DeepCave"]
+position = Vector2(-181, -1)
+scale = Vector2(2, 2)
+texture = ExtResource("5_bddj0")
+script = ExtResource("3_1mvo8")
+
+[node name="SecondLayer" type="Sprite2D" parent="DeepCave"]
+position = Vector2(-497, -1)
+scale = Vector2(2, 2)
+texture = ExtResource("5_bddj0")
+script = ExtResource("3_1mvo8")
+
+[node name="FirstLayer3" type="Sprite2D" parent="DeepCave"]
+position = Vector2(349, 0)
+scale = Vector2(2, 2)
+texture = ExtResource("5_kluhm")
+script = ExtResource("3_1mvo8")
+
+[node name="FirstLayer2" type="Sprite2D" parent="DeepCave"]
+scale = Vector2(2, 2)
+texture = ExtResource("5_kluhm")
+script = ExtResource("3_1mvo8")
+
+[node name="FirstLayer" type="Sprite2D" parent="DeepCave"]
+position = Vector2(-350, 0)
+scale = Vector2(2, 2)
+texture = ExtResource("5_kluhm")
+script = ExtResource("3_1mvo8")
+
+[node name="BloodMansion" type="Node2D" parent="."]
+visible = false
+
+[node name="Sprite2D" type="Sprite2D" parent="BloodMansion"]
+position = Vector2(-287, -1)
+texture = ExtResource("8_kk4yi")
+script = ExtResource("3_1mvo8")
+
+[node name="Sprite2D2" type="Sprite2D" parent="BloodMansion"]
+position = Vector2(286, -1)
+texture = ExtResource("8_kk4yi")
+script = ExtResource("3_1mvo8")
+
+[node name="Sprite2D3" type="Sprite2D" parent="BloodMansion"]
+position = Vector2(96, -1)
+texture = ExtResource("8_kk4yi")
+script = ExtResource("3_1mvo8")
+
+[node name="Sprite2D4" type="Sprite2D" parent="BloodMansion"]
+position = Vector2(-96, -1)
+texture = ExtResource("8_kk4yi")
+script = ExtResource("3_1mvo8")
