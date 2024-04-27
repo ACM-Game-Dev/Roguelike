@@ -73,6 +73,7 @@ func take_damage(val: int):
 
 func player_death():
 	print("Dead!") # On death, right now just resets the current scene
+	Globals.player = null
 	get_tree().reload_current_scene()
 
 func use_equipment():
