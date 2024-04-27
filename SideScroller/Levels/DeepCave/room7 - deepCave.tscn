@@ -1,7 +1,10 @@
-[gd_scene load_steps=3 format=3 uid="uid://csbob0beqlivs"]
+[gd_scene load_steps=6 format=3 uid="uid://csbob0beqlivs"]
 
 [ext_resource type="TileSet" uid="uid://bpkc7m86duq3r" path="res://TileMaps/darkCave.tres" id="1_b0ohg"]
 [ext_resource type="PackedScene" uid="uid://4l52xwrq8y0d" path="res://Levels/EnemySpawning/enemySpawner.tscn" id="2_fs5qx"]
+[ext_resource type="PackedScene" uid="uid://xcrv87k5kgxb" path="res://Levels/DeepCave/Lights/blue_light.tscn" id="3_fyyp5"]
+[ext_resource type="PackedScene" uid="uid://dxhm0qfsxrcd3" path="res://Levels/DeepCave/Lights/purple_light.tscn" id="4_85fkg"]
+[ext_resource type="PackedScene" uid="uid://bqytbe0j42m3b" path="res://Levels/DeepCave/Lights/green_light.tscn" id="5_elseo"]
 
 [node name="Room7-DeepCave" type="Node2D"]
 
@@ -101,5 +104,17 @@ position = Vector2(-968, 105)
 
 [node name="SpawnTrigger" parent="EnemySpawner" index="0"]
 spawn_points = Array[NodePath]([NodePath("../../EnemySpawnPoints/Marker2D"), NodePath("../../EnemySpawnPoints/Marker2D2"), NodePath("../../EnemySpawnPoints/Marker2D3"), NodePath("../../EnemySpawnPoints/Marker2D4"), NodePath("../../EnemySpawnPoints/Marker2D5"), NodePath("../../EnemySpawnPoints/Marker2D6"), NodePath("../../EnemySpawnPoints/Marker2D7"), NodePath("../../EnemySpawnPoints/Marker2D8"), NodePath("../../EnemySpawnPoints/Marker2D9")])
+
+[node name="BlueLight" parent="." instance=ExtResource("3_fyyp5")]
+position = Vector2(-827, 72)
+
+[node name="PurpleLight" parent="." instance=ExtResource("4_85fkg")]
+position = Vector2(-89, 180)
+
+[node name="PurpleLight2" parent="." instance=ExtResource("4_85fkg")]
+position = Vector2(257, 172)
+
+[node name="GreenLight" parent="." instance=ExtResource("5_elseo")]
+position = Vector2(7, -62)
 
 [editable path="EnemySpawner"]

@@ -1,7 +1,10 @@
-[gd_scene load_steps=3 format=3 uid="uid://oleslu02vf1f"]
+[gd_scene load_steps=6 format=3 uid="uid://oleslu02vf1f"]
 
 [ext_resource type="TileSet" uid="uid://bpkc7m86duq3r" path="res://TileMaps/darkCave.tres" id="1_kf6ts"]
 [ext_resource type="PackedScene" uid="uid://4l52xwrq8y0d" path="res://Levels/EnemySpawning/enemySpawner.tscn" id="2_p216r"]
+[ext_resource type="PackedScene" uid="uid://dxhm0qfsxrcd3" path="res://Levels/DeepCave/Lights/purple_light.tscn" id="3_sby2o"]
+[ext_resource type="PackedScene" uid="uid://xcrv87k5kgxb" path="res://Levels/DeepCave/Lights/blue_light.tscn" id="4_vbm1x"]
+[ext_resource type="PackedScene" uid="uid://bqytbe0j42m3b" path="res://Levels/DeepCave/Lights/green_light.tscn" id="5_qlx32"]
 
 [node name="Room4-DeepCave" type="Node2D"]
 
@@ -76,5 +79,30 @@ position = Vector2(-984, -308)
 
 [node name="SpawnTrigger" parent="EnemySpawner" index="0"]
 spawn_points = Array[NodePath]([NodePath("../../EnemySpawnPoints/Marker2D"), NodePath("../../EnemySpawnPoints/Marker2D2"), NodePath("../../EnemySpawnPoints/Marker2D3"), NodePath("../../EnemySpawnPoints/Marker2D4"), NodePath("../../EnemySpawnPoints/Marker2D5"), NodePath("../../EnemySpawnPoints/Marker2D6"), NodePath("../../EnemySpawnPoints/Marker2D7"), NodePath("../../EnemySpawnPoints/Marker2D8"), NodePath("../../EnemySpawnPoints/Marker2D9")])
+
+[node name="PurpleLight" parent="." instance=ExtResource("3_sby2o")]
+position = Vector2(-823, -382)
+texture_scale = 0.5
+
+[node name="PurpleLight3" parent="." instance=ExtResource("3_sby2o")]
+position = Vector2(-613, -374)
+texture_scale = 0.5
+
+[node name="PurpleLight2" parent="." instance=ExtResource("3_sby2o")]
+position = Vector2(-90, -391)
+
+[node name="BlueLight" parent="." instance=ExtResource("4_vbm1x")]
+position = Vector2(-752, -392)
+metadata/_edit_lock_ = true
+
+[node name="BlueLight2" parent="." instance=ExtResource("4_vbm1x")]
+position = Vector2(-421, -381)
+texture_scale = 0.5
+
+[node name="GreenLight" parent="." instance=ExtResource("5_qlx32")]
+position = Vector2(746, -3)
+
+[node name="GreenLight2" parent="." instance=ExtResource("5_qlx32")]
+position = Vector2(1311, -2)
 
 [editable path="EnemySpawner"]
