@@ -16,6 +16,8 @@ signal xp_changed(int)
 @onready var sprite = $AnimatedSprite2D
 @onready var anim_player = $AnimationPlayer
 
+@onready var blood_particles = $"Blood-effect/Blood-particles"
+
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 var current_equipment: int = 2 #0 = Sword, 1 = Hammer, 2 = Bow
 var attacking = false
@@ -61,6 +63,11 @@ func take_damage(val: int):
 	playerStats.CURR_HEALTH -= val
 	#print(playerStats.CURR_HEALTH)
 	health_changed.emit()
+	
+	#Play particles
+	blood_particles.emitting = true
+	
+	
 	if playerStats.CURR_HEALTH <= 0: # Handling death
 		player_death()
 

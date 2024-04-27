@@ -1,4 +1,4 @@
-[gd_scene load_steps=87 format=3 uid="uid://bn8g0lgjvplhw"]
+[gd_scene load_steps=88 format=3 uid="uid://bn8g0lgjvplhw"]
 
 [ext_resource type="Script" path="res://Player/player.gd" id="1_il1mb"]
 [ext_resource type="Script" path="res://Player/Camerafollow.gd" id="2_27jpg"]
@@ -17,6 +17,7 @@
 [ext_resource type="Texture2D" uid="uid://ycou54mmr2gq" path="res://Assets/hammer_icon.png" id="10_716ix"]
 [ext_resource type="Texture2D" uid="uid://buvkmky5uodnw" path="res://Assets/Sword.svg" id="10_bqwpi"]
 [ext_resource type="PackedScene" uid="uid://dnl5oo3iuuadv" path="res://Equipment/Bow/bow.tscn" id="11_0jb04"]
+[ext_resource type="PackedScene" uid="uid://dxj24mfj4shdq" path="res://Particle Effects/blood-effect.tscn" id="18_kfsts"]
 
 [sub_resource type="Resource" id="Resource_4pgi6"]
 resource_local_to_scene = true
@@ -662,6 +663,8 @@ unique_name_in_owner = true
 [node name="Sword" parent="Equipment" instance=ExtResource("8_sm4dw")]
 
 [node name="Hammer" parent="Equipment" instance=ExtResource("9_hu5a4")]
+
+[node name="Blood-effect" parent="." instance=ExtResource("18_kfsts")]
 
 [connection signal="health_changed" from="." to="PlayerGUI/HealthBar" method="_on_player_health_changed"]
 

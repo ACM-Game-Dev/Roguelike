@@ -1,0 +1,32 @@
+[gd_scene load_steps=2 format=3 uid="uid://dxj24mfj4shdq"]
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_k26sk"]
+lifetime_randomness = 0.61
+particle_flag_disable_z = true
+emission_shape_offset = Vector3(2.08165e-12, 2.08165e-12, 2.08165e-12)
+emission_shape = 1
+emission_sphere_radius = 4.59
+angle_max = 360.0
+initial_velocity_min = -40.0
+initial_velocity_max = 40.0
+gravity = Vector3(0, 98, 0)
+scale_min = 3.0
+scale_max = 3.0
+color = Color(1, 0, 0, 1)
+turbulence_enabled = true
+turbulence_noise_strength = 0.0
+turbulence_noise_scale = 5.73
+collision_mode = 1
+collision_friction = 0.39
+collision_bounce = 0.08
+
+[node name="Blood-effect" type="Node2D"]
+
+[node name="Blood-particles" type="GPUParticles2D" parent="."]
+scale = Vector2(4, 4)
+emitting = false
+amount = 20
+process_material = SubResource("ParticleProcessMaterial_k26sk")
+lifetime = 0.4
+one_shot = true
+explosiveness = 1.0
