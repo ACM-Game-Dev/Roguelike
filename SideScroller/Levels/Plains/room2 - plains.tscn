@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://dsb1asatgnfwo"]
+[gd_scene load_steps=17 format=3 uid="uid://dsb1asatgnfwo"]
 
 [ext_resource type="Texture2D" uid="uid://c5uv2csl40mdi" path="res://Assets/Legacy-Fantasy/Legacy-Fantasy - High Forest 2.3/Assets/Tiles.png" id="1_b7n6g"]
 [ext_resource type="Texture2D" uid="uid://c4yfntwwh8om3" path="res://Assets/Legacy-Fantasy/Legacy-Fantasy - High Forest 2.3/Assets/Props-Rocks.png" id="2_p0h2x"]
@@ -6,6 +6,8 @@
 [ext_resource type="Texture2D" uid="uid://gr0omqwgjmq0" path="res://Assets/Legacy-Fantasy/Legacy-Fantasy - High Forest 2.3/Assets/Interior-01.png" id="4_woswu"]
 [ext_resource type="Texture2D" uid="uid://bipo8ttibcn3f" path="res://Assets/Legacy-Fantasy/Legacy-Fantasy - High Forest 2.3/Assets/Tree-Assets.png" id="5_inq4h"]
 [ext_resource type="PackedScene" uid="uid://4l52xwrq8y0d" path="res://Levels/EnemySpawning/enemySpawner.tscn" id="6_uokdy"]
+[ext_resource type="PackedScene" uid="uid://d1f7ngdq5rld7" path="res://Enemies/Flying/flying_enemy.tscn" id="7_0sdx0"]
+[ext_resource type="Script" path="res://Enemies/Enemy_Resource.gd" id="8_jn5l6"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ohd8q"]
 texture = ExtResource("4_woswu")
@@ -1725,6 +1727,21 @@ sources/13 = SubResource("TileSetAtlasSource_p28te")
 sources/14 = SubResource("TileSetAtlasSource_mo1fc")
 sources/15 = SubResource("TileSetAtlasSource_4h8rp")
 
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_smvix"]
+vertices = PackedVector2Array(139, -75, 174, -80, 402, -80, 929, -3, 90, -28, 90, -62, -944, -4, 22, -28, 490, -215, 668, -170, 438, -170, 86, -214, -230, -166, -230, -192, 438, -145, 402, -106, 174, -106, 136, -110, 70, -74, 22, -62, -21, -79, 929, -358, 663, -144, -24, -45, -90, -45, -254, -48, -434, -49, -166, -95, -166, -122, 70, -109, -90, -79, -254, -74, -266, -95, -434, -74, -422, -96, -266, -122, -538, -96, -422, -122, -458, -166, -538, -123, 86, -240, -458, -192, -944, -347, 490, -240)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3, 4, 5), PackedInt32Array(4, 3, 6, 7), PackedInt32Array(8, 9, 10, 11), PackedInt32Array(12, 13, 11, 10, 14, 15, 16, 17), PackedInt32Array(18, 0, 5, 19), PackedInt32Array(20, 18, 19), PackedInt32Array(9, 21, 3, 22), PackedInt32Array(14, 22, 3, 2, 15), PackedInt32Array(23, 20, 19, 7), PackedInt32Array(23, 7, 6, 24), PackedInt32Array(25, 24, 6, 26), PackedInt32Array(27, 28, 29, 18, 20), PackedInt32Array(27, 20, 30), PackedInt32Array(1, 0, 17, 16), PackedInt32Array(27, 30, 24, 25, 31), PackedInt32Array(32, 27, 31, 33), PackedInt32Array(32, 33, 34, 35), PackedInt32Array(36, 34, 33, 6), PackedInt32Array(35, 34, 37), PackedInt32Array(12, 17, 29, 28), PackedInt32Array(12, 28, 35, 38), PackedInt32Array(38, 35, 37, 39), PackedInt32Array(40, 11, 13, 41), PackedInt32Array(33, 26, 6), PackedInt32Array(36, 6, 42, 39), PackedInt32Array(9, 8, 43, 21), PackedInt32Array(41, 38, 39, 42), PackedInt32Array(41, 42, 21, 40), PackedInt32Array(21, 43, 40)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(-954, 5, -954, -357, 939, -369, 939, 7), PackedVector2Array(-528, -113, -528, -106, -432, -106, -432, -112), PackedVector2Array(-424, -64, -424, -59, -264, -58, -264, -64), PackedVector2Array(-256, -112, -256, -105, -176, -105, -176, -112), PackedVector2Array(-448, -182, -448, -176, -240, -176, -240, -182), PackedVector2Array(-80, -69, -80, -55, -33, -55, -32, -69), PackedVector2Array(32, -52, 32, -38, 80, -38, 80, -52), PackedVector2Array(80, -99, 80, -84, 128, -85, 127, -100), PackedVector2Array(184, -96, 184, -90, 392, -90, 392, -96), PackedVector2Array(96, -230, 96, -224, 480, -225, 480, -230), PackedVector2Array(448, -160, 448, -155, 655, -154, 656, -160)])
+source_geometry_group_name = &"navigation_polygon_source_group"
+
+[sub_resource type="Resource" id="Resource_0i57u"]
+resource_local_to_scene = true
+script = ExtResource("8_jn5l6")
+health = 20
+speed = 5000.0
+damage = 1
+enemy_name = ""
+enemy_type = ""
+
 [node name="Room2 - Plains" type="Node2D"]
 
 [node name="BackgroundTileMap" type="TileMap" parent="."]
@@ -1875,5 +1892,12 @@ position = Vector2(-933, -47)
 
 [node name="SpawnTrigger" parent="EnemySpawner" index="0"]
 spawn_points = Array[NodePath]([NodePath("../../EnemySpawnPoints/EnemySpawn"), NodePath("../../EnemySpawnPoints/EnemySpawn2"), NodePath("../../EnemySpawnPoints/EnemySpawn3"), NodePath("../../EnemySpawnPoints/EnemySpawn4"), NodePath("../../EnemySpawnPoints/EnemySpawn5"), NodePath("../../EnemySpawnPoints/EnemySpawn6"), NodePath("../../EnemySpawnPoints/EnemySpawn7"), NodePath("../../EnemySpawnPoints/EnemySpawn8"), NodePath("../../EnemySpawnPoints/EnemySpawn9")])
+
+[node name="NavigationRegion2D" type="NavigationRegion2D" parent="."]
+navigation_polygon = SubResource("NavigationPolygon_smvix")
+
+[node name="FlyingEnemy" parent="." instance=ExtResource("7_0sdx0")]
+position = Vector2(2, -137)
+enemy_resource = SubResource("Resource_0i57u")
 
 [editable path="EnemySpawner"]
